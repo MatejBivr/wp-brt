@@ -1,0 +1,9 @@
+@import '../variables';
+
+.wrapper{
+	border: 7px solid $brtc-yollow;
+	min-height: calc(100% - 14px);
+	color: #828285;
+	padding-top: 30px;
+	font-family: Vollkorn;
+}

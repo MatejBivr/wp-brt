@@ -1,0 +1,32 @@
+@import '../../variables';
+
+.footer{
+	background-color: $brtc-footer;
+	font-family: Montserrat;
+}
+.footer_container{
+	display: flex;
+}
+.footer_block{
+	flex: 1;
+	font-size: 12px;
+	line-height: 18px;
+}
+.footer_logo{}
+.footer_item{}
+.footer_item--blue{
+	color: $brtc-darker-blue;
+}
+.subfooter{
+	font-family: Montserrat;
+	background-color: $brtc-subfooter;
+	font-size: 10px;
+	line-height: 18px;
+}
+.subfooter_text--blue{
+	color: $brtc-darker-blue;
+	font-size: 12px;
+}
+.subfooter_socail{}
+.fb{}
+.tw{}
