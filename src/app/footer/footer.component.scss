@@ -3,30 +3,123 @@
 .footer{
 	background-color: $brtc-footer;
 	font-family: Montserrat;
+	padding: 30px 0;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding: 40px 0;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		padding: 40px 0 60px 0;
+	}
 }
 .footer_container{
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
 }
 .footer_block{
 	flex: 1;
 	font-size: 12px;
 	line-height: 18px;
+	margin-bottom: 20px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-basis: 50%;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		flex-basis: unset;
+		margin-bottom: 0;
+	}
+	.form-group{
+		margin-top: 5px;
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			margin-bottom: 0;
+		}
+	}
+	.form-control{
+		border-radius: 0;
+		border-color: $brtc-darker-blue;
+		background-color: $brtc-footer;
+		&:focus{
+			color: white;
+		}
+	}
+	.list-unstyled{
+		margin: 0;
+	}
+
 }
-.footer_logo{}
-.footer_item{}
+.footer_logo{
+	height: 48px;
+	width: 51px;
+	background:transparent url('/assets/img/logo2.png') left top no-repeat;
+	margin: 0 auto; 
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		
+	}
+}
+.footer_item{
+	// display: flex;/
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		// flex-wrap: wrap;
+	}
+}
 .footer_item--blue{
 	color: $brtc-darker-blue;
+	margin-right: 3px;
 }
 .subfooter{
 	font-family: Montserrat;
 	background-color: $brtc-subfooter;
 	font-size: 10px;
 	line-height: 18px;
+	text-align: center;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding: 20px 0;
+		text-align: left;
+	}
+}
+.subfooter_text{
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		margin: 0;
+	}
 }
 .subfooter_text--blue{
 	color: $brtc-darker-blue;
 	font-size: 12px;
+	text-align: center;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		margin: 0;
+	}
 }
-.subfooter_socail{}
-.fb{}
-.tw{}
+.subfooter_socail{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		justify-content: flex-end;
+		margin-bottom: 0;
+	}
+}
+.fb{
+	display: block;
+	height: 18px;
+	width: 18px;
+	background:transparent url('/assets/img/fb.png') center center no-repeat;
+}
+.inst{
+	display: block;
+	height: 18px;
+	width: 18px;
+	background:transparent url('/assets/img/ig.png') center center no-repeat;
+}
+.up{
+	display: block;
+	height: 18px;
+	width: 18px;
+	background:transparent url('/assets/img/top.png') center center no-repeat;
+	margin-left: 20px;
+}

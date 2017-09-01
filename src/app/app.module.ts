@@ -11,6 +11,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeroComponent } from './main/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     MainComponent,
     MenuComponent,
     FooterComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

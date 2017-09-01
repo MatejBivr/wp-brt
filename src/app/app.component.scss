@@ -1,9 +1,15 @@
 @import '../variables';
 
 .wrapper{
-	border: 7px solid $brtc-yollow;
-	min-height: calc(100% - 14px);
+	border: 3px solid $brtc-yollow;
+	min-height: calc(100% - 6px);
 	color: #828285;
-	padding-top: 30px;
 	font-family: Vollkorn;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		border: 7px solid $brtc-yollow;
+		min-height: calc(100% - 14px);
+	}
 }
+// .content--container{
+// 	padding-top: 56px;
+// }
