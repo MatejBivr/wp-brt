@@ -7,8 +7,11 @@
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		height: 30vh;
 	}
-	@media (min-width: map-get($grid-breakpoints, lg)) {
+	@media (min-width: map-get($grid-breakpoints, md)) {
 		height: 45vh;
+	}
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		height: 69vh;
 	}
 }
 .hero--content{
@@ -23,18 +26,31 @@
 		padding-bottom: 20px;
 	}
 	@media (min-width: map-get($grid-breakpoints, sm)) {
+		height: 30vh;
+		padding: 0 2rem 2rem;
+		flex: 1;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
 		height: 45vh;
-		padding: 0 2rem 2rem; 
+		padding: 0 1.1rem 2.5rem;
+	}
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		height: 69vh;
+		padding: 0 1.1rem 2.5rem; 
 	}
 }
 .hero--block{
+	max-width: 250px;
+
 	&:first-of-type{
 		margin-top: auto;
 		@media (min-width: map-get($grid-breakpoints, sm)) {
 			margin: 0;
 		}
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			flex-grow: 1;
+		}
 	}
-	max-width: 250px;
 	&:last-of-type{
 		margin: 0 auto;
 		text-align: center;
@@ -42,14 +58,19 @@
 			margin: 0;
 			text-align: right;
 		}
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			flex-grow: 1;
+		}
 	}
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		max-width: none;	
 		flex-basis: 33.33%;
+		align-items: flex-end;
+		min-height: 130px;
 	}
-	@media (min-width: map-get($grid-breakpoints, sm)) {
+	@media (min-width: map-get($grid-breakpoints, md)) {
 		max-width: none;	
-		flex-basis: 25%;
+		flex-basis: 26%;
 	}
 }
 .hero--heading{
@@ -59,6 +80,7 @@
 	font-family: Montserrat;
 	font-weight: bold;
 	text-transform: uppercase;
+	margin-bottom: 0;
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		line-height: 32px;
 		font-size: 28px;
@@ -69,6 +91,7 @@
 	font-size: 28px;
 	font-family: Montserrat;
 	font-weight: bolder;
+	text-align: center;
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		font-size: 48px;
 		line-height: 48px;
@@ -91,6 +114,7 @@
 	line-height: 34px;
 	background-color: transparent;
 	border: 2px solid $brtc-darker-blue;
+	padding: 0 1.5em;
 	&:hover,&:focus{
 		background-color: $brtc-darker-blue;
 		color: white;
@@ -98,6 +122,8 @@
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		font-size: 21px;
 		line-height: 54px;
+		padding: 0 2.2em;
+		margin-bottom: 30px;
 	}
 }
 .hero--social{
@@ -113,6 +139,12 @@
 		width: 18px;
 		background:transparent url('/assets/img/ffb.png') center center no-repeat;
 		background-size: contain;
+		margin-right: 2px;
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			height: 21px;
+			width: 21px;
+			margin-right: 4px;
+		}
 	}
 	.inst{
 		display: block;
@@ -120,6 +152,10 @@
 		width: 18px;
 		background:transparent url('/assets/img/fig.png') center center no-repeat;
 		background-size: contain;
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			height: 21px;
+			width: 21px;
+		}
 	}
 }
 .hero--socialTitle{
@@ -127,4 +163,8 @@
 	font-style: italic;
 	font-size: 14px;
 	margin-right: 10px;
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		font-size: 18px;
+    margin-right: 20px;
+	}
 }

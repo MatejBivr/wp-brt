@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
-				<nav class="navbar fixed-top">
+				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
 					<div class="nav--logoContainer">
 						<a href="/" class="nav--logo"></a>
 					</div>

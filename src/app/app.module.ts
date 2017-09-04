@@ -12,6 +12,11 @@ import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './main/hero/hero.component';
+import { AboutComponent } from './about/about.component';
+import { NewsComponent } from './news/news.component';
+import { DonateComponent } from './donate/donate.component';
+import { LibraryComponent } from './library/library.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,11 @@ import { HeroComponent } from './main/hero/hero.component';
     MenuComponent,
     FooterComponent,
     HeroComponent,
+    AboutComponent,
+    NewsComponent,
+    DonateComponent,
+    LibraryComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,15 @@
 @import '../../variables';
 .menu{
+	position: relative;
 	.navbar{
+		&.active{
+			position: absolute;
+			@media (min-width: map-get($grid-breakpoints, sm)) {
+				padding: 0.7rem 2.5rem;
+			}
+		}
 		@media (min-width: map-get($grid-breakpoints, sm)) {
-			padding: 1rem 3rem;
+			padding: 1.1rem 3rem;
 		}
 	}
 	.navbar-toggler{
@@ -12,7 +19,8 @@
 		}
 	}
 	.fa-bars{
-		color: $brtc-blue;	
+		color: $brtc-blue;
+		font-size: 2em;
 	}
 }
 
@@ -49,9 +57,14 @@
 	font-weight: bold;
 }
 .menu--toggled{
-	position: relative;
+	position: absolute;
 	background: url('/assets/img/menu-bgi.png');
-	height: 100vh;
+	height: 99vh;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 2;
 }
 .menu--toggled__layer{
 	position: absolute;
@@ -64,7 +77,7 @@
 .nav--language{
 	position: absolute;
 	left: 50%;
-	bottom: -30px;
+	top: 18px;
 	transform: translateX(-50%);
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		bottom: auto;
