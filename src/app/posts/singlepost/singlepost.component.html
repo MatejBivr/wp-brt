@@ -1,0 +1,16 @@
+<section *ngIf="post">
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-8">
+				<h1>{{ post.title.rendered }}</h1>
+				<img src="{{post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}}" />
+
+				<div [innerHTML]="post.content.rendered"></div>
+			</div>
+		</div>
+	</div>
+	<app-involved></app-involved>
+</section>
+<section *ngIf="!post">
+  <p>no post found</p>
+</section>

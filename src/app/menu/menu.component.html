@@ -1,0 +1,53 @@
+<section class="menu">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
+					<div class="nav--logoContainer">
+						<a href="/" class="nav--logo"></a>
+					</div>
+					<h1 class="nav--title">balkan rivers tour</h1>
+					<button class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+				    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+				    <i class="fa fa-bars" aria-hidden="true"></i>
+				  </button>
+				   <div class="nav--language" [hidden]="isCollapsed">
+						<a href="#" class="language--link">EN</a>
+						<a href="#" class="language--link">SI</a>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<div [ngbCollapse]="isCollapsed">
+	  <div class="menu--toggled">
+			<div class="menu--toggled__layer"></div>
+	    <ul class="list-unstyled nav--list" (click)="isCollapsed = !isCollapsed">
+	    	<li class="nav--listItem">
+	    		<a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
+    		</li>
+	    	<li class="nav--listItem">
+	    		<a routerLink="/about" class="nav--link" routerLinkActive="active">about</a>
+    		</li>
+	    	<li class="nav--listItem">
+	    		<a routerLink="/news" class="nav--link" routerLinkActive="active">news</a>
+    		</li>
+	    	<li class="nav--listItem">
+	    		<a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
+    		</li>
+	    	<li class="nav--listItem">
+	    		<a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
+    		</li>
+	    	<li class="nav--listItem">
+	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact</a>
+    		</li>
+	    </ul>
+	    <form class="nav--search">
+			  <div class="form-group">
+			    <input type="text" class="form-control" aria-describedby="Search" placeholder="search">
+			  </div>
+			</form>
+	  </div>
+	</div>
+</section>

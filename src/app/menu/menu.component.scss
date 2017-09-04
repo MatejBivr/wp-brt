@@ -1,0 +1,165 @@
+@import '../../variables';
+.menu{
+	position: relative;
+	.navbar{
+		&.active{
+			position: absolute;
+			@media (min-width: map-get($grid-breakpoints, sm)) {
+				padding: 0.7rem 2.5rem;
+			}
+		}
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			padding: 1.1rem 3rem;
+		}
+	}
+	.navbar-toggler{
+		padding: 0;
+		&:hover, &:focus {
+			outline: none;
+			color: $brtc-darker-blue;
+			.fa-bars{
+				color: $brtc-darker-blue;
+
+			}
+		}
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			margin-left: 40px;			
+		}
+	}
+	.fa-bars{
+		color: $brtc-blue;
+		font-size: 2em;
+	}
+}
+
+.nav--logoContainer{
+	position: relative;
+	width: 24px;
+	height: 23px;
+	margin-right: 10px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		width: 62px;
+		height: 21px;
+		margin-right: 20px;
+	}
+}
+.nav--logo{
+	position: absolute;
+	width: 24px;
+	height: 23px;	
+	background-color: pink;
+	top: 0;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		height: 58px;
+		width: 62px;
+	}
+}
+.nav--title{
+	font-size: 17px;
+	line-height: 21px;
+	flex-grow: 2;
+	margin-bottom: 0;
+	color: $brtc-blue;
+	text-transform: uppercase;
+	font-family: Montserrat;
+	font-weight: bold;
+}
+.menu--toggled{
+	position: absolute;
+	background: url('/assets/img/menu-bgi.png');
+	height: 99vh;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 2;
+}
+.menu--toggled__layer{
+	position: absolute;
+	background: url('/assets/img/Layer-menu.png');
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.nav--language{
+	position: absolute;
+	left: 50%;
+	top: 18px;
+	transform: translateX(-50%);
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		bottom: auto;
+	}
+	.language--link{
+		font-family: Montserrat;
+		font-size: 16px;
+		line-height: 21px;
+		font-weight: bold;
+		color: black;
+		&.selecte{
+			color:white;
+		}
+	}
+}
+
+.nav--list{
+	z-index: 10;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%,-50%);
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		top: 30%;
+	}
+}
+
+.nav--listItem{	
+	text-align: center;
+}
+.nav--link{
+	display: block;
+	line-height: 30px;
+	font-size: 17px;
+	font-family: Montserrat;
+	font-weight: bold;
+	text-transform: uppercase;
+	color:black;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		line-height: 60px;
+		font-size: 29px;
+	}
+	&.active{
+		background:transparent url('/assets/img/wave.png') left bottom no-repeat;
+	}
+	&:hover,&:focus{
+		text-decoration: none;
+	}
+}
+
+.nav--search{
+	position: absolute;
+	left: 50%;
+	bottom: 15%;
+	transform: translate(-50%,-50%);
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		bottom: 30%;
+	}
+	.form-group{
+		margin-top: 5px;
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			margin-bottom: 0;
+		}
+	}
+	.form-control{
+		border-radius: 0;
+		border-color: $brtc-darker-blue;
+		background-color: transparent;
+		font-family: Montserrat;
+		&:focus{
+			color: black;
+		}
+	}
+}
