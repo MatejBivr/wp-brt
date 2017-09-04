@@ -10,12 +10,20 @@ export class PostsService {
 
 	private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
 
-  constructor(private http: Http) { }
+	constructor(private http: Http) { }
 
-  getPosts(): Observable<Post[]>{
-  	return this.http
-  		.get(this.postUrl + 'posts')
-  		.map((res: Response) => res.json());
-  }
+	getPosts(): Observable<Post[]>{
+		return this.http
+			.get(this.postUrl + 'posts')
+			.map((res: Response) => res.json());
+	}
+
+	getPost(slug): Observable<Post> {
+		return this.http
+			.get(this.postUrl + `posts?slug=${slug}&_embed`)
+			.map((res: Response) => res.json());
+
+	}
+
 
 }

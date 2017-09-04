@@ -92,6 +92,7 @@
 	font-family: Montserrat;
 	font-weight: bolder;
 	text-align: center;
+	color: $brtc-light-text;
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		font-size: 48px;
 		line-height: 48px;
@@ -115,6 +116,7 @@
 	background-color: transparent;
 	border: 2px solid $brtc-darker-blue;
 	padding: 0 1.5em;
+	color: $brtc-light-text;
 	&:hover,&:focus{
 		background-color: $brtc-darker-blue;
 		color: white;

@@ -23,24 +23,24 @@
 	<div [ngbCollapse]="isCollapsed">
 	  <div class="menu--toggled">
 			<div class="menu--toggled__layer"></div>
-	    <ul class="list-unstyled nav--list">
+	    <ul class="list-unstyled nav--list" (click)="isCollapsed = !isCollapsed">
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link active">home</a>
+	    		<a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link">about</a>
+	    		<a routerLink="/about" class="nav--link" routerLinkActive="active">about</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link">news</a>
+	    		<a routerLink="/news" class="nav--link" routerLinkActive="active">news</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link">donate</a>
+	    		<a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link">library</a>
+	    		<a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a href="#" class="nav--link">contact</a>
+	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact</a>
     		</li>
 	    </ul>
 	    <form class="nav--search">

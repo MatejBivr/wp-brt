@@ -1,0 +1,26 @@
+@import '../../variables';
+
+.pnf{
+	height: 20vh;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+}
+.pnf__herading{
+	font-size: 60px;
+	color: $brtc-darker-blue;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		font-size: 75px;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		font-size: 100px;
+	}
+}
+.pnf__subheading{
+	font-size: 18px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		font-size: 31;
+	}
+}

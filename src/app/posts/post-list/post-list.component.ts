@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { PostsService } from '../posts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -11,7 +12,7 @@ import { PostsService } from '../posts.service';
 export class PostListComponent implements OnInit {
 	posts: Post[];
 
-  constructor( private postsService: PostsService ) { }
+  constructor( private postsService: PostsService, private router: Router ) { }
 
   getPosts(){
     this.postsService
@@ -21,6 +22,12 @@ export class PostListComponent implements OnInit {
         this.posts = res;
       });
   }
+
+  selectPost(slug) {
+    let link = `/news/${slug}`
+    this.router.navigate([link]);
+  }
+
 
   ngOnInit() {
   	this.getPosts();

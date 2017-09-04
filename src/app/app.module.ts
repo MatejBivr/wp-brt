@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule }   from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,22 @@ import { NewsComponent } from './news/news.component';
 import { DonateComponent } from './donate/donate.component';
 import { LibraryComponent } from './library/library.component';
 import { ContactComponent } from './contact/contact.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { InvolvedComponent } from './common/involved/involved.component';
+import { PaginationComponent } from './common/pagination/pagination.component';
+import { SinglepostComponent } from './posts/singlepost/singlepost.component';
+
+const appRoutes: Routes = [
+  { path: 'home', component: MainComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'news', component: NewsComponent , pathMatch: 'full'},
+  { path: 'news/:slug', component: SinglepostComponent},
+  { path: 'donate', component: DonateComponent },
+  { path: 'library', component: LibraryComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PagenotfoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -31,6 +47,10 @@ import { ContactComponent } from './contact/contact.component';
     DonateComponent,
     LibraryComponent,
     ContactComponent,
+    PagenotfoundComponent,
+    InvolvedComponent,
+    PaginationComponent,
+    SinglepostComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,12 +58,7 @@ import { ContactComponent } from './contact/contact.component';
     HttpModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {
-        path: 'main',
-        component: MainComponent
-      }
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
