@@ -1,9 +1,15 @@
 <section>
 	<div class="container">
 		<div class="row col">
-			<ul>
-			  <li *ngFor="let post of posts" (click)="selectPost(post.slug)">
-			    {{ post.title.rendered }}
+			<div class="posts__header">
+				<h1 class="posts__heading">our latest projects</h1>
+			</div>
+			<ul class="posts__list list-unstyled">
+			  <li *ngFor="let post of posts" (click)="selectPost(post.slug)" class="posts__listItem">
+			    <h2>{{ post.title.rendered }}</h2>
+			    <div class="time">{{ post.date | date:"dd.MM.yyyy" }}</div>
+			    <div [innerHTML]="post.excerpt.rendered"></div>
+			    
 			  </li>
 			</ul>
 		</div>

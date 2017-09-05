@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
-  { path: 'news/:slug', component: SinglepostComponent},
+  { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'donate', component: DonateComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },

@@ -11,15 +11,18 @@ import { Router } from '@angular/router';
 })
 export class PostListComponent implements OnInit {
 	posts: Post[];
+  pages: number;
 
   constructor( private postsService: PostsService, private router: Router ) { }
 
   getPosts(){
     this.postsService
       .getPosts()
-      .subscribe(res => {
-      	console.log(res);
-        this.posts = res;
+      .subscribe(val => {
+        console.log(val[0]);
+      	console.log(val[1]);
+        this.posts = val[0];
+        this.pages = val[1][0].parseInt;
       });
   }
 
