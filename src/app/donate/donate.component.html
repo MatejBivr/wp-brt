@@ -1,3 +1,28 @@
-<p>
-  donate works!
-</p>
+<section class="donate">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="donate__menuContainer">
+					<ul class="donate__menu list-unstyled">
+						<li class="donate__menuItem">
+							<a routerLink="/donate/single" class="donate__menuLink" routerLinkActive="active">single donation</a>
+						</li>
+						<li class="donate__menuItem">
+							<a routerLink="/donate/monthly" class="donate__menuLink" routerLinkActive="active">monthly</a>
+						</li>
+						<li class="donate__menuItem">
+							<a routerLink="/donate/business" class="donate__menuLink" routerLinkActive="active">business membership</a>
+						</li>
+					</ul>
+				</div>
+				<div class="donate__header">
+					<h1 class="donate__heading">give mothly</h1>
+					<h2 class="donate__subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ipsum auctor, vulputate sem sed, condimentum quam. Nunc sit amet felis auctor massa faucibus tempus et ut libero. Fusce eleifend viverra dolor et efficitur. Ut non justo sed nulla tincidunt eleifend vehicula ac magna</h2>
+				</div>
+				<router-outlet></router-outlet>				
+			</div>
+		</div>
+	</div>
+	<app-expenses></app-expenses>
+	<app-involved></app-involved>
+</section>

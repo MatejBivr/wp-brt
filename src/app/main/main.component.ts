@@ -7,7 +7,7 @@ import {PostListComponent} from '../posts/post-list/post-list.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-	
+	perPage = 3;
   constructor() { }
 
   ngOnInit() {

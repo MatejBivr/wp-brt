@@ -1,17 +1,32 @@
 <section>
 	<div class="container">
-		<div class="row col">
-			<div class="posts__header">
-				<h1 class="posts__heading">our latest projects</h1>
+		<div class="row">
+			<div class="col">
+				<div class="posts__header">
+					<h1 class="posts__heading">our latest projects</h1>
+				</div>
+				<hr>
+				<ul class="posts__list list-unstyled">
+				  <li *ngFor="let post of posts" (click)="selectPost(post.slug)" class="posts__listItem">
+				  	<div class="posts__image"
+				  		[style.background-image]="post['_links']['wp:featuredmedia']? 'url('+ post['_links']['wp:featuredmedia'][0].href+')':null">
+				  		
+				  	</div>
+				    <h2>{{ post.title.rendered }}</h2>
+				    <div class="time">{{ post.date | date:"dd.MM.yyyy" }}</div>
+				    <div [innerHTML]="post.excerpt.rendered"></div>
+				    
+				  </li>
+				</ul>
+				<app-pagination
+				  [page]="page"
+				  [pages]="pages"
+				  [loading]="loading"
+				  (goPrev)="prevPage()"
+				  (goNext)="nextPage()"
+				  (goPage)="goToPage($event)">					
+				</app-pagination>
 			</div>
-			<ul class="posts__list list-unstyled">
-			  <li *ngFor="let post of posts" (click)="selectPost(post.slug)" class="posts__listItem">
-			    <h2>{{ post.title.rendered }}</h2>
-			    <div class="time">{{ post.date | date:"dd.MM.yyyy" }}</div>
-			    <div [innerHTML]="post.excerpt.rendered"></div>
-			    
-			  </li>
-			</ul>
 		</div>
 	</div>
 </section>

@@ -1,0 +1,38 @@
+@import '../../../variables';
+.pagination__container{
+	width: 100%;
+}
+.pagination{
+	border-radius: none;
+	justify-content: space-between;
+}
+
+.pagination__arrow{
+	border: none;
+	display: block;
+	height: 11px;
+	width: 45px;
+}
+.back{
+	background:transparent url('/assets/img/navl.png') left top no-repeat;
+	cursor: pointer;
+}
+.forward{
+	background:transparent url('/assets/img/navr.png') left top no-repeat;
+	cursor: pointer;
+}
+.pagination__list{
+	margin-bottom: 0;
+	display: flex;
+}
+.pagination__item{
+	padding: 0 2px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	line-height: 14px;
+	font-family: Vollkorn;
+	font-style: italic;
+	color: $brtc-darker-blue;
+	cursor: pointer;
+}
+.pagination__link{}

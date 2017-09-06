@@ -1,0 +1,56 @@
+@import '../../../variables';
+
+.expenses{
+	margin-bottom: 50px;
+}
+.expenses__heading{
+	text-transform: uppercase;
+	display:inline-block; 
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 50px;
+	color: $brtc-light-text;
+	width: auto;
+	background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+	margin-bottom: 10px;
+}
+.expenses__list{
+	display: flex;
+	flex-direction: column;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: center;
+	}
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+		flex-wrap: no-wrap;
+	}
+}
+.expenses__listItem{
+	padding: 20px 0;
+	flex-basis: 1;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-basis: 25%;
+	}
+}
+.involved__icon{
+	display: block;
+	margin: auto;
+	height: 55px;
+	width: 55px;
+	background-color: pink;
+	margin-bottom: 20px;
+}
+.involved__price{
+	text-align: left;
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 0;
+}
+.bus{}
+.food{}
+.promotion{}
+.people{}

@@ -12,13 +12,14 @@ export class PostsService {
 
 	constructor(private http: Http) { }
 
-	getPosts(): Observable<any>{
+	getPosts(perPage, numPage): Observable<any>{
 		return this.http
-			.get(this.postUrl + 'posts?per_page=3')
+			.get(this.postUrl + `posts?per_page=${perPage}&page=${numPage}`)
 			.map(res => {
 				let pages = res.headers.getAll('X-WP-TotalPages');
+				let count = res.headers.getAll('X-WP-Total');
 				let posts = res.json();
-				return [posts, pages];
+				return [posts, pages, count];
 			})
 	}
 

@@ -15,6 +15,13 @@
 }
 .posts__list{
 	display: flex;
+	flex-direction: column;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
 }
 .time{
 	font-size: 16px;
@@ -24,9 +31,20 @@
 	padding-bottom: 20px;
 }
 .posts__listItem{
+	padding: 10px;
 	p{
 		font-size: 14;
 		line-height: 16px;
 		font-family: Vollkorn;
 	}
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-basis: 33%;
+	}
+}
+.posts__image{
+	height: 170px;
+	width: 100%;
+	background: url('/assets/img/1.jpg') center center no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
 }
