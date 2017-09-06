@@ -1,0 +1,32 @@
+@import '../../../variables';
+
+.posts__header{}
+.posts__heading{
+	text-transform: uppercase;
+	display:inline-block; 
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 50px;
+	color: $brtc-light-text;
+	width: auto;
+	background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+	margin-bottom: 30px;
+}
+.posts__list{
+	display: flex;
+}
+.time{
+	font-size: 16px;
+	font-weight: light;
+	font-style: italic;
+	color: $brtc-blue;
+	padding-bottom: 20px;
+}
+.posts__listItem{
+	p{
+		font-size: 14;
+		line-height: 16px;
+		font-family: Vollkorn;
+	}
+}

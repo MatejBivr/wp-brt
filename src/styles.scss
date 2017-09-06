@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+p {
+	margin-bottom: 25px;
+}
+img {
+	width: 100% !important;
+	height: auto;
+}
+a{
+	color: #23c1f3;
+	&:hover,&:focus{
+		color: #01b7f1;
+		text-decoration: none;
+	}
+}

@@ -1,11 +1,21 @@
-<section *ngIf="post">
+<section *ngIf="post" class="singlepost">
+	<div class="singlepost__hero" [style.background-image]="'url('+ hero+')'"></div>
 	<div class="container">
 		<div class="row justify-content-md-center">
 			<div class="col-md-8">
-				<h1>{{ post.title.rendered }}</h1>
-				<img src="{{post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}}" />
-
-				<div [innerHTML]="post.content.rendered"></div>
+				<div class="singlepost_header">
+					<h1 class="singlepost__heading">{{ post.title.rendered }}</h1>
+					<div class="singlepost__socialContainer">
+						<div class="tw"></div>
+						<div class="fb"></div>
+					</div>
+				</div>
+				<div class="singlepost__subheading">
+					<div class="time">{{ post.date | date:"dd.MM.yyyy" }}</div>
+				</div>
+				<div class="singlepost__contentContainer">
+					<div [innerHTML]="post.content.rendered"></div>
+				</div>				
 			</div>
 		</div>
 	</div>

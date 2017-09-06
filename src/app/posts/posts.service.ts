@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -12,10 +12,14 @@ export class PostsService {
 
 	constructor(private http: Http) { }
 
-	getPosts(): Observable<Post[]>{
+	getPosts(): Observable<any>{
 		return this.http
-			.get(this.postUrl + 'posts')
-			.map((res: Response) => res.json());
+			.get(this.postUrl + 'posts?per_page=3')
+			.map(res => {
+				let pages = res.headers.getAll('X-WP-TotalPages');
+				let posts = res.json();
+				return [posts, pages];
+			})
 	}
 
 	getPost(slug): Observable<Post> {
