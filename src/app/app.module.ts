@@ -21,13 +21,26 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InvolvedComponent } from './common/involved/involved.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { SinglepostComponent } from './posts/singlepost/singlepost.component';
+import { SingleComponent } from './donate/single/single.component';
+import { MonthlyComponent } from './donate/monthly/monthly.component';
+import { BusinessComponent } from './donate/business/business.component';
+import { ExpensesComponent } from './donate/expenses/expenses.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
-  { path: 'donate', component: DonateComponent },
+  {
+    path: 'donate',
+    component: DonateComponent,
+    children: [
+      { path: '', redirectTo: 'single', pathMatch: 'full' },
+      { path: 'single', component: SingleComponent },
+      { path: 'monthly', component: MonthlyComponent },
+      { path: 'business', component: BusinessComponent },
+    ]
+  },
   { path: 'library', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -51,6 +64,10 @@ const appRoutes: Routes = [
     InvolvedComponent,
     PaginationComponent,
     SinglepostComponent,
+    SingleComponent,
+    MonthlyComponent,
+    BusinessComponent,
+    ExpensesComponent,
   ],
   imports: [
     BrowserModule,

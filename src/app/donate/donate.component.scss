@@ -1,0 +1,74 @@
+@import '../../variables';
+
+.donate{
+	padding-top: 50px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding-top: 100px;
+	}
+}
+.donate__menuContainer{}
+.donate__menu{
+	display: flex;
+	flex-direction: column;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		flex-direction: row;
+	}
+}
+.donate__menuItem{
+	margin-right: 5px;
+	&::after{
+		margin-left: 5px;
+		display: inline-block;
+		font-size: 21px;
+		content: '/';
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			margin-left: 10px;
+		}
+	}
+	&:last-of-type{
+		// margin-right: 0;
+		&::after{
+			visibility: hidden;
+		}
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		margin-right: 10px;
+	}
+}
+.donate__menuLink{
+	font-family: Montserrat;
+	color: $brtc-light-text;
+	font-size: 16px;
+	line-height: 18px;
+	text-transform: uppercase;
+	padding-bottom: 7px;
+	&.active{
+		font-weight: bold;
+		color:$brtc-text;
+		background:transparent url('/assets/img/wave.png') left bottom no-repeat;
+	}
+	&:hover, &:focus{
+		color: $brtc-blue;
+		text-decoration: none;
+		color: $brtc-light-text;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		font-size: 18px;
+		line-height: 25px;
+	}
+}
+.donate__header{}
+.donate__heading{
+	text-transform: uppercase;
+	font-family: Montserrat;
+	font-weight: bold;
+}
+.donate__subheading{
+	font-family: Vollkorn;
+	font-size: 16px;
+	line-height: 20px;
+	color: $brtc-darker-blue;
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		max-width: 50%;
+	}
+}
