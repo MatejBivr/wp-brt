@@ -24,7 +24,7 @@ export class PostListComponent implements OnInit {
       .getPosts(perPage, numPage)
       .subscribe(val => {
         this.posts = val[0];
-        console.log(this.posts);
+        console.log(this.posts[0]);
         this.pages = Number(val[1][0]);
         this.loading = false;
       });

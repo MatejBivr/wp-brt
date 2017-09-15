@@ -14,7 +14,7 @@ export class PostsService {
 
 	getPosts(perPage, numPage): Observable<any>{
 		return this.http
-			.get(this.postUrl + `posts?per_page=${perPage}&page=${numPage}`)
+			.get(this.postUrl + `posts?per_page=${perPage}&page=${numPage}&_embed`)
 			.map(res => {
 				let pages = res.headers.getAll('X-WP-TotalPages');
 				let count = res.headers.getAll('X-WP-Total');
