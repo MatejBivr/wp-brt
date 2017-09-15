@@ -29,7 +29,6 @@ export class SinglepostComponent implements OnInit {
       });
 
   }
-// 
 
   async ngOnInit() {
   	await this.route.params.forEach((params: Params) => {
