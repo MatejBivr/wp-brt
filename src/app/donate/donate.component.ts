@@ -1,25 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { DonateService } from './donate.service'
+import { DonateService } from './donate.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
   styleUrls: ['./donate.component.scss'],
-  providers: [DonateService]
+  providers: []
 })
 export class DonateComponent implements OnInit {
+  private donations = [];
+  private sub: any;
+  private val: string;
+  private text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ipsum auctor, vulputate sem sed, condimentum quam. Nunc sit amet felis auctor massa faucibus tempus et ut libero. Fusce eleifend viverra dolor et efficitur. Ut non justo sed nulla tincidunt eleifend vehicula ac magna`;
 
-  constructor( private donateService:DonateService) { }
+  constructor( private route: ActivatedRoute, private donateService:DonateService ) { }
 
   getDonations(){
     this.donateService.getDonations()
       .subscribe(val => {
-        console.log(val);
+        this.donations = val.filter((i) => {
+          return i['donation-type'] === this.val;
+        });
       });
   }
 
   ngOnInit() {
+    this.sub = this.route
+      .data.map(val => val.type)
+      .subscribe(val => this.val = val);
     this.getDonations();
   }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }

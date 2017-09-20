@@ -5,26 +5,17 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DonateService {
-
+  public donations;
   private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
 
-  constructor(private http: Http) { }
-
-  getDonations(): Observable<any>{
-    return this.http
+  constructor(private http: Http) {
+    this.donations = this.http
       .get(this.postUrl + `donation`)
-      .map(res => {
-        let posts = res.json();
-        return posts;
-      })
+      .map(res => res.json());
   }
 
-  // getPost(slug): Observable<Post> {
-  //   return this.http
-  //     .get(this.postUrl + `posts?slug=${slug}&_embed`)
-  //     .map((res: Response) => res.json());
-
-  // }
-
+  getDonations(): Observable<any>{
+    return this.donations;
+  }
 
 }

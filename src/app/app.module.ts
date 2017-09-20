@@ -23,22 +23,18 @@ import { PaginationComponent } from './common/pagination/pagination.component';
 import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
+import { DonateService } from './donate/donate.service';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
-  {
-    path: 'donate',
-    component: DonateComponent,
-    children: [
-      { path: '', redirectTo: 'single', pathMatch: 'full' },
-      { path: 'single', component: SingleComponent, data : {type : 'single'}},
-      { path: 'monthly', component: SingleComponent, data : {type : 'monthly'}},
-      { path: 'business', component: SingleComponent, data : {type : 'business'}},
-    ]
-  },
+  { path: 'single', component: DonateComponent, data : {type : 'single'}},
+  { path: 'monthly', component: DonateComponent, data : {type : 'monthly'}},
+  { path: 'business', component: DonateComponent, data : {type : 'business'}},
+  { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -73,7 +69,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DonateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
