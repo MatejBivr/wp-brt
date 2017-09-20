@@ -1,0 +1,48 @@
+@import '../../../variables';
+
+.donate__header{}
+.donate__heading{
+  text-transform: uppercase;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+.donate__subheading{
+  font-family: Vollkorn;
+  font-size: 16px;
+  line-height: 20px;
+  color: $brtc-darker-blue;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    max-width: 50%;
+  }
+}
+
+.donate__container{
+  display: flex;
+}
+.donate__item{
+  flex: 1;
+  padding: 10px;
+}
+.donate__itemHeader{
+  margin-bottom: 20px;
+  display: flex;
+}
+.donate__itemImage{
+  height: 100px;
+  width: 70px;
+  background: no-repeat center center red;
+}
+.donate__itemTitle{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+.donate__itemSpan{
+  color: $brtc-darker-blue;
+}
+.donate__itemBody{
+  font-size: 16px;
+  line-height: 20px;
+  font-family: Vollkorn;
+}

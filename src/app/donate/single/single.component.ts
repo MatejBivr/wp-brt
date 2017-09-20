@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-single',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single.component.scss']
 })
 export class SingleComponent implements OnInit {
+  @Input() donations;
+  @Input() donationType;
+  @Input() donationText;
 
   constructor() { }
 
+
   ngOnInit() {
   }
+
+  ngOnChanges(){
+    console.log(this.donations);
+  }
+
+  
 
 }

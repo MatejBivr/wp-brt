@@ -1,3 +1,17 @@
-<p>
-  single works!
-</p>
+<section class="donate__single">
+  <div class="donate__header">
+    <h1 class="donate__heading">give {{donationType}}</h1>
+    <h2 class="donate__subheading">{{donationText}}</h2>
+  </div>
+  <hr>
+  <ul class="donate__container list-unstyled">
+    <li class="donate__item" *ngFor="let donation of donations">
+      <div class="donate__itemHeader">
+        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation['donation-amount'].guid +')'"></div>
+        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/{{donation['donation-title']}}</span></h3>
+      </div>
+      <div class="donate__itemBody">{{donation['donation-description']}}</div>
+    </li>
+  </ul>
+  <hr>
+</section>

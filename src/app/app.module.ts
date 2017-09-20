@@ -22,25 +22,19 @@ import { InvolvedComponent } from './common/involved/involved.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
-import { MonthlyComponent } from './donate/monthly/monthly.component';
-import { BusinessComponent } from './donate/business/business.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
+import { DonateService } from './donate/donate.service';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
-  {
-    path: 'donate',
-    component: DonateComponent,
-    children: [
-      { path: '', redirectTo: 'single', pathMatch: 'full' },
-      { path: 'single', component: SingleComponent },
-      { path: 'monthly', component: MonthlyComponent },
-      { path: 'business', component: BusinessComponent },
-    ]
-  },
+  { path: 'single', component: DonateComponent, data : {type : 'single'}},
+  { path: 'monthly', component: DonateComponent, data : {type : 'monthly'}},
+  { path: 'business', component: DonateComponent, data : {type : 'business'}},
+  { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -65,8 +59,6 @@ const appRoutes: Routes = [
     PaginationComponent,
     SinglepostComponent,
     SingleComponent,
-    MonthlyComponent,
-    BusinessComponent,
     ExpensesComponent,
   ],
   imports: [
@@ -77,7 +69,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DonateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
