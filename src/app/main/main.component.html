@@ -1,5 +1,18 @@
 <app-hero></app-hero>
-<app-post-list [perPage]="perPage"></app-post-list>		
+<section class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="posts__header">
+          <h1 class="posts__heading">our latest projects</h1>
+        </div>
+        <hr>
+        <app-post-list [perPage]="perPage"></app-post-list>
+        <hr>
+      </div>
+    </div>
+  </div>
+</section>
 <app-involved></app-involved>
 
 

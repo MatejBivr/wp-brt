@@ -1,0 +1,16 @@
+@import '../../variables';
+
+
+.posts__header{}
+.posts__heading{
+  text-transform: uppercase;
+  display:inline-block; 
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+  color: $brtc-light-text;
+  width: auto;
+  background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+  margin-bottom: 30px;
+}

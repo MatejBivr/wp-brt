@@ -24,7 +24,7 @@ import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
 import { DonateService } from './donate/donate.service';
-
+import { PageComponent } from './common/page/page.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
@@ -60,6 +60,7 @@ const appRoutes: Routes = [
     SinglepostComponent,
     SingleComponent,
     ExpensesComponent,
+    PageComponent,
   ],
   imports: [
     BrowserModule,
