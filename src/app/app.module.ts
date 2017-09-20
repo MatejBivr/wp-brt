@@ -22,8 +22,6 @@ import { InvolvedComponent } from './common/involved/involved.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
-import { MonthlyComponent } from './donate/monthly/monthly.component';
-import { BusinessComponent } from './donate/business/business.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
 
 const appRoutes: Routes = [
@@ -36,9 +34,9 @@ const appRoutes: Routes = [
     component: DonateComponent,
     children: [
       { path: '', redirectTo: 'single', pathMatch: 'full' },
-      { path: 'single', component: SingleComponent },
-      { path: 'monthly', component: MonthlyComponent },
-      { path: 'business', component: BusinessComponent },
+      { path: 'single', component: SingleComponent, data : {type : 'single'}},
+      { path: 'monthly', component: SingleComponent, data : {type : 'monthly'}},
+      { path: 'business', component: SingleComponent, data : {type : 'business'}},
     ]
   },
   { path: 'library', component: LibraryComponent },
@@ -65,8 +63,6 @@ const appRoutes: Routes = [
     PaginationComponent,
     SinglepostComponent,
     SingleComponent,
-    MonthlyComponent,
-    BusinessComponent,
     ExpensesComponent,
   ],
   imports: [

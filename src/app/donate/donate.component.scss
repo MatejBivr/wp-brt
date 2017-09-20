@@ -45,7 +45,7 @@
 	&.active{
 		font-weight: bold;
 		color:$brtc-text;
-		background:transparent url('/assets/img/wave.png') left bottom no-repeat;
+		background:transparent url('/assets/img/wave.png') left bottom repeat-x;
 	}
 	&:hover, &:focus{
 		color: $brtc-blue;
@@ -55,20 +55,5 @@
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		font-size: 18px;
 		line-height: 25px;
-	}
-}
-.donate__header{}
-.donate__heading{
-	text-transform: uppercase;
-	font-family: Montserrat;
-	font-weight: bold;
-}
-.donate__subheading{
-	font-family: Vollkorn;
-	font-size: 16px;
-	line-height: 20px;
-	color: $brtc-darker-blue;
-	@media (min-width: map-get($grid-breakpoints, md)) {
-		max-width: 50%;
 	}
 }

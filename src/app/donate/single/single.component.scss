@@ -1,0 +1,17 @@
+@import '../../../variables';
+
+.donate__header{}
+.donate__heading{
+  text-transform: uppercase;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+.donate__subheading{
+  font-family: Vollkorn;
+  font-size: 16px;
+  line-height: 20px;
+  color: $brtc-darker-blue;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    max-width: 50%;
+  }
+}
