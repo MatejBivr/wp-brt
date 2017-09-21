@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.footer{
+.footer{	
 	background-color: $brtc-footer;
 	font-family: Montserrat;
 	padding: 30px 0;
@@ -39,12 +39,24 @@
 			margin-bottom: 0;
 		}
 	}
+	&:last-of-type{
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			text-align: right;
+		}
+	}
 	.form-control{
+		line-height: 32px;
+		max-width: 244px;
+		padding: 0 .75rem;
 		border-radius: 0;
 		border-color: $brtc-darker-blue;
 		background-color: $brtc-footer;
+		font-size: 12px;
 		&:focus{
 			color: white;
+		}
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			margin-left: auto;
 		}
 	}
 	.list-unstyled{
@@ -58,7 +70,7 @@
 	background:transparent url('/assets/img/logo2.png') left top no-repeat;
 	margin: 0 auto; 
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		
+		margin: 0;
 	}
 }
 .footer_item{
@@ -84,6 +96,7 @@
 }
 .subfooter_text{
 	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding-left: 10px;
 		margin: 0;
 	}
 }
@@ -95,11 +108,12 @@
 		margin: 0;
 	}
 }
-.subfooter_socail{
+.subfooter_socail{	
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10px;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding-right: 10px;
 		justify-content: flex-end;
 		margin-bottom: 0;
 	}

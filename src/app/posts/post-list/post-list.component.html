@@ -5,7 +5,7 @@
         [style.background-image]=" post['_embedded']['wp:featuredmedia']? 'url('+ post['_embedded']['wp:featuredmedia'][0].source_url+')':null">
         
       </div>
-      <h2>{{ post.title.rendered }}</h2>
+      <h2 class="posts__heading">{{ post.title.rendered }}</h2>
       <div class="time">{{ post.date | date:"dd.MM.yyyy" }}</div>
       <div [innerHTML]="post.excerpt.rendered"></div>
       

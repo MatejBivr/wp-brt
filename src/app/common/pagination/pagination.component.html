@@ -1,4 +1,4 @@
-<section class="pagination__container">
+<section class="pagination__container" [style.display]="pages === 1 && !loading? 'none' : 'block' ">
 	<hr>
 	<div class="pagination">
 		<button (click)="onPrev()" class=" pagination__arrow back" [style.visibility]="page === 1 && !loading? 'hidden' : 'visible' "></button>

@@ -2,12 +2,14 @@
 
 .wrapper{
 	border: 3px solid $brtc-yollow;
-	min-height: calc(100% - 6px);
+	min-height: 100%;
 	color: $brtc-text;
 	font-family: Vollkorn;
+  .content--container{
+    min-height: calc(75vh + 3px);
+  }
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		border: 7px solid $brtc-yollow;
-		min-height: calc(100% - 14px);
 	}
 }
 
