@@ -24,6 +24,8 @@ import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
 import { DonateService } from './donate/donate.service';
+import { PageComponent } from './common/page/page.component';
+import { MainService } from './main.service';
 
 
 const appRoutes: Routes = [
@@ -60,6 +62,7 @@ const appRoutes: Routes = [
     SinglepostComponent,
     SingleComponent,
     ExpensesComponent,
+    PageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [DonateService],
+  providers: [MainService, DonateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

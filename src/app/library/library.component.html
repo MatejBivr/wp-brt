@@ -1,3 +1,22 @@
-<p>
-  library works!
-</p>
+<app-page [title]="title">
+  <ul class="library__list list-unstyled">
+    <li class="library__listItem" *ngFor="let promo of promos">
+      <div class="library__imageContainer">
+        <div class="library__image"></div>  
+      </div>
+      <div class="library__body">
+        <h2 class="library__heading">{{promo['promotion-title']}}</h2>
+        <div class="library__text">{{promo['promotion-description']}}</div>
+        <a target="_blank" href="{{promo['prmotion-file']['guid']}}" class="library__button">download</a>
+      </div>
+    </li>
+  </ul>
+  <app-pagination
+    [page]="page"
+    [pages]="pages"
+    [loading]="loading"
+    (goPrev)="prevPage()"
+    (goNext)="nextPage()"
+    (goPage)="goToPage($event)">          
+  </app-pagination>
+</app-page>

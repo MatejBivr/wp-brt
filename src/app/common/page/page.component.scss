@@ -1,0 +1,28 @@
+@import '../../../variables';
+
+.page{
+  padding: 30px 0;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    padding: 100px 0 80px;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    padding: 125px 0 80px;
+  }
+}
+
+.page__header{
+  padding-top: 50px;
+}
+
+.page__heading{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    font-size: 36px;
+  }
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    font-size: 48px;
+  }
+}

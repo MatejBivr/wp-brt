@@ -9,11 +9,12 @@
 			}
 		}
 		@media (min-width: map-get($grid-breakpoints, sm)) {
-			padding: 1.1rem 3rem;
+			padding: 1rem 2.8rem;
 		}
 	}
 	.navbar-toggler{
 		padding: 0;
+		font-size: 0.9rem;
 		&:hover, &:focus {
 			outline: none;
 			color: $brtc-darker-blue;
@@ -38,7 +39,7 @@
 	height: 23px;
 	margin-right: 10px;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		width: 62px;
+		width: 59px;
 		height: 21px;
 		margin-right: 20px;
 	}
@@ -50,8 +51,8 @@
 	background-color: pink;
 	top: 0;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		height: 58px;
-		width: 62px;
+		height: 61px;
+		width: 59px;
 	}
 }
 .nav--title{

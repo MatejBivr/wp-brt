@@ -1,13 +1,12 @@
-<section class="pagination__container">
+<section class="pagination__container" [style.display]="pages === 1 && !loading? 'none' : 'block' ">
 	<hr>
-		<div class="pagination">
-			<button (click)="onPrev()" class=" pagination__arrow back" [style.visibility]="page === 1 && !loading? 'hidden' : 'visible' "></button>
-			<ul class="pagination__list list-unstyled">
-				<li class="pagination__item" *ngFor="let pageNum of getPages()">
-					<a (click)="onPage(pageNum)" class="pagination__link">{{pageNum}}</a>
-				</li>
-			</ul>
-			<button (click)="onNext()"  class=" pagination__arrow forward" [style.visibility]="page === pages && !loading? 'hidden' : 'visible' "></button>
-		</div>
-	<hr>
+	<div class="pagination">
+		<button (click)="onPrev()" class=" pagination__arrow back" [style.visibility]="page === 1 && !loading? 'hidden' : 'visible' "></button>
+		<ul class="pagination__list list-unstyled">
+			<li class="pagination__item" *ngFor="let pageNum of getPages()">
+				<a (click)="onPage(pageNum)" class="pagination__link">{{pageNum}}</a>
+			</li>
+		</ul>
+		<button (click)="onNext()"  class=" pagination__arrow forward" [style.visibility]="page === pages && !loading? 'hidden' : 'visible' "></button>
+	</div>
 </section>
