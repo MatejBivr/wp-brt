@@ -2,7 +2,7 @@
   <ul class="library__list list-unstyled">
     <li class="library__listItem" *ngFor="let promo of promos">
       <div class="library__imageContainer">
-        <div class="library__image"></div>  
+        <div class="library__image"  [style.background-image]=" promo['thumbnail'].guid? 'url('+ promo['thumbnail'].guid+')':null"></div>  
       </div>
       <div class="library__body">
         <h2 class="library__heading">{{promo['promotion-title']}}</h2>

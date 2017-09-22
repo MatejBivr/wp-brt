@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.library__list{
+.media__list{
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -10,24 +10,27 @@
     justify-content: space-between;
   }
 }
-.library__listItem{
+.media__listItem{
   padding-top:10px;
   @media (min-width: map-get($grid-breakpoints, sm)) {
     padding-top:16px;
     flex-basis: 33%;
-    display: flex;
     justify-content: space-between;
   }
-}
-.library__imageContainer{
-  padding-bottom: 15px;
-  @media (min-width: map-get($grid-breakpoints, sm)) {
-    flex-basis: 47%;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    flex-basis: 24%;
   }
 }
-.library__image{
-  width: 139px;
-  height: 127px;
+.media__imageContainer{
+  width: 100%;
+  height: 200px;
+  padding-bottom: 15px;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+  }
+}
+.media__image{
+  width: 100%;
+  height: 100%;
   background-color: $brtc-gray;
   margin: auto;
   background-size: cover;
@@ -37,33 +40,23 @@
     margin: 0;
   }
 }
-.library__body{
-  flex-basis: 47%;
+.media__body{
+  text-align: center;
 }
-.library__heading{
+.media__heading{
   font-size: 16px;
   line-height: 16px;
   font-family: Montserrat;
   font-weight: bold;
   text-transform: uppercase;
-  padding-bottom: 25px;
   margin: 0;
 }
-.library__text{
-  font-size: 14px;
-  line-height: 16px;
+.media__text{
+  font-size: 16px;
+  line-height: 18px;
   font-family: Vollkorn;
+  font-style: italic;
+  color: $brtc-blue;
   margin: 0;
   padding-bottom: 20px;
-}
-.library__button{
-  font-size: 9px;
-  font-family: Montserrat;
-  text-transform: uppercase;
-  line-height: 17px;
-  border: 2px solid $brtc-blue;
-  color: $brtc-text;
-  display: block;
-  max-width: 80px;
-  text-align: center;
 }

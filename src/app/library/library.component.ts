@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainService } from '../main.service'
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-library',
@@ -30,7 +30,7 @@ export class LibraryComponent implements OnInit {
       });
   }
 
-   prevPage(){
+  prevPage(){
     this.page--
     this.getPromotions(this.type, this.perPage, this.page);
   }
