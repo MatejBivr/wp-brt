@@ -17,7 +17,7 @@ export class MainService {
       .get(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`)
       // .get(this.postUrl + `${type}`)
       .map(res => {
-
+        console.log(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`);
         let pages = res.headers.getAll('X-WP-TotalPages');
         let count = res.headers.getAll('X-WP-Total');
         let posts = res.json();

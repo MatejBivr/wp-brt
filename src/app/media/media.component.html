@@ -1,0 +1,22 @@
+<app-page [title]="title">
+  <ul class="media__list list-unstyled">
+    <li class="media__listItem" *ngFor="let gallery of media">
+      <div class="media__imageContainer">
+        <div class="media__image"
+        [style.background-image]=" gallery['thumbnail'].guid? 'url('+ gallery['thumbnail'].guid+')':null"></div>  
+      </div>
+      <div class="media__body">
+        <h2 class="media__heading">{{gallery['title'].rendered}}</h2>
+        <div class="media__text">{{gallery['gallery-type']}}&nbsp;{{gallery['gallery'].length}}</div>
+      </div>
+    </li>
+  </ul>
+  <app-pagination
+    [page]="page"
+    [pages]="pages"
+    [loading]="loading"
+    (goPrev)="prevPage()"
+    (goNext)="nextPage()"
+    (goPage)="goToPage($event)">          
+  </app-pagination>
+</app-page>

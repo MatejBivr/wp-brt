@@ -26,6 +26,7 @@ import { ExpensesComponent } from './donate/expenses/expenses.component';
 import { DonateService } from './donate/donate.service';
 import { PageComponent } from './common/page/page.component';
 import { MainService } from './main.service';
+import { MediaComponent } from './media/media.component';
 
 
 const appRoutes: Routes = [
@@ -33,6 +34,8 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
+  { path: 'media', component: MediaComponent , pathMatch: 'full'},
+  { path: 'media/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'single', component: DonateComponent, data : {type : 'single'}},
   { path: 'monthly', component: DonateComponent, data : {type : 'monthly'}},
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
@@ -63,6 +66,7 @@ const appRoutes: Routes = [
     SingleComponent,
     ExpensesComponent,
     PageComponent,
+    MediaComponent,
   ],
   imports: [
     BrowserModule,
