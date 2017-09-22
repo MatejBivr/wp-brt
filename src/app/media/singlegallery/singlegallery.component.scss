@@ -1,0 +1,20 @@
+@import '../../../variables';
+
+.gallery__list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gsllery__listItem{
+  flex-basis: 33%;
+  flex-grow: 1;
+  &:first-of-type, &:last-of-type{
+    flex-basis: 66%;
+  }
+}
+.gsllery__image{
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

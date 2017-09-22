@@ -1,0 +1,24 @@
+<app-page [title]="title">
+  <ul class="merch__list list-unstyled">
+    <li class="merch__listItem" *ngFor="let item of merch" (click)="selectMerch(type, item.slug)">
+      <div class="merch__imageContainer">
+        <div class="merch__image"
+        [style.background-image]=" item['image'].guid? 'url('+ item['image'].guid+')':null"></div>  
+      </div>
+      <div class="merch__body">
+        <h2 class="merch__heading">{{item['title'].rendered}}</h2>
+        <div class="merch__price">{{item['price']}}&euro;</div>
+        <div class="merch__text">{{item['short_description']}}</div>
+        <p class="merch__button">View item</p>
+      </div>
+    </li>
+  </ul>
+  <app-pagination
+    [page]="page"
+    [pages]="pages"
+    [loading]="loading"
+    (goPrev)="prevPage()"
+    (goNext)="nextPage()"
+    (goPage)="goToPage($event)">          
+  </app-pagination>
+</app-page>

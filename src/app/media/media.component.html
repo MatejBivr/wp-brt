@@ -1,6 +1,6 @@
 <app-page [title]="title">
   <ul class="media__list list-unstyled">
-    <li class="media__listItem" *ngFor="let gallery of media">
+    <li class="media__listItem" *ngFor="let gallery of media" (click)="selectMedia(type, gallery.slug)" >
       <div class="media__imageContainer">
         <div class="media__image"
         [style.background-image]=" gallery['thumbnail'].guid? 'url('+ gallery['thumbnail'].guid+')':null"></div>  

@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.media__list{
+.merch__list{
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -10,7 +10,7 @@
     justify-content: space-between;
   }
 }
-.media__listItem{
+.merch__listItem{
   padding-top:10px;
   @media (min-width: map-get($grid-breakpoints, sm)) {
     padding-top:16px;
@@ -21,14 +21,14 @@
     flex-basis: 24%;
   }
 }
-.media__imageContainer{
+.merch__imageContainer{
   width: 100%;
   height: 200px;
   padding-bottom: 15px;
   @media (min-width: map-get($grid-breakpoints, sm)) {
   }
 }
-.media__image{
+.merch__image{
   width: 100%;
   height: 100%;
   background-color: $brtc-gray;
@@ -40,18 +40,19 @@
     margin: 0;
   }
 }
-.media__body{
+.merch__body{
   text-align: center;
 }
-.media__heading{
+.merch__heading{
   font-size: 16px;
   line-height: 16px;
   font-family: Montserrat;
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
+  padding-bottom: 10px;
 }
-.media__text{
+.merch__price{
   font-size: 16px;
   line-height: 18px;
   font-family: Vollkorn;
@@ -59,4 +60,22 @@
   color: $brtc-darker-blue;
   margin: 0;
   padding-bottom: 20px;
+}
+.merch__text{
+  font-size: 14px;
+  line-height: 16px;
+  font-family: Vollkorn;
+  padding-bottom: 23px;
+}
+.merch__button{
+  font-size: 9px;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  line-height: 17px;
+  border: 2px solid $brtc-blue;
+  color: $brtc-text;
+  display: block;
+  max-width: 80px;
+  text-align: center;
+  margin: auto;
 }

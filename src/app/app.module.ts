@@ -27,6 +27,9 @@ import { DonateService } from './donate/donate.service';
 import { PageComponent } from './common/page/page.component';
 import { MainService } from './main.service';
 import { MediaComponent } from './media/media.component';
+import { MerchComponent } from './merch/merch.component';
+import { SinglemerchComponent } from './merch/singlemerch/singlemerch.component';
+import { SinglegalleryComponent } from './media/singlegallery/singlegallery.component';
 
 
 const appRoutes: Routes = [
@@ -35,7 +38,9 @@ const appRoutes: Routes = [
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'media', component: MediaComponent , pathMatch: 'full'},
-  { path: 'media/:slug', component: SinglepostComponent, pathMatch: 'full'},
+  { path: 'media/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
+  { path: 'merch', component: MerchComponent , pathMatch: 'full'},
+  { path: 'merch/:slug', component: SinglemerchComponent, pathMatch: 'full'},
   { path: 'single', component: DonateComponent, data : {type : 'single'}},
   { path: 'monthly', component: DonateComponent, data : {type : 'monthly'}},
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
@@ -67,6 +72,9 @@ const appRoutes: Routes = [
     ExpensesComponent,
     PageComponent,
     MediaComponent,
+    MerchComponent,
+    SinglemerchComponent,
+    SinglegalleryComponent,
   ],
   imports: [
     BrowserModule,

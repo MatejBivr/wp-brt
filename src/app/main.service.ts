@@ -25,9 +25,9 @@ export class MainService {
       })
   }
 
-  getPost(slug): Observable<Post> {
+  getPost(type, slug): Observable<Post> {
     return this.http
-      .get(this.postUrl + `posts?slug=${slug}&_embed`)
+      .get(this.postUrl + `${type}?slug=${slug}&_embed`)
       .map((res: Response) => res.json());
 
   }
