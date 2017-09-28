@@ -1,9 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MainService } from '../../main.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/toArray';
 
 @Component({
   selector: 'app-singlegallery',
@@ -11,7 +13,8 @@ import 'rxjs/add/operator/do';
   styleUrls: ['./singlegallery.component.scss']
 })
 export class SinglegalleryComponent implements OnInit {
-  private gallery = null;
+  private gallery;
+  private gallery$;
   private galleryPerPage = null;
   private type = 'gallery';
   private title='gallery';
@@ -24,38 +27,42 @@ export class SinglegalleryComponent implements OnInit {
   getPost(type, slug){
     this.mainService
       .getPost(type, slug)
+      .map(res => { this.gallery$ = Observable.from(res[0].gallery); return res})
       .subscribe(res => {
+        let i = res[0].gallery.length
+        console.log(this.gallery$);
         this.title = res[0].title.rendered;
-        this.gallery = Observable.create(res[0].gallery);
-        // this.pages = this.gallery.length;
-        console.log(this.gallery);
-        this.galleryPerPage = this.gallery.take(4).subscribe();
-        
+        {i % this.perPage > 0? 
+          this.pages = (i - i % this.perPage)/this.perPage + 1
+          :this.pages = i/this.perPage}
+        this.gallery$
+          .bufferCount(this.perPage)
+          .take(1)
+          .map(val => this.gallery = val)     
+          .subscribe();
       });
-
   }
 
   prevPage(){
     this.page--
-    // this.galleryPerPage.subscribe();
+    console.log(this.page);
   }
 
   nextPage(){
     this.page++
-    // this.galleryPerPage.subscribe();
+    console.log(this.page);
   }
 
   goToPage($event){
     this.page=$event
-    // this.galleryPerPage.subscribe();
+    console.log(this.page);
   }
 
-  async ngOnInit() {
-    await this.route.params.forEach((params: Params) => {
+  ngOnInit() {
+    this.route.params.forEach((params: Params) => {
       let slug = params['slug'];
-      this.getPost(this.type, slug);
+      this.getPost(this.type, slug);      
     });
-    
   }
   
 }
