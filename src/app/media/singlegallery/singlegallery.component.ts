@@ -39,7 +39,7 @@ export class SinglegalleryComponent implements OnInit {
           .bufferCount(this.perPage)
           .take(1)
           .map(val => this.gallery = val)     
-          .subscribe();
+          .subscribe(val => console.log(val));
       });
   }
 

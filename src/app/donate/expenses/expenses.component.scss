@@ -38,9 +38,11 @@
 	display: block;
 	margin: auto;
 	height: 55px;
-	width: 55px;
-	background-color: pink;
+	width: 68px;
 	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .involved__price{
 	text-align: left;
@@ -50,7 +52,12 @@
 	text-align: center;
 	margin-bottom: 0;
 }
-.bus{}
+.bus{
+
+	.cls-1{
+
+	}
+}
 .food{}
 .promotion{}
 .people{}

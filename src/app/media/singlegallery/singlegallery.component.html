@@ -1,6 +1,6 @@
 <app-page [title]="title">
   <ul class="gallery__list list-unstyled" *ngIf="gallery">
-    <li class="gsllery__listItem" *ngFor="let item of gallery" >
+    <li class="gsllery__listItem" *ngFor="let item of gallery | async" >
       <div class="gsllery__image"
       [style.background-image]=" item.guid? 'url('+ item.guid+')':null"></div>       
     </li>
