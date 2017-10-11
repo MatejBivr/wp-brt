@@ -1,5 +1,12 @@
 @import '../../variables';
 
+footer{
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+}
 .footer{	
 	background-color: $brtc-footer;
 	font-family: Montserrat;

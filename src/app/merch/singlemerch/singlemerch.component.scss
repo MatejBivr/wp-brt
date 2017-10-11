@@ -8,6 +8,9 @@
   @media (min-width: map-get($grid-breakpoints, md)) {
     padding: 125px 0 80px;
   }
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    padding: 170px 0 80px;
+  }
 }
 
 .merch__image{
@@ -26,6 +29,7 @@
   font-family: Montserrat;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 12px;
 }
 .merch__price{
   font-size: 24px;
@@ -33,10 +37,18 @@
   font-style: italic;
   font-family: Vollkorn;
   color: $brtc-darker-blue;
+  margin-bottom: 20px;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    margin-bottom: 50px;
+  }
 }
 .merch__text{
   font-size: 14px;
   line-height: 18px;
+  margin-bottom: 12px;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    margin-bottom: 43px;
+  }
 }
 .merch__status{
   font-size: 12px;
@@ -60,4 +72,7 @@
   display: block;
   max-width: 130px;
   text-align: center;
+  margin-top: 20px;
+  float: right;
+  min-width: 158px;
 }
