@@ -10,10 +10,10 @@ import 'rxjs/add/operator/filter';
   providers: []
 })
 export class DonateComponent implements OnInit {
-  private donations = [];
-  private sub: any;
-  private val: string;
-  private text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ipsum auctor, vulputate sem sed, condimentum quam. Nunc sit amet felis auctor massa faucibus tempus et ut libero. Fusce eleifend viverra dolor et efficitur. Ut non justo sed nulla tincidunt eleifend vehicula ac magna`;
+  donations = [];
+  sub: any;
+  val: string;
+  text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ipsum auctor, vulputate sem sed, condimentum quam. Nunc sit amet felis auctor massa faucibus tempus et ut libero. Fusce eleifend viverra dolor et efficitur. Ut non justo sed nulla tincidunt eleifend vehicula ac magna`;
 
   constructor( private route: ActivatedRoute, private donateService:DonateService ) { }
 

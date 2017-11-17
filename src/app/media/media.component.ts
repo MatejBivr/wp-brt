@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./media.component.scss']
 })
 export class MediaComponent implements OnInit {
-  private perPage = 8;
-  private title= "media gallery";
-  private type = 'gallery';
-  private media = [];
-  private page = 1;
-  private pages: number;
-  private loading: boolean= true;
-  private hero: string = null;
+  perPage = 8;
+  title= "media gallery";
+  type = 'gallery';
+  media = [];
+  page = 1;
+  pages: number;
+  loading: boolean= true;
+  hero: string = null;
 
   constructor( private mainService: MainService, private router: Router) { }
 

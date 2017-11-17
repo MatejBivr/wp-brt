@@ -7,8 +7,8 @@ import { MainService } from '../main.service';
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-  private perPage = 9;
-  private title = "Library";
+  perPage = 9;
+  title = "Library";
   type = 'promotion';
   promos = [];
   page = 1;

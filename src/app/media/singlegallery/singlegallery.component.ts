@@ -13,15 +13,15 @@ import 'rxjs/add/operator/toArray';
   styleUrls: ['./singlegallery.component.scss']
 })
 export class SinglegalleryComponent implements OnInit {
-  private gallery;
-  private gallery$;
-  private galleryPerPage = null;
-  private type = 'gallery';
-  private title='gallery';
-  private perPage = 4;
-  private page = 1;
-  private pages: number;
-  private loading: boolean= true;
+  gallery;
+  gallery$;
+  galleryPerPage = null;
+  type = 'gallery';
+  title='gallery';
+  perPage = 4;
+  page = 1;
+  pages: number;
+  loading: boolean= true;
   constructor(private mainService: MainService, private route: ActivatedRoute) { }
 
   getPost(type, slug){

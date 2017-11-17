@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -10,25 +11,25 @@ export class MainService {
 
   private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getPosts(type, perPage, numPage): Observable<any>{
     return this.http
-      .get(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`)
-      // .get(this.postUrl + `${type}`)
+      .get(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`, {observe: 'response'})
       .map(res => {
         console.log(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`);
+        console.log(typeof res.body)
         let pages = res.headers.getAll('X-WP-TotalPages');
         let count = res.headers.getAll('X-WP-Total');
-        let posts = res.json();
+        let posts = res.body;
         return [posts, pages[0], count];
       })
   }
 
   getPost(type, slug): Observable<Post> {
     return this.http
-      .get(this.postUrl + `${type}?slug=${slug}&_embed`)
-      .map((res: Response) => res.json());
+      .get(this.postUrl + `${type}?slug=${slug}&_embed`, {observe: 'response'})
+      .map((res) => res.body);
 
   }
 

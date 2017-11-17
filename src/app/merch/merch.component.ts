@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./merch.component.scss']
 })
 export class MerchComponent implements OnInit {
-  private perPage = 8;
-  private title= "merch";
+  perPage = 8;
+  title= "merch";
   type = 'merch';
   merch = [];
   page = 1;

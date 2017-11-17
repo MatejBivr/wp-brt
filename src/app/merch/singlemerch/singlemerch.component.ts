@@ -8,8 +8,8 @@ import { MainService } from '../../main.service';
   styleUrls: ['./singlemerch.component.scss']
 })
 export class SinglemerchComponent implements OnInit {
-  private merch;
-  private type = 'merch';
+  merch;
+  type = 'merch';
   constructor(private mainService: MainService, private route: ActivatedRoute) { }
 
   getPost(type, slug){
