@@ -1,9 +1,18 @@
 @import '../../variables';
+
+:host ::ng-deep svg{
+	width: 24px;
+	height: 23px;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		height: 61px;
+		width: 59px;
+	}
+}
+
 .menu{
 	position: relative;
-	.navbar{
+	.navbar{		
 		&.active{
-			position: absolute;
 			@media (min-width: map-get($grid-breakpoints, sm)) {
 				padding: 0.7rem 2.5rem;
 			}
@@ -45,15 +54,8 @@
 	}
 }
 .nav--logo{
-	position: absolute;
-	width: 24px;
-	height: 23px;	
-	background-color: pink;
+	position: absolute;	
 	top: 0;
-	@media (min-width: map-get($grid-breakpoints, sm)) {
-		height: 61px;
-		width: 59px;
-	}
 }
 .nav--title{
 	font-size: 17px;
@@ -66,9 +68,9 @@
 	font-weight: bold;
 }
 .menu--toggled{
-	position: absolute;
+	position: fixed;
 	background: url('/assets/img/menu-bgi.png');
-	height: 99vh;
+	height: 100vh;
 	top: 0;
 	bottom: 0;
 	right: 0;
@@ -86,7 +88,7 @@
 .nav--language{
 	position: absolute;
 	left: 50%;
-	top: 18px;
+	top: 40px;
 	transform: translateX(-50%);
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		bottom: auto;

@@ -1,0 +1,16 @@
+<app-page [title]="title">
+  <ul class="gallery__list list-unstyled" *ngIf="gallery">
+    <li class="gsllery__listItem" *ngFor="let item of gallery" >
+      <div class="gsllery__image"
+      [style.background-image]=" item.guid? 'url('+ item.guid+')':null"></div>       
+    </li>
+  </ul>
+  <app-pagination
+    [page]="page"
+    [pages]="pages"
+    [loading]="loading"
+    (goPrev)="prevPage()"
+    (goNext)="nextPage()"
+    (goPage)="goToPage($event)">          
+  </app-pagination>
+</app-page>

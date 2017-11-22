@@ -4,15 +4,15 @@
 	position: relative;
 	background: url('/assets/img/cover6.jpg') center center no-repeat;
 	background-size: cover;
-	height: 30vh;
+	// height: 30vh;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		height: 30vh;
+		// height: 30vh;
 	}
 	@media (min-width: map-get($grid-breakpoints, md)) {
-		height: 45vh;
+		// height: 45vh;
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
-		height: 69vh;
+		// height: 69vh;
 	}
 }
 .hero__overlay{
@@ -27,20 +27,19 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); 
 }
 .hero--content{
+	padding: 3em 1em 1em;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
-	height: 30vh;
+	// height: 30vh;
 	align-items: flex-start;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
+		padding: 7em 0em 1em;
 		flex-direction: row;
 		align-items: flex-end;
 		justify-content: space-between;
-		padding-bottom: 20px;
 	}
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		height: 30vh;
-		padding: 0 2rem 2rem;
 		flex: 1;
 	}
 	@media (min-width: map-get($grid-breakpoints, md)) {

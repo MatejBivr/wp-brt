@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
-import { PostsService } from '../posts.service';
+import { MainService } from '../../main.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
@@ -8,17 +8,17 @@ import { DatePipe } from '@angular/common';
   selector: 'app-singlepost',
   templateUrl: './singlepost.component.html',
   styleUrls: ['./singlepost.component.scss'],
-  providers: [PostsService]
+  providers: [MainService]
 })
 export class SinglepostComponent implements OnInit {
 	post: Post;
   hero: string = null;
 
-  constructor(private postsService: PostsService, private route: ActivatedRoute) { }
+  constructor(private postsService: MainService, private route: ActivatedRoute) { }
 
   getPost(slug){
     this.postsService
-      .getPost(slug)
+      .getPost('posts', slug)
       .subscribe(res => {
         this.post = res[0];
         console.log(this.post);

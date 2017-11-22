@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-media',
   templateUrl: './media.component.html',
   styleUrls: ['./media.component.scss']
 })
 export class MediaComponent implements OnInit {
-  private perPage = 6;
-  private title= "media gallery";
+  perPage = 8;
+  title= "media gallery";
   type = 'gallery';
   media = [];
   page = 1;
   pages: number;
   loading: boolean= true;
   hero: string = null;
-  constructor(private mainService: MainService) { }
+
+  constructor( private mainService: MainService, private router: Router) { }
 
   getMedia(type, perPage, numPage = 1){
     this.mainService
@@ -26,6 +29,11 @@ export class MediaComponent implements OnInit {
         console.log(typeof this.pages)
         this.loading = false;
       });
+  }
+
+  selectMedia(type, slug) {
+    let link = `/media/${slug}`
+    this.router.navigate([link]);
   }
 
   prevPage(){

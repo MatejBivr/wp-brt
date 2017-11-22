@@ -1,13 +1,13 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { Post } from '../post';
-import { PostsService } from '../posts.service';
+import { MainService } from '../../main.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss'],
-  providers: [PostsService]
+  providers: [MainService]
 })
 export class PostListComponent implements OnInit {
   @Input() perPage: number;
@@ -17,11 +17,11 @@ export class PostListComponent implements OnInit {
   loading: boolean= true;
   hero: string = null;
 
-  constructor( private postsService: PostsService, private router: Router ) { }
+  constructor( private postsService: MainService, private router: Router ) { }
 
   getPosts(perPage, numPage = 1){
     this.postsService
-      .getPosts(perPage, numPage)
+      .getPosts('posts', perPage, numPage)
       .subscribe(val => {
         this.posts = val[0];
         console.log(this.posts[0]);

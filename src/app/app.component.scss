@@ -1,6 +1,7 @@
 @import '../variables';
 
 .wrapper{
+  position: relative;
 	border: 3px solid $brtc-yollow;
 	min-height: 100%;
 	color: $brtc-text;
@@ -11,6 +12,9 @@
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		border: 7px solid $brtc-yollow;
 	}
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    padding-bottom: 210px;
+  }
 }
 
 button:focus{

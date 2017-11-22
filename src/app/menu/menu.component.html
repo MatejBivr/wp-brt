@@ -4,7 +4,9 @@
 			<div class="col">
 				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
 					<div class="nav--logoContainer">
-						<a routerLink="/home" class="nav--logo"></a>
+						<a routerLink="/home" class="nav--logo">
+							<svg-icon src="/assets/ikone/logo.svg" style=""></svg-icon>
+						</a>
 					</div>
 					<h1 class="nav--title">balkan rivers tour</h1>
 					<button class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
@@ -41,6 +43,9 @@
     		</li>
 	    	<li class="nav--listItem">
 	    		<a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
+    		</li>
+    		<li class="nav--listItem">
+	    		<a routerLink="/merch" class="nav--link" routerLinkActive="active">merch</a>
     		</li>
 	    	<li class="nav--listItem">
 	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact</a>

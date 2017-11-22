@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-	private perPage = 6;
-  private title= "news";
+	public perPage = 6;
+  public title= "news";
   constructor() { }
 
   ngOnInit() {

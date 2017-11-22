@@ -1,0 +1,22 @@
+<section class="merch" *ngIf="merch">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-6">
+        <div class="merch__image" [style.background-image]=" merch.image.guid? 'url('+ merch.image.guid+')':null"></div>
+        <div class="merch__socialContainer"></div>
+      </div>
+      <div class="col-md-6">
+        <div class="merch__body">
+          <h1 class="merch__heading">{{merch.title.rendered}}</h1>
+          <div class="merch__price">{{merch.price}}&euro;</div>
+          <div class="merch__text">
+            {{merch.long_description? merch.long_description: merch.short_description}}
+          </div>
+          <div class="merch__status">{{merch.in_stock? 'in stock' : 'out of stock'}}</div>
+          <div class="merch__sizes" innerHtml="{{merch.sizes}}"></div>
+          <a href="#" class="merch__button">send request</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

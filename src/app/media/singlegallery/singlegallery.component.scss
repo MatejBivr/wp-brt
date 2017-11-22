@@ -1,0 +1,38 @@
+@import '../../../variables';
+
+.gallery__list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gsllery__listItem{  
+  flex-grow: 1;
+  margin-bottom: 15px;
+  flex-basis: 49%;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    flex-basis: 33%;
+  }
+  &:first-of-type, &:last-of-type{
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-basis: 65%;
+    }
+  }
+  &:first-of-type{
+    margin-right: 1%;
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-basis: 65%;
+    }
+  }
+  &:last-of-type{
+    margin-left: 1%;
+  }
+  &:only-of-type {
+    flex-grow: unset;
+  }
+}
+.gsllery__image{
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
