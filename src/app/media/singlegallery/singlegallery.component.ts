@@ -15,7 +15,7 @@ import 'rxjs/add/operator/toArray';
 export class SinglegalleryComponent implements OnInit {
   gallery;
   gallery$;
-  galleryPerPage = null;
+  galleryPerPage = [];
   type = 'gallery';
   title='gallery';
   perPage = 4;
@@ -27,35 +27,35 @@ export class SinglegalleryComponent implements OnInit {
   getPost(type, slug){
     this.mainService
       .getPost(type, slug)
-      .map(res => { this.gallery$ = Observable.from(res[0].gallery); return res})
-      .subscribe(res => {
-        let i = res[0].gallery.length
-        console.log(this.gallery$);
-        this.title = res[0].title.rendered;
-        {i % this.perPage > 0? 
-          this.pages = (i - i % this.perPage)/this.perPage + 1
-          :this.pages = i/this.perPage}
-        this.gallery$
-          .bufferCount(this.perPage)
-          .take(1)
-          .map(val => this.gallery = val)     
-          .subscribe(val => console.log(val));
+      .map((res:any) => {
+        res = res[0].gallery
+        this.pages = Math.ceil(res.length / this.perPage)
+        return res;
+       })
+      .mergeMap(res => Observable.from(res))
+      .bufferCount(this.perPage)
+      .do(res => {
+        this.galleryPerPage.push(res);
+      })
+      .subscribe(()=> {
+        this.gallery = this.galleryPerPage[this.page - 1];
+        this.loading = false;
       });
   }
 
   prevPage(){
     this.page--
-    console.log(this.page);
+    this.gallery = this.galleryPerPage[this.page - 1];
   }
 
   nextPage(){
     this.page++
-    console.log(this.page);
+    this.gallery = this.galleryPerPage[this.page - 1];
   }
 
   goToPage($event){
     this.page=$event
-    console.log(this.page);
+    this.gallery = this.galleryPerPage[this.page - 1];
   }
 
   ngOnInit() {
