@@ -23,7 +23,7 @@ export class SinglepostComponent implements OnInit {
         this.post = res[0];
         console.log(this.post);
         this.hero = '/assets/img/cover6.jpg';
-        if (this.post['_embedded']['wp:featuredmedia'][0].source_url){
+        if (this.post['_embedded']['wp:featuredmedia']){
           this.hero = this.post['_embedded']['wp:featuredmedia'][0].source_url;
         }
       });

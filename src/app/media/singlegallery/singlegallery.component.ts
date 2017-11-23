@@ -1,11 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MainService } from '../../main.service';
-import { Observable } from 'rxjs';
-import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/toArray';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/bufferCount';
+import 'rxjs/add/observable/from';
 
 @Component({
   selector: 'app-singlegallery',

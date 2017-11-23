@@ -4,7 +4,8 @@
   display: flex;
   flex-wrap: wrap;
 }
-.gsllery__listItem{  
+
+.gallery__listItem{
   flex-grow: 1;
   margin-bottom: 15px;
   flex-basis: 49%;
@@ -29,7 +30,8 @@
     flex-grow: unset;
   }
 }
-.gsllery__image{
+
+.gallery__image{
   height: 300px;
   width: 100%;
   background-size: cover;

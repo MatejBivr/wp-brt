@@ -15,7 +15,7 @@ export class PaginationComponent {
   @Output() goNext = new EventEmitter<boolean>();
   @Output() goPage = new EventEmitter<number>();
 
-  constructor() {  }
+  // constructor() {  }
 
   ngOnChanges(){
   	this.numbers = Array(this.pages).fill(0).map((x,i)=>i+1);
