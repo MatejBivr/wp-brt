@@ -33,5 +33,17 @@ export class MainService {
 
   }
 
+  getPage(slug): Observable<any> {
+    return this.http
+      .get(this.postUrl + `pages?slug=${slug}&_embed`, {observe: 'response'})
+      .map((res) => res.body);
+
+  }
+
+  getWoo(type. sulg): Observable<any> {
+    // return this.http
+    //   .get(this,postUrl + )
+  }
+
 
 }
