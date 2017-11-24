@@ -16,3 +16,24 @@ a{
 		text-decoration: none;
 	}
 }
+
+.modal-dialog{
+  img{
+    max-width: 100%;
+    width: auto !important;
+  }
+  max-width: 90vw;
+  width: fit-content;
+  padding: 0;
+}
+.modal-body{
+  // width: auto;
+  padding: 0;
+  border-radius: 0;
+  flex: 0 0 0;
+}
+.modal-content{
+  border-radius: 0;
+  // width: auto;
+  // max-width: 90vw;
+}

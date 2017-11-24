@@ -32,6 +32,7 @@ import { MerchComponent } from './merch/merch.component';
 import { SinglemerchComponent } from './merch/singlemerch/singlemerch.component';
 import { SinglegalleryComponent } from './media/singlegallery/singlegallery.component';
 import { StandalonepageComponent } from './common/page/standalonepage.component';
+import { ModalcontentComponent } from './media/singlegallery/modalcontent.component';
 
 
 const appRoutes: Routes = [
@@ -79,6 +80,7 @@ const appRoutes: Routes = [
     SinglemerchComponent,
     SinglegalleryComponent,
     StandalonepageComponent,
+    ModalcontentComponent,
   ],
   imports: [
     CommonModule,
