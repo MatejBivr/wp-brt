@@ -155,8 +155,8 @@
 		background-size: contain;
 		margin-right: 2px;
 		@media (min-width: map-get($grid-breakpoints, md)) {
-			height: 21px;
-			width: 21px;
+			height: 24px;
+			width: 24px;
 			margin-right: 4px;
 		}
 	}
@@ -167,8 +167,8 @@
 		background:transparent url('/assets/img/fig.png') center center no-repeat;
 		background-size: contain;
 		@media (min-width: map-get($grid-breakpoints, md)) {
-			height: 21px;
-			width: 21px;
+			height: 24px;
+			width: 24px;
 		}
 	}
 }

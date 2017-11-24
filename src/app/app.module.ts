@@ -35,7 +35,7 @@ import { SinglegalleryComponent } from './media/singlegallery/singlegallery.comp
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about', component: PageComponent, data: { title: 'About' } },
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'media', component: MediaComponent , pathMatch: 'full'},
@@ -47,7 +47,8 @@ const appRoutes: Routes = [
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'contact', component: PageComponent, data: { title: 'Contact' } },
+  { path: 'hidro', component: PageComponent, data: { title: 'Dirty Hidro' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent }
 ];
