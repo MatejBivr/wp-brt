@@ -8,7 +8,10 @@
           </h1>
         </div>
         <hr>
-        <ng-content></ng-content>
+
+        <div [innerHTML]="content">
+        </div>
+
         <hr>
       </div>
     </div>

@@ -2,6 +2,9 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MainService } from '../../main.service';
 import { Observable } from 'rxjs/Observable';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {ModalcontentComponent} from './modalcontent.component';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mergeMap';
@@ -15,7 +18,6 @@ import 'rxjs/add/observable/from';
 })
 export class SinglegalleryComponent implements OnInit {
   gallery;
-  gallery$;
   galleryPerPage = [];
   type = 'gallery';
   title='gallery';
@@ -23,7 +25,15 @@ export class SinglegalleryComponent implements OnInit {
   page = 1;
   pages: number;
   loading: boolean= true;
-  constructor(private mainService: MainService, private route: ActivatedRoute) { }
+  closeResult: string;
+
+  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
+
+  open(content, guid) {
+    const activeModal = this.modalService.open(content);
+    console.log(content)
+    content.guid = guid;
+  }
 
   getPost(type, slug){
     this.mainService
@@ -41,6 +51,7 @@ export class SinglegalleryComponent implements OnInit {
       .subscribe(()=> {
         this.gallery = this.galleryPerPage[this.page - 1];
         this.loading = false;
+        console.log(this.gallery)
       });
   }
 

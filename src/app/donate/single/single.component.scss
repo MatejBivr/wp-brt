@@ -18,6 +18,7 @@
 
 .donate__container{
   display: flex;
+  flex-direction: row-reverse;
 }
 .donate__item{
   flex: 1;
@@ -30,7 +31,8 @@
 .donate__itemImage{
   height: 100px;
   width: 70px;
-  background: no-repeat center center red;
+  background: no-repeat center center;
+  background-size: contain;
 }
 .donate__itemTitle{
   font-family: Montserrat;

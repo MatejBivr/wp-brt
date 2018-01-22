@@ -15,13 +15,14 @@ export class DonateComponent implements OnInit {
   val: string;
   text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ipsum auctor, vulputate sem sed, condimentum quam. Nunc sit amet felis auctor massa faucibus tempus et ut libero. Fusce eleifend viverra dolor et efficitur. Ut non justo sed nulla tincidunt eleifend vehicula ac magna`;
 
-  constructor( private route: ActivatedRoute, private donateService:DonateService ) { }
+  constructor( private route: ActivatedRoute, private donateService: DonateService ) { }
 
   getDonations(){
     this.donateService.getDonations()
       .subscribe(val => {
+        console.log(val);
         this.donations = val.filter((i) => {
-          return i['donation-type'] === this.val;
+          return i['tags'][0]['name'] === this.val;
         });
       });
   }

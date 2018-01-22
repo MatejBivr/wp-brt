@@ -11,7 +11,7 @@ export class MainService {
 
   private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
 
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient) { }
 
   getPosts(type, perPage, numPage): Observable<any>{
     return this.http
@@ -32,6 +32,18 @@ export class MainService {
       .map((res) => res.body);
 
   }
+
+  getPage(slug): Observable<any> {
+    return this.http
+      .get(this.postUrl + `pages?slug=${slug}&_embed`, {observe: 'response'})
+      .map((res) => res.body);
+
+  }
+
+  // getWoo(type. sulg): Observable<any> {
+  //   // return this.http
+  //   //   .get(this,postUrl + )
+  // }
 
 
 }

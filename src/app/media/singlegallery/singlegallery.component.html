@@ -1,7 +1,7 @@
 <app-page [title]="title">
   <ul class="gallery__list list-unstyled" *ngIf="gallery">
     <li class="gallery__listItem" *ngFor="let item of gallery" >
-      <div class="gallery__image"
+      <div class="gallery__image" (click)="open(content, item.guid)"
       [style.background-image]=" item.guid? 'url('+ item.guid+')':null"></div>       
     </li>
   </ul>
@@ -14,3 +14,9 @@
     (goPage)="goToPage($event)">          
   </app-pagination>
 </app-page>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <img src={{content.guid}} alt="">
+  </div>
+</ng-template>

@@ -10,7 +10,7 @@ import { MainService } from '../../main.service';
 export class SinglemerchComponent implements OnInit {
   merch;
   type = 'merch';
-  constructor(private mainService: MainService, private route: ActivatedRoute) { }
+  constructor( private mainService: MainService, private route: ActivatedRoute) { }
 
   getPost(type, slug){
     this.mainService

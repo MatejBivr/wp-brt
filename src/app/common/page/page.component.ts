@@ -5,11 +5,13 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss']
 })
+
 export class PageComponent implements OnInit {
-  @Input() title;
+  @Input() title: string;
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
