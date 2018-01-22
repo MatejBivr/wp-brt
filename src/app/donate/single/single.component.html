@@ -6,10 +6,11 @@
   <hr>
   <ul class="donate__container list-unstyled">
     <li class="donate__item" *ngFor="let donation of donations">
-      <div class="donate__itemHeader">
-        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation['donation-amount'].guid +')'"></div>
-        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/{{donation['donation-title']}}</span></h3>
-      </div>
+      <a href="{{donation.permalink}}" 
+        class="donate__itemHeader">
+        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation['images'][0].src +')'"></div>
+        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/{{donation['tags'][0]['name']}}</span></h3>
+      </a>
       <div class="donate__itemBody">{{donation['donation-description']}}</div>
     </li>
   </ul>

@@ -27,7 +27,7 @@ export class SinglegalleryComponent implements OnInit {
   loading: boolean= true;
   closeResult: string;
 
-  constructor(private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
+  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
 
   open(content, guid) {
     const activeModal = this.modalService.open(content);

@@ -11,7 +11,7 @@ export class MainService {
 
   private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
 
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient) { }
 
   getPosts(type, perPage, numPage): Observable<any>{
     return this.http
@@ -40,10 +40,10 @@ export class MainService {
 
   }
 
-  getWoo(type. sulg): Observable<any> {
-    // return this.http
-    //   .get(this,postUrl + )
-  }
+  // getWoo(type. sulg): Observable<any> {
+  //   // return this.http
+  //   //   .get(this,postUrl + )
+  // }
 
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single',
@@ -12,15 +13,8 @@ export class SingleComponent implements OnInit {
   @Input() donationText;
 
   constructor() { }
-
-
+  
   ngOnInit() {
   }
-
-  ngOnChanges(){
-    console.log(this.donations);
-  }
-
-  
-
+ 
 }

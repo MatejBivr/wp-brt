@@ -15,7 +15,7 @@ export class LibraryComponent implements OnInit {
   pages: number;
   loading: boolean= true;
   hero: string = null;
-  constructor(private mainService: MainService) { }
+  constructor( private mainService: MainService) { }
 
   getPromotions(type, perPage, numPage = 1){
     this.mainService

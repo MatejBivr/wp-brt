@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,11 +13,9 @@ import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './main/hero/hero.component';
-import { AboutComponent } from './about/about.component';
 import { NewsComponent } from './news/news.component';
 import { DonateComponent } from './donate/donate.component';
 import { LibraryComponent } from './library/library.component';
-import { ContactComponent } from './contact/contact.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { InvolvedComponent } from './common/involved/involved.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
@@ -25,6 +23,7 @@ import { SinglepostComponent } from './posts/singlepost/singlepost.component';
 import { SingleComponent } from './donate/single/single.component';
 import { ExpensesComponent } from './donate/expenses/expenses.component';
 import { DonateService } from './donate/donate.service';
+import { AuthInterceptor } from './donate/AuthInterceptor';
 import { PageComponent } from './common/page/page.component';
 import { MainService } from './main.service';
 import { MediaComponent } from './media/media.component';
@@ -33,6 +32,7 @@ import { SinglemerchComponent } from './merch/singlemerch/singlemerch.component'
 import { SinglegalleryComponent } from './media/singlegallery/singlegallery.component';
 import { StandalonepageComponent } from './common/page/standalonepage.component';
 import { ModalcontentComponent } from './media/singlegallery/modalcontent.component';
+import { SoonComponent } from './soon/soon.component';
 
 
 const appRoutes: Routes = [
@@ -50,9 +50,12 @@ const appRoutes: Routes = [
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
   { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact' } },
+  { path: 'cart', component: StandalonepageComponent, data: { title: 'cart' } },
+  { path: 'checkout', component: StandalonepageComponent, data: { title: 'Checkout' } },
+  { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
   { path: 'hidro', component: StandalonepageComponent, data: { title: 'Dirty Hidro' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PagenotfoundComponent }
+  // { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({
@@ -63,11 +66,9 @@ const appRoutes: Routes = [
     MenuComponent,
     FooterComponent,
     HeroComponent,
-    AboutComponent,
     NewsComponent,
     DonateComponent,
     LibraryComponent,
-    ContactComponent,
     PagenotfoundComponent,
     InvolvedComponent,
     PaginationComponent,
@@ -81,6 +82,7 @@ const appRoutes: Routes = [
     SinglegalleryComponent,
     StandalonepageComponent,
     ModalcontentComponent,
+    SoonComponent,
   ],
   imports: [
     CommonModule,
@@ -91,7 +93,11 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MainService, DonateService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    MainService,
+    DonateService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,14 @@
 						</li>
 					</ul>
 				</div>
-				<app-single [donations]="donations" [donationType]="val" [donationText]="text"></app-single>
+				<div [ngSwitch]="val">
+					<div *ngSwitchCase="'business'">
+						<app-soon></app-soon>
+					</div>
+					<div *ngSwitchDefault>
+						<app-single [donations]="donations" [donationType]="val" [donationText]="text"></app-single>
+					</div>
+				</div>				
 			</div>
 		</div>
 	</div>

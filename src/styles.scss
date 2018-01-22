@@ -5,9 +5,11 @@ body{
 p {
 	margin-bottom: 25px;
 }
-img {
-	width: 100% !important;
-	height: auto;
+.wrapper {
+  img {
+    width: 100% !important;
+    height: auto;
+  }
 }
 a{
 	color: #23c1f3;
@@ -15,6 +17,12 @@ a{
 		color: #01b7f1;
 		text-decoration: none;
 	}
+}
+
+.customize-support{
+  .fixed-top{
+    top:32px;
+  }
 }
 
 .modal-dialog{
