@@ -1,0 +1,7 @@
+{
+    "require": {
+        "automattic/woocommerce": "^1.3",
+        "league/oauth1-client": "^1.7",
+        "phpclasses/oauth-api": ">=1.0.103"
+    }
+}

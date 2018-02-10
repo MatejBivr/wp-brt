@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.soon__container{
+  text-align: center;
+}
+.soon__herading{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    font-size: 36px;
+  }
+}
+.soon__subheading{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    font-size: 26px;
+  }
+}

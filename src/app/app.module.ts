@@ -6,6 +6,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { AppComponent } from './app.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
@@ -90,6 +91,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularSvgIconModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],

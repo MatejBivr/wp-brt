@@ -48,7 +48,7 @@
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		height: 69vh;
-		padding: 0 1.1rem 2.5rem; 
+		padding: 0 calc(2.8rem - 21px) 2.5rem; 
 	}
 }
 .hero--block{
@@ -103,7 +103,7 @@
 	font-size: 28px;
 	font-family: Montserrat;
 	font-weight: bolder;
-	text-align: center;
+	text-align: left;
 	color: $brtc-light-text;
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		font-size: 48px;
@@ -132,6 +132,7 @@
 	&:hover,&:focus{
 		background-color: $brtc-darker-blue;
 		color: white;
+		cursor: pointer;
 	}
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		font-size: 21px;
@@ -151,7 +152,7 @@
 		display: block;
 		height: 18px;
 		width: 18px;
-		background:transparent url('/assets/img/ffb.png') center center no-repeat;
+		background:transparent url('/assets/ikone/facebook.svg') center center no-repeat;
 		background-size: contain;
 		margin-right: 2px;
 		@media (min-width: map-get($grid-breakpoints, md)) {
@@ -164,7 +165,7 @@
 		display: block;
 		height: 18px;
 		width: 18px;
-		background:transparent url('/assets/img/fig.png') center center no-repeat;
+		background:transparent url('/assets/ikone/instagram.svg') center center no-repeat;
 		background-size: contain;
 		@media (min-width: map-get($grid-breakpoints, md)) {
 			height: 24px;

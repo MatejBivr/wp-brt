@@ -8,7 +8,7 @@ import { Post } from './post';
 @Injectable()
 export class PostsService {
 
-	private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
+	private postUrl = '/wp-json/wp/v2/'
 
 	constructor(private http: Http) { }
 

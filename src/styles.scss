@@ -33,6 +33,10 @@ a{
   max-width: 90vw;
   width: fit-content;
   padding: 0;
+  .modal.show &{
+    top: 40%;
+    transform: translate(0, -50%);
+  }
 }
 .modal-body{
   // width: auto;
