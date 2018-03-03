@@ -4,15 +4,15 @@
 	position: relative;
 	background: url('/assets/img/cover6.jpg') center center no-repeat;
 	background-size: cover;
-	// height: 30vh;
+	height: 30vh;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		// height: 30vh;
+		height: 30vh;
 	}
 	@media (min-width: map-get($grid-breakpoints, md)) {
-		// height: 45vh;
+		height: 45vh;
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
-		// height: 69vh;
+		height: 69vh;
 	}
 }
 .hero__overlay{

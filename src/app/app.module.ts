@@ -50,11 +50,11 @@ const appRoutes: Routes = [
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
-  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact' } },
+  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact us' } },
   { path: 'cart', component: StandalonepageComponent, data: { title: 'cart' } },
   { path: 'checkout', component: StandalonepageComponent, data: { title: 'Checkout' } },
   { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
-  { path: 'hidro', component: StandalonepageComponent, data: { title: 'Dirty Hidro' } },
+  { path: 'hydro', component: StandalonepageComponent, data: { title: 'Dirty Hydro' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PagenotfoundComponent }
 ];
