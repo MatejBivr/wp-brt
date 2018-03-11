@@ -18,16 +18,12 @@ export class StandalonepageComponent implements OnInit {
     this.mainService
       .getPage(this.title)
       .subscribe(val => {
-        console.log(val);
-        console.log(typeof(val[0].content.rendered));
         this.content = val[0].content ? val[0].content.rendered : null;
       });
   }
 
   ngOnInit() {
-    console.log(this.route.snapshot);
     this.title = this.route.snapshot.data['title'];
-    console.log(this.title)
     this.getPage();
   }
 

@@ -9,8 +9,25 @@
             </a>
 					</div>
 					<h1 class="nav--title">balkan rivers tour</h1>
-					<button class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
-				    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <div ngbDropdown>
+            <a class="nav__title--link d-md-block" id="dropdown1" ngbDropdownToggle>GET INVOLVED</a>
+            <div ngbDropdownMenu aria-labelledby="dropdown1">
+              <a routerLink="/action" class="nav--link" routerLinkActive="active">Take action</a>
+              <a routerLink="/goods" class="nav--link" routerLinkActive="active">Contribute in Goods</a>
+              <a routerLink="/intellectuals" class="nav--link" routerLinkActive="active">River Intellectuals</a>
+            </div>
+          </div>
+          <div ngbDropdown>
+            <a class="nav__title--link d-md-block" id="dropdown2" ngbDropdownToggle>BRT3</a>
+            <div ngbDropdownMenu aria-labelledby="dropdown2">
+              <a routerLink="/program" class="nav--link" routerLinkActive="active">Program</a>
+                <a routerLink="/faq" class="nav--link" routerLinkActive="active">faq</a>
+            </div>
+          </div>          
+          <a routerLink="/donate" class="nav__title--link" routerLinkActive="active">donate</a>
+          
+					<button class="navbar-toggler" (click)="open(content)"
+				    >
 				    <i [ngClass]=" isCollapsed ? 'fa fa-bars': 'fa fa-close'" aria-hidden="true"></i>
 				  </button>
 				</nav>
@@ -18,38 +35,80 @@
 		</div>
 	</div>
 
-	<div [ngbCollapse]="isCollapsed">
-	  <div class="menu--toggled">
-			<div class="menu--toggled__layer"></div>
-	    <ul class="list-unstyled nav--list" (click)="isCollapsed = !isCollapsed">
-	    	<li class="nav--listItem">
-	    		<a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
-    		</li>
-	    	<li class="nav--listItem">
-	    		<a routerLink="/about" class="nav--link" routerLinkActive="active">about</a>
-    		</li>
-	    	<li class="nav--listItem">
-	    		<a routerLink="/news" class="nav--link" routerLinkActive="active">news</a>
-    		</li>
-    		<li class="nav--listItem">
-	    		<a routerLink="/media" class="nav--link" routerLinkActive="active">media</a>
-    		</li>
-	    	<li class="nav--listItem">
-	    		<a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
-    		</li>
-    		<li class="nav--listItem">
-	    		<a routerLink="/hydro" class="nav--link" routerLinkActive="active">dirty hydro</a>
-    		</li>
-	    	<li class="nav--listItem">
-	    		<a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
-    		</li>
-    		<li class="nav--listItem">
-	    		<a routerLink="/merch" class="nav--link" routerLinkActive="active">merch</a>
-    		</li>
-	    	<li class="nav--listItem">
-	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact us</a>
-    		</li>
-	    </ul>
-	  </div>
-	</div>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <div class="nav--logoContainer">
+          <a routerLink="/home" class="nav--logo">
+            <svg-icon src='/assets/ikone/logo.svg'></svg-icon>
+          </a>
+          </div>
+        <button class="navbar-toggler" ria-label="Close" (click)="d('Cross click')">
+          <i [ngClass]=" 'fa fa-close'"></i>
+        </button>
+    </div>
+    <div class="menu--toggled" >
+      <div class="menu--toggled__layer"></div>
+      <ul class="list-unstyled nav--list">
+        <!-- <li class="nav--listItem">
+          <a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
+        </li> -->
+
+        <li class="nav--listItem d-sm-none">
+          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+            <ngb-panel title="GET INVOLVED">            
+              <ng-template ngbPanelContent>
+                <a routerLink="/action" class="nav--link" routerLinkActive="active">Take action</a>
+                <a routerLink="/goods" class="nav--link" routerLinkActive="active">Contribute in Goods</a>
+                <a routerLink="/intellectuals" class="nav--link" routerLinkActive="active">River Intellectuals</a>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="BRT3">            
+              <ng-template ngbPanelContent>              
+                <a routerLink="/program" class="nav--link" routerLinkActive="active">Program</a>
+                <a routerLink="/faq" class="nav--link" routerLinkActive="active">faq</a>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </li>
+        <li class="nav--listItem">
+          
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/merch" class="nav--link" routerLinkActive="active">Shop</a>
+        </li>      
+        <li class="nav--listItem">
+          <a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
+        </li>        
+        <li class="nav--listItem">
+          <a routerLink="/about" class="nav--link" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/news" class="nav--link" routerLinkActive="active">News</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/media" class="nav--link" routerLinkActive="active">Media</a>
+        </li>
+        
+        <li class="nav--listItem">
+          <a routerLink="/hydro" class="nav--link" routerLinkActive="active">dirty hydro</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/crew" class="nav--link" routerLinkActive="active">the crew</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/network" class="nav--link" routerLinkActive="active">BRD Network</a>
+        </li>       
+        <li class="nav--listItem">
+          <a routerLink="/contact" class="nav--link" routerLinkActive="active">contact us</a>
+        </li>
+        <li class="nav--listItem">
+          <a routerLink="/partners" class="nav--link" routerLinkActive="active">partners</a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+
 </section>

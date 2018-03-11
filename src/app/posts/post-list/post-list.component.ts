@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PostListComponent implements OnInit {
   @Input() perPage: number;
+  @Input() category: string;
 	posts: Post[];
   page = 1;
   pages: number;
@@ -19,39 +20,40 @@ export class PostListComponent implements OnInit {
 
   constructor( private postsService: MainService, private router: Router ) { }
 
-  getPosts(perPage, numPage = 1){
+  getPosts(perPage, category, numPage = 1){
+    console.log(category);
     this.postsService
-      .getPosts('posts', perPage, numPage)
+      .getPosts(category, perPage, numPage)
       .subscribe(val => {
         this.posts = val[0];
-        console.log(this.posts[0]);
+        console.log(this.posts);
         this.pages = Number(val[1][0]);
         this.loading = false;
       });
   }
 
   selectPost(slug) {
-    let link = `/news/${slug}`
+    let link = this.category === 'latest'? `/latest/${slug}`: `/news/${slug}`
     this.router.navigate([link]);
   }
 
   prevPage(){
     this.page--
-    this.getPosts(this.perPage, this.page);
+    this.getPosts(this.perPage, this.category, this.page);
   }
 
   nextPage(){
     this.page++
-    this.getPosts(this.perPage, this.page);
+    this.getPosts(this.perPage, this.category, this.page);
   }
 
   goToPage($event){
     this.page=$event
-    this.getPosts(this.perPage, this.page);
+    this.getPosts(this.perPage, this.category, this.page);
   }
 
   ngOnInit() {
-  	this.getPosts(this.perPage, this.page);
+  	this.getPosts(this.perPage, this.category, this.page);
   }
 
 }

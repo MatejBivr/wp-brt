@@ -72,6 +72,16 @@
 	font-family: Montserrat;
 	font-weight: bold;
 }
+.nav__title--link{
+	font-size: 17px;
+	line-height: 21px;
+	margin-bottom: 0;
+	color: $brtc-text;
+	text-transform: uppercase;
+	font-family: Montserrat;
+	font-weight: bold;
+	padding: 0 5px;
+}
 .menu--toggled{
 	position: fixed;
 	background-color: $brtc-darker-blue;
@@ -81,8 +91,39 @@
 	bottom: 0;
 	right: 0;
 	left: 0;
-	z-index: 2;
+	// z-index: 2;
 	border: 7px solid $brtc-yollow;
+	::ng-deep .card{
+		background-color: transparent;
+		border: none;
+		.card-header{
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			a{
+				display: block;
+				line-height: 30px;
+				font-size: 17px;
+				font-family: Montserrat;
+				font-weight: bold;
+				text-transform: uppercase;
+				color:black;
+				@media (min-width: map-get($grid-breakpoints, md)) {
+					line-height: 60px;
+					font-size: 29px;
+				}
+				&.active{
+					background:transparent url('/assets/img/wave.png') center bottom repeat-x;
+				}
+				&:hover,&:focus{
+					text-decoration: none;
+				}
+			}
+		}
+		.card-body{
+			padding: 0;
+		}
+	}
 }
 .menu--toggled__layer{
 	position: absolute;
@@ -134,12 +175,12 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	color:black;
-	@media (min-width: map-get($grid-breakpoints, sm)) {
+	@media (min-width: map-get($grid-breakpoints, md)) {
 		line-height: 60px;
 		font-size: 29px;
 	}
 	&.active{
-		background:transparent url('/assets/img/wave.png') left bottom no-repeat;
+		background:transparent url('/assets/img/wave.png') center bottom repeat-x;
 	}
 	&:hover,&:focus{
 		text-decoration: none;

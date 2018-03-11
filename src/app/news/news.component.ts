@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 	public perPage = 6;
+  public category = 'posts';
   public title= "news";
   constructor() { }
 

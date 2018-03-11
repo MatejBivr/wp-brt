@@ -1,0 +1,97 @@
+<app-page [title]="title">
+  <h2>Core team</h2>
+  <ul class="crew__list list-unstyled">
+    <li class="crew__listItem" *ngFor="let crew of core" (click)="open(content)">
+      <div class="crew__imageContainer">
+        <div class="crew__image"  [style.background-image]=" crew.acf.image.url? 'url('+ crew.acf.image.url+')':null"></div>  
+      </div>
+      <div class="crew__body">
+        <h2 class="crew__heading">{{crew.acf['crew_name']}}</h2>
+        <a href={{crew.acf.twitter}} >
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href={{crew.acf.facebook}} >
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a [href]="'mailto:' + crew.acf.contact">
+          <i class="fa fa-envelope"></i>
+        </a>
+       <a href={{crew.acf.contact}}>
+         <i class="fa fa-globe"></i>
+       </a>
+       
+      </div>
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">{{crew.acf['crew_name']}}</h4>
+          <p class="crew__text">design</p>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src={{crew.acf.image.url}} alt="">
+          <p>{{crew.acf.crew_discription}}</p>
+          <a href={{crew.acf.twitter}} >
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href={{crew.acf.facebook}} >
+            <i class="fa fa-facebook-f"></i>
+          </a>
+          <a [href]="'mailto:' + crew.acf.contact">
+            <i class="fa fa-envelope"></i>
+          </a>
+         <a href={{crew.acf.contact}}>
+           <i class="fa fa-globe"></i>
+         </a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+  <hr>
+  <h2>Local support</h2>
+  <ul class="crew__list crew__list--local list-unstyled">
+    <li class="crew__listItem" *ngFor="let crew of media">
+      <div class="crew__imageContainer">
+        <div class="crew__image"  [style.background-image]=" crew.acf.image.url? 'url('+ crew.acf.image.url+')':null"></div>  
+      </div>
+      <div class="crew__body">
+        <h2 class="crew__heading">{{crew.acf['crew_name']}}</h2>
+        <p class="crew__text">design</p>
+        <a href={{crew.acf.twitter}} >
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href={{crew.acf.facebook}} >
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a [href]="'mailto:' + crew.acf.contact">
+          <i class="fa fa-envelope"></i>
+        </a>       
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <h2>volunteers</h2>
+  <ul class="crew__list crew__list--volunteer list-unstyled">
+    <li class="crew__listItem" *ngFor="let crew of media">
+      <div class="crew__body">
+        <h2 class="crew__heading">{{crew.acf['crew_name']}}</h2>
+        <a href={{crew.acf.twitter}} >
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href={{crew.acf.facebook}} >
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a [href]="'mailto:' + crew.acf.contact">
+          <i class="fa fa-envelope"></i>
+        </a>
+       <a href={{crew.acf.contact}}>
+         <i class="fa fa-globe"></i>
+       </a>
+      </div>
+    </li>
+  </ul>
+</app-page>

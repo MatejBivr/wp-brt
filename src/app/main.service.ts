@@ -26,6 +26,12 @@ export class MainService {
       })
   }
 
+  getCrew(type): Observable<any> {
+    return this.http
+      .get(this.postUrl + type, {observe: 'response'})
+      .map((res) => res.body);
+  }
+
   getPost(type, slug): Observable<Post> {
     return this.http
       .get(this.postUrl + `${type}?slug=${slug}&_embed`, {observe: 'response'})

@@ -16,12 +16,11 @@ export class SinglepostComponent implements OnInit {
 
   constructor(private postsService: MainService, private route: ActivatedRoute) { }
 
-  getPost(slug){
+  getPost(slug, link){
     this.postsService
-      .getPost('posts', slug)
+      .getPost(link, slug)
       .subscribe(res => {
         this.post = res[0];
-        console.log(this.post);
         this.hero = '/assets/img/cover6.jpg';
         if (this.post['_embedded']['wp:featuredmedia']){
           this.hero = this.post['_embedded']['wp:featuredmedia'][0].source_url;
@@ -33,7 +32,8 @@ export class SinglepostComponent implements OnInit {
   async ngOnInit() {
   	await this.route.params.forEach((params: Params) => {
        let slug = params['slug'];
-        this.getPost(slug);
+       let link = this.route.snapshot.data['type']? this.route.snapshot.data['type']: 'posts';
+        this.getPost(slug, link);
 
     });
 
