@@ -1,5 +1,8 @@
 @import '../../variables';
 
+.main{
+  padding-bottom: 20px;
+}
 
 .posts__header{}
 .posts__heading{
@@ -12,5 +15,5 @@
   color: $brtc-light-text;
   width: auto;
   background:transparent url('/assets/img/wave.png') left bottom repeat-x;
-  margin-bottom: 30px;
+  margin: 30px 0 0 ;
 }

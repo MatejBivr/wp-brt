@@ -11,14 +11,10 @@
 
 .menu{
 	position: relative;
-	.navbar{		
-		&.active{
-			@media (min-width: map-get($grid-breakpoints, sm)) {
-				padding: 0.7rem 2.5rem;
-			}
-		}
+	.navbar{
+		align-items: flex-start;
 		@media (min-width: map-get($grid-breakpoints, sm)) {
-			padding: 1rem 2.8rem;
+			padding: 1.25rem 2.8rem;
 		}
 	}
 	.navbar-toggler{
@@ -36,7 +32,7 @@
 			margin-left: 40px;			
 		}
 	}
-	.fa-bars{
+	.fa-bars, .fa-close{
 		color: $brtc-blue;
 		font-size: 2em;
 	}
@@ -58,8 +54,6 @@
 .nav--logo{
 	position: absolute;	
 	top: 0;
-	background: url('/assets/ikone/logo.png') no-repeat center center;
-	background-size: contain;
 	display: block;
 	width: 24px;
 	height: 23px;
@@ -88,6 +82,7 @@
 	right: 0;
 	left: 0;
 	z-index: 2;
+	border: 7px solid $brtc-yollow;
 }
 .menu--toggled__layer{
 	position: absolute;
@@ -126,9 +121,6 @@
 	left: 50%;
 	top: 40%;
 	transform: translate(-50%,-50%);
-	@media (min-width: map-get($grid-breakpoints, sm)) {
-		top: 30%;
-	}
 }
 
 .nav--listItem{	

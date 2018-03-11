@@ -13,6 +13,9 @@
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		flex-direction: row;
 	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		margin-bottom: 55px;
+	}
 }
 .donate__menuItem{
 	margin-right: 5px;

@@ -4,17 +4,15 @@
 			<div class="col">
 				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
 					<div class="nav--logoContainer">
-						<a routerLink="/home" class="nav--logo"></a>
+						<a routerLink="/home" class="nav--logo">
+              <svg-icon src='/assets/ikone/logo.svg'></svg-icon>
+            </a>
 					</div>
 					<h1 class="nav--title">balkan rivers tour</h1>
 					<button class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
 				    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-				    <i class="fa fa-bars" aria-hidden="true"></i>
+				    <i [ngClass]=" isCollapsed ? 'fa fa-bars': 'fa fa-close'" aria-hidden="true"></i>
 				  </button>
-				   <!-- <div class="nav--language" [hidden]="isCollapsed">
-						<a href="#" class="language--link">EN</a>
-						<a href="#" class="language--link">SI</a>
-					</div> -->
 				</nav>
 			</div>
 		</div>
@@ -40,7 +38,7 @@
 	    		<a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
     		</li>
     		<li class="nav--listItem">
-	    		<a routerLink="/hidro" class="nav--link" routerLinkActive="active">dirty hidro</a>
+	    		<a routerLink="/hydro" class="nav--link" routerLinkActive="active">dirty hydro</a>
     		</li>
 	    	<li class="nav--listItem">
 	    		<a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
@@ -49,14 +47,9 @@
 	    		<a routerLink="/merch" class="nav--link" routerLinkActive="active">merch</a>
     		</li>
 	    	<li class="nav--listItem">
-	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact</a>
+	    		<a routerLink="/contact" class="nav--link" routerLinkActive="active">contact us</a>
     		</li>
 	    </ul>
-	    <!-- <form class="nav--search">
-			  <div class="form-group">
-			    <input type="text" class="form-control" aria-describedby="Search" placeholder="search">
-			  </div>
-			</form> -->
 	  </div>
 	</div>
 </section>

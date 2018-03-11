@@ -6,6 +6,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { AppComponent } from './app.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
@@ -49,11 +50,11 @@ const appRoutes: Routes = [
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
-  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact' } },
+  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact us' } },
   { path: 'cart', component: StandalonepageComponent, data: { title: 'cart' } },
   { path: 'checkout', component: StandalonepageComponent, data: { title: 'Checkout' } },
   { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
-  { path: 'hidro', component: StandalonepageComponent, data: { title: 'Dirty Hidro' } },
+  { path: 'hydro', component: StandalonepageComponent, data: { title: 'Dirty Hydro' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PagenotfoundComponent }
 ];
@@ -90,6 +91,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularSvgIconModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],

@@ -25,6 +25,9 @@
 }
 .posts__listItem{
 	padding: 10px;
+	&:hover{
+		cursor: pointer;
+	}
 	p{
 		font-size: 14px;
 		line-height: 16px;
