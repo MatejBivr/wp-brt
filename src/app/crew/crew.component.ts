@@ -16,7 +16,14 @@ export class CrewComponent implements OnInit {
   constructor( private mainService: MainService, private modalService: NgbModal) { }
 
   open(content) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
+    const options = {
+      windowClass: 'dark-modal',
+      beforeDismiss: () => {        
+        return false;
+      }
+    };
+
+    this.modalService.open(content);
   }
 
   getCrew(){

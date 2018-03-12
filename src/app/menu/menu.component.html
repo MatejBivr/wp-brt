@@ -42,11 +42,11 @@
             <svg-icon src='/assets/ikone/logo.svg'></svg-icon>
           </a>
           </div>
-        <button class="navbar-toggler" ria-label="Close" (click)="d('Cross click')">
+        <button class="navbar-toggler" ria-label="Close" (click)="c('Cross click')">
           <i [ngClass]=" 'fa fa-close'"></i>
         </button>
     </div>
-    <div class="menu--toggled" >
+    <div class="menu--toggled" (click)="d('yes')">
       <div class="menu--toggled__layer"></div>
       <ul class="list-unstyled nav--list">
         <!-- <li class="nav--listItem">
@@ -54,7 +54,7 @@
         </li> -->
 
         <li class="nav--listItem d-sm-none">
-          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+          <ngb-accordion [closeOthers]="true" activeIds="static-1" (click)="d('no')">
             <ngb-panel title="GET INVOLVED">            
               <ng-template ngbPanelContent>
                 <a routerLink="/action" class="nav--link" routerLinkActive="active">Take action</a>
@@ -73,10 +73,10 @@
         <li class="nav--listItem">
           
         </li>
-        <li class="nav--listItem">
+        <!-- <li class="nav--listItem">
           <a routerLink="/merch" class="nav--link" routerLinkActive="active">Shop</a>
-        </li>      
-        <li class="nav--listItem">
+        </li>    -->   
+        <li class="nav--listItem d-sm-none">
           <a routerLink="/donate" class="nav--link" routerLinkActive="active">donate</a>
         </li>        
         <li class="nav--listItem">
