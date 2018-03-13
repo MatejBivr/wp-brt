@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
+export enum selectedCrew {
+  core = 0,
+  media = 1,
+  volunteer = 2  
+}
+
 @Component({
   selector: 'app-crew',
   templateUrl: './crew.component.html',
@@ -10,6 +16,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class CrewComponent implements OnInit {
   title = "the crew";
   loading: boolean= true;
+  active: selectedCrew = selectedCrew['core'];
   volunteer: Array<object>=[];
   core: Array<object> = [];
   media: Array<object>=[];
@@ -17,13 +24,14 @@ export class CrewComponent implements OnInit {
 
   open(content) {
     const options = {
-      windowClass: 'dark-modal',
-      beforeDismiss: () => {        
-        return false;
-      }
+      windowClass: 'crew-modal'
     };
 
-    this.modalService.open(content);
+    this.modalService.open(content, options);
+  }
+
+  onActive(val){
+    this.active = val;
   }
 
   getCrew(){
@@ -47,6 +55,7 @@ export class CrewComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.active);
     this.getCrew();
   }
 

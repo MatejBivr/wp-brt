@@ -1,5 +1,22 @@
 @import '../../variables';
 
+.crew__navContainer{
+  display: flex;
+}
+
+.crew__nav{
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  color: $brtc-blue;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+.crew__heading{
+  font-family: Montserrat;
+  font-size: 1.8rem;
+}
+
 .crew__list{
   display: flex;
   flex-direction: column;
@@ -38,7 +55,7 @@
 .crew__body{
   text-align: center;
 }
-.crew__heading{
+.crew__name{
   font-size: 16px;
   line-height: 16px;
   font-family: Montserrat;
@@ -64,6 +81,13 @@
   display: block;
   max-width: 80px;
   text-align: center;
+}
+.crew__link{
+  padding: 5px;
+}
+
+.crew__list--core{
+  cursor: pointer;
 }
 
 .crew__list--local{
