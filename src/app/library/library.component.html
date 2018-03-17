@@ -1,13 +1,13 @@
 <app-page [title]="title">
   <ul class="library__list list-unstyled">
-    <li class="library__listItem" *ngFor="let promo of promos">
+    <li class="library__listItem" *ngFor="let library of libraries">
       <div class="library__imageContainer">
-        <div class="library__image"  [style.background-image]=" promo['thumbnail'].guid? 'url('+ promo['thumbnail'].guid+')':null"></div>  
+        <div class="library__image"  [style.background-image]=" library.acf['thumbnail'].guid? 'url('+ library.acf['thumbnail'].guid+')':null"></div>  
       </div>
       <div class="library__body">
-        <h2 class="library__heading">{{promo['promotion-title']}}</h2>
-        <div class="library__text">{{promo['promotion-description']}}</div>
-        <a target="_blank" href="{{promo['prmotion-file']['guid']}}" class="library__button">download</a>
+        <h2 class="library__heading">{{library.acf['library_title']}}</h2>
+        <div class="library__text">{{library.acf['library_description']}}</div>
+        <a target="_blank" href="{{library.acf['library_file']['url']}}" class="library__button">download</a>
       </div>
     </li>
   </ul>

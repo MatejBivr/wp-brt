@@ -1,0 +1,65 @@
+@import '../../variables';
+
+.partners__heading{
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+.partners__list{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+.partners__listItem{
+  padding-top:10px;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    padding: 10px;   
+  }
+}
+.partners__imageContainer{}
+
+.partners__image{
+  width: 250px;
+  height: 250px;
+  background-color: $brtc-gray;
+  margin: auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    width: 230px;
+    height: 230px;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    width: 250px;
+    height: 250px;
+  }
+ 
+}
+
+.partners__list--big{
+  .partners__image{
+    width: 200px;
+    height: 200px;
+  }
+}
+.partners__list--mid{
+  &.partners__list{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .partners__image{
+    width: 125px;
+    height: 125px;
+  }
+}
+.partners__list--small{
+  .partners__listItem{
+    flex-basis: "20%"
+  }
+}

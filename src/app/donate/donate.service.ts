@@ -19,7 +19,6 @@ export class DonateService {
       .map(res =>{return res});
      this.gateway = this.http
        .get(this.postUrl + 'payment_gateways')
-       // .map(val => console.log(val)).subscribe();
   }
 
   getDonations(): Observable<any>{

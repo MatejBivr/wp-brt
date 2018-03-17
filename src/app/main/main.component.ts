@@ -8,6 +8,7 @@ import {PostListComponent} from '../posts/post-list/post-list.component';
 })
 export class MainComponent implements OnInit {
 	perPage = 3;
+  category = 'latest';
   constructor() { }
 
   ngOnInit() {

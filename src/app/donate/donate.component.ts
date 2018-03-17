@@ -20,7 +20,6 @@ export class DonateComponent implements OnInit {
   getDonations(){
     this.donateService.getDonations()
       .subscribe(val => {
-        console.log(val);
         this.donations = val.filter((i) => {
           return i['tags'][0]['name'] === this.val;
         });

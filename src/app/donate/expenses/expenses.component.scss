@@ -35,7 +35,10 @@
 	padding: 20px 0;
 	flex-basis: 1;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		flex-basis: 25%;
+		flex-basis: 33%;
+	}
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		flex-basis: 16.5%;
 	}
 }
 .involved__icon{
@@ -49,6 +52,7 @@
 	justify-content: center;
 	background-position: center center;
 	background-repeat: no-repeat;
+	background-size: contain
 }
 .involved__price{
 	text-align: left;

@@ -18,15 +18,22 @@
 
 .donate__container{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+  }
 }
 .donate__item{
-  flex: 1;
   padding: 10px;
+   @media (min-width: map-get($grid-breakpoints, md)) {
+    flex: 1;    
+   }
 }
 .donate__itemHeader{
   margin-bottom: 20px;
   display: flex;
+  justify-content: center;
 }
 .donate__itemImage{
   height: 100px;

@@ -9,8 +9,8 @@ import { MainService } from '../main.service';
 export class LibraryComponent implements OnInit {
   perPage = 9;
   title = "Library";
-  type = 'promotion';
-  promos = [];
+  type = 'libraries';
+  libraries = [];
   page = 1;
   pages: number;
   loading: boolean= true;
@@ -21,8 +21,8 @@ export class LibraryComponent implements OnInit {
     this.mainService
       .getPosts(type, perPage, numPage)
       .subscribe(val => {
-        this.promos = val[0];
-        console.log(this.promos);
+        this.libraries = val[0];
+        console.log(this.libraries);
         // this.promos = Number(val[1][0]);
         this.pages=+val[1];
         console.log(typeof this.pages)

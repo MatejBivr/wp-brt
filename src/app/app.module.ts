@@ -34,15 +34,34 @@ import { SinglegalleryComponent } from './media/singlegallery/singlegallery.comp
 import { StandalonepageComponent } from './common/page/standalonepage.component';
 import { ModalcontentComponent } from './media/singlegallery/modalcontent.component';
 import { SoonComponent } from './soon/soon.component';
+import { CrewComponent } from './crew/crew.component';
+import { PartnersComponent } from './partners/partners.component';
+import { MediaSelectorComponent } from './media/media-selector.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: StandalonepageComponent, data: { title: 'About' } },
+  { path: 'action', component: StandalonepageComponent, data: { title: 'Take action' } },
+  { path: 'goods', component: StandalonepageComponent, data: { title: 'Contribute in Goods' } },
+  { path: 'intellectuals', component: StandalonepageComponent, data: { title: 'River Intellectuals' } },
+  { path: 'program', component: StandalonepageComponent, data: { title: 'Program' } },
+  { path: 'network', component: StandalonepageComponent, data: { title: 'BRD Network' } },
+  { path: 'faq', component: StandalonepageComponent, data: { title: 'faq' } },
+  { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
+  { path: 'hydro', component: StandalonepageComponent, data: { title: 'Dirty Hydro' } },
+  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact us' } },
+  { path: 'cart', component: StandalonepageComponent, data: { title: 'cart' } },
+  { path: 'checkout', component: StandalonepageComponent, data: { title: 'Checkout' } },
+
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
-  { path: 'media', component: MediaComponent , pathMatch: 'full'},
-  { path: 'media/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
+  { path: 'latest/:slug', component: SinglepostComponent, pathMatch: 'full', data: {type : 'latest'}},
+  { path: 'media', component: MediaSelectorComponent , pathMatch: 'full'},
+  { path: 'pictures', component: MediaComponent , pathMatch: 'full'},
+  { path: 'pictures/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
+  { path: 'videos', component: MediaComponent , pathMatch: 'full'},
+  { path: 'videos/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
   { path: 'merch', component: MerchComponent , pathMatch: 'full'},
   { path: 'merch/:slug', component: SinglemerchComponent, pathMatch: 'full'},
   { path: 'single', component: DonateComponent, data : {type : 'single'}},
@@ -50,11 +69,8 @@ const appRoutes: Routes = [
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
-  { path: 'contact', component: StandalonepageComponent, data: { title: 'Contact us' } },
-  { path: 'cart', component: StandalonepageComponent, data: { title: 'cart' } },
-  { path: 'checkout', component: StandalonepageComponent, data: { title: 'Checkout' } },
-  { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
-  { path: 'hydro', component: StandalonepageComponent, data: { title: 'Dirty Hydro' } },
+  { path: 'crew', component: CrewComponent },
+  { path: 'partners', component: PartnersComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PagenotfoundComponent }
 ];
@@ -84,6 +100,9 @@ const appRoutes: Routes = [
     StandalonepageComponent,
     ModalcontentComponent,
     SoonComponent,
+    CrewComponent,
+    PartnersComponent,
+    MediaSelectorComponent,
   ],
   imports: [
     CommonModule,
