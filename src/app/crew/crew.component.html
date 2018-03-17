@@ -15,46 +15,46 @@
           </div>
           <div class="crew__body">
             <h2 class="crew__name">{{crew.acf['crew_name']}}</h2>
-            <a class="crew__link" href={{crew.acf.twitter}} >
+            <p class="crew__text">{{crew.acf['role']}}</p>
+            <a *ngIf="crew.acf.twitter" class="crew__link" href={{crew.acf.twitter}} >
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="crew__link" href={{crew.acf.facebook}} >
+            <a *ngIf="crew.acf.facebook" class="crew__link" href={{crew.acf.facebook}} >
               <i class="fa fa-facebook-f"></i>
             </a>
-            <a class="crew__link" [href]="'mailto:' + crew.acf.contact">
+            <a *ngIf="crew.acf.contact" class="crew__link" [href]="'mailto:' + crew.acf.contact">
               <i class="fa fa-envelope"></i>
             </a>
-           <a class="crew__link" href={{crew.acf.contact}}>
+           <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
              <i class="fa fa-globe"></i>
            </a>
            
           </div>
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
-              <h4 class="modal-title">{{crew.acf['crew_name']}}</h4>
-              <p class="crew__text">design</p>
               <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <img src={{crew.acf.image.url}} alt="">
-              <p>{{crew.acf.crew_discription}}</p>
-              <a class="crew__link" href={{crew.acf.twitter}} >
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a class="crew__link" href={{crew.acf.facebook}} >
-                <i class="fa fa-facebook-f"></i>
-              </a>
-              <a [href]="'mailto:' + crew.acf.contact">
-                <i class="fa fa-envelope"></i>
-              </a>
-             <a class="crew__link" href={{crew.acf.contact}}>
-               <i class="fa fa-globe"></i>
-             </a>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+              <img src={{crew.acf.image.url}} alt="" class="img-fluid mx-auto">
+              <h4 class="modal-title">{{crew.acf['crew_name']}}</h4>
+              <p class="crew__text">{{crew.acf.role}}</p>
+              <p class="crew__text">{{crew.acf.crew_discription}}</p>
+              <div class="crew__socialContainer">
+                <a *ngIf="crew.acf.twitter" class="crew__link" href={{crew.acf.twitter}} >
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a *ngIf="crew.acf.facebook" class="crew__link" href={{crew.acf.facebook}} >
+                  <i class="fa fa-facebook-f"></i>
+                </a>
+                <a *ngIf="crew.acf.contact" [href]="'mailto:' + crew.acf.contact">
+                  <i class="fa fa-envelope"></i>
+                </a>
+               <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
+                 <i class="fa fa-globe"></i>
+               </a>
+              </div>              
             </div>
           </ng-template>
         </li>
@@ -69,9 +69,9 @@
             <div class="crew__image"  [style.background-image]=" crew.acf.image.url? 'url('+ crew.acf.image.url+')':null"></div>  
           </div>
           <div class="crew__body">
-            <h2 class="crew__heading">{{crew.acf['crew_name']}}</h2>
-            <p class="crew__text">design</p>
-            <a class="crew__link" href={{crew.acf.twitter}} >
+            <h2 class="crew__name">{{crew.acf['crew_name']}}</h2>
+            <p class="crew__text">{{crew.acf['role']}}</p>
+            <a *ngIf="crew.acf.twitter" class="crew__link" href={{crew.acf.twitter}} >
               <i class="fa fa-twitter"></i>
             </a>
             <a class="crew__link" href={{crew.acf.facebook}} >
@@ -90,16 +90,17 @@
         <li class="crew__listItem" *ngFor="let crew of media">
           <div class="crew__body">
             <h2 class="crew__name">{{crew.acf['crew_name']}}</h2>
-            <a href={{crew.acf.twitter}} >
+            <p class="crew__text">{{crew.acf['role']}}</p>
+            <a *ngIf="crew.acf.twitter" href={{crew.acf.twitter}} >
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="crew__link" href={{crew.acf.facebook}} >
+            <a  *ngIf="crew.acf.facebook" class="crew__link" href={{crew.acf.facebook}} >
               <i class="fa fa-facebook-f"></i>
             </a>
-            <a class="crew__link" [href]="'mailto:' + crew.acf.contact">
+            <a *ngIf="crew.acf.contact" class="crew__link" [href]="'mailto:' + crew.acf.contact">
               <i class="fa fa-envelope"></i>
             </a>
-           <a class="crew__link" href={{crew.acf.contact}}>
+           <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
              <i class="fa fa-globe"></i>
            </a>
           </div>

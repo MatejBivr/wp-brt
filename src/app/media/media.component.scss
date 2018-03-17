@@ -10,6 +10,11 @@
     justify-content: space-between;
   }
 }
+.media__list--single{
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    justify-content: space-around;
+  }
+}
 .media__listItem{
   padding-top:10px;
   @media (min-width: map-get($grid-breakpoints, sm)) {
@@ -40,6 +45,14 @@
     margin: 0;
   }
 }
+
+.media__image--pictures{
+  background-image: url('/assets/img/slika1.jpg');  
+}
+.media__image--videos{
+  background-image: url('/assets/img/slika2.jpg');  
+}
+
 .media__body{
   text-align: center;
 }

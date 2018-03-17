@@ -1,0 +1,47 @@
+<app-page [title]="title">
+  <h2 class="partners__heading">10,000 EUR+ SUPPORTERS</h2>
+  <hr>
+  <ul class="partners__list list-unstyled">
+    <li class="partners__listItem" *ngFor="let partner of huge">
+      <div class="partners__imageContainer">
+        <a href={{partner.acf.partner_link}}>
+          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+        </a>          
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <h2 class="partners__heading">5,000 EUR+ SUPPORTERS</h2>
+  <hr>
+  <ul class="partners__list partners__list--big list-unstyled">
+    <li class="partners__listItem" *ngFor="let partner of big">
+      <div class="partners__imageContainer">
+        <a href={{partner.acf.partner_link}}>
+          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+        </a>          
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <h2 class="partners__heading">2,000 EUR+ SUPPORTERS</h2>
+  <hr>
+  <ul class="partners__list partners__list--mid list-unstyled">
+    <li class="partners__listItem" *ngFor="let partner of mid">
+      <div class="partners__imageContainer">
+        <a href={{partner.acf.partner_link}}>
+          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+        </a>          
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <h2 class="partners__heading">500 EUR+ SUPPORTERS</h2>
+  <hr>
+  <ul class="partners__list partners__list--small list-unstyled">
+    <li class="partners__listItem" *ngFor="let partner of small">    
+      <a href={{partner.acf.partner_link}}>
+        {{partner.acf.partner_name}}
+      </a>
+    </li>
+</ul>
+</app-page>

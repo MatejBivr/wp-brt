@@ -7,10 +7,10 @@ p {
 	margin-bottom: 25px;
 }
 .wrapper {
-  img {
-    width: 100% !important;
-    height: auto;
-  }
+  // img {
+  //   width: 100% !important;
+  //   height: auto;
+  // }
 }
 a{
 	color: #23c1f3;
@@ -33,15 +33,21 @@ a{
   .modal-header{
     border: none;
     z-index: 2;
-    :host ::ng-deep svg{
-      width: 24px;
-      height: 23px;
-      @media (min-width: map-get($grid-breakpoints, sm)) {
-        height: 61px;
-        width: 59px;
-      }
+    padding-bottom: 0;
+    
+  }
+  :host ::ng-deep svg{
+    width: 24px;
+    height: 23px;
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      height: 61px;
+      width: 59px;
     }
-  }  
+  }
+}
+
+.modal__crew{
+  text-align: center;
 }
 
 .modal-body{

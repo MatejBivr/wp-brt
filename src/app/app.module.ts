@@ -35,6 +35,8 @@ import { StandalonepageComponent } from './common/page/standalonepage.component'
 import { ModalcontentComponent } from './media/singlegallery/modalcontent.component';
 import { SoonComponent } from './soon/soon.component';
 import { CrewComponent } from './crew/crew.component';
+import { PartnersComponent } from './partners/partners.component';
+import { MediaSelectorComponent } from './media/media-selector.component';
 
 
 const appRoutes: Routes = [
@@ -45,7 +47,6 @@ const appRoutes: Routes = [
   { path: 'intellectuals', component: StandalonepageComponent, data: { title: 'River Intellectuals' } },
   { path: 'program', component: StandalonepageComponent, data: { title: 'Program' } },
   { path: 'network', component: StandalonepageComponent, data: { title: 'BRD Network' } },
-  { path: 'partners', component: StandalonepageComponent, data: { title: 'Partners' } },
   { path: 'faq', component: StandalonepageComponent, data: { title: 'faq' } },
   { path: 'shop', component: StandalonepageComponent, data: { title: 'Shop' } },
   { path: 'hydro', component: StandalonepageComponent, data: { title: 'Dirty Hydro' } },
@@ -56,8 +57,11 @@ const appRoutes: Routes = [
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'latest/:slug', component: SinglepostComponent, pathMatch: 'full', data: {type : 'latest'}},
-  { path: 'media', component: MediaComponent , pathMatch: 'full'},
-  { path: 'media/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
+  { path: 'media', component: MediaSelectorComponent , pathMatch: 'full'},
+  { path: 'pictures', component: MediaComponent , pathMatch: 'full'},
+  { path: 'pictures/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
+  { path: 'videos', component: MediaComponent , pathMatch: 'full'},
+  { path: 'videos/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
   { path: 'merch', component: MerchComponent , pathMatch: 'full'},
   { path: 'merch/:slug', component: SinglemerchComponent, pathMatch: 'full'},
   { path: 'single', component: DonateComponent, data : {type : 'single'}},
@@ -65,7 +69,8 @@ const appRoutes: Routes = [
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
-  { path: 'crew', component: CrewComponent },  
+  { path: 'crew', component: CrewComponent },
+  { path: 'partners', component: PartnersComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PagenotfoundComponent }
 ];
@@ -96,6 +101,8 @@ const appRoutes: Routes = [
     ModalcontentComponent,
     SoonComponent,
     CrewComponent,
+    PartnersComponent,
+    MediaSelectorComponent,
   ],
   imports: [
     CommonModule,

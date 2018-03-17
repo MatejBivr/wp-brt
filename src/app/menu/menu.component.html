@@ -4,29 +4,44 @@
 			<div class="col">
 				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
 					<div class="nav--logoContainer">
-						<a routerLink="/home" class="nav--logo">
-              <svg-icon src='/assets/ikone/logo.svg'></svg-icon>
-            </a>
+						<a routerLink="/home" class="nav--logo"></a>
 					</div>
 					<h1 class="nav--title">balkan rivers tour</h1>
-          <div ngbDropdown>
-            <a class="nav__title--link d-md-block" id="dropdown1" ngbDropdownToggle>GET INVOLVED</a>
+          <div ngbDropdown class="d-none d-md-block">
+            <a class="nav__title--link" id="dropdown1" ngbDropdownToggle>GET INVOLVED</a>
             <div ngbDropdownMenu aria-labelledby="dropdown1">
               <a routerLink="/action" class="nav--link" routerLinkActive="active">Take action</a>
               <a routerLink="/goods" class="nav--link" routerLinkActive="active">Contribute in Goods</a>
               <a routerLink="/intellectuals" class="nav--link" routerLinkActive="active">River Intellectuals</a>
             </div>
           </div>
-          <div ngbDropdown>
-            <a class="nav__title--link d-md-block" id="dropdown2" ngbDropdownToggle>BRT3</a>
+          <div ngbDropdown class="d-none d-md-block">
+            <a class="nav__title--link d-md-block" 
+              id="dropdown2"
+              (mouse-over)="open()"
+              ngbDropdownToggle>BRT3</a>
             <div ngbDropdownMenu aria-labelledby="dropdown2">
               <a routerLink="/program" class="nav--link" routerLinkActive="active">Program</a>
                 <a routerLink="/faq" class="nav--link" routerLinkActive="active">faq</a>
             </div>
           </div>          
-          <a routerLink="/donate" class="nav__title--link" routerLinkActive="active">donate</a>
-          
-					<button class="navbar-toggler" (click)="open(content)"
+          <a routerLink="/donate" class="nav__title--link d-none d-md-block" routerLinkActive="active">donate</a>
+          <div ngbDropdown class="d-none d-md-block">
+            <a class="nav__title--link d-md-block" id="dropdown3" ngbDropdownToggle>menu</a>
+            <div ngbDropdownMenu aria-labelledby="dropdown2">
+              <a routerLink="/about" class="nav--link" routerLinkActive="active">About</a>
+              <a routerLink="/news" class="nav--link" routerLinkActive="active">News</a>
+              <a routerLink="/media" class="nav--link" routerLinkActive="active">Media</a>
+              <a routerLink="/hydro" class="nav--link" routerLinkActive="active">dirty hydro</a>
+              <a routerLink="/library" class="nav--link" routerLinkActive="active">library</a>
+              <a routerLink="/crew" class="nav--link" routerLinkActive="active">the crew</a>
+              <a routerLink="/network" class="nav--link" routerLinkActive="active">BRD Network</a>
+               <a routerLink="/contact" class="nav--link" routerLinkActive="active">contact us</a>
+              <a routerLink="/partners" class="nav--link" routerLinkActive="active">partners</a>
+            </div>
+          </div>      
+
+					<button class="navbar-toggler d-md-none" (click)="open(content)"
 				    >
 				    <i [ngClass]=" isCollapsed ? 'fa fa-bars': 'fa fa-close'" aria-hidden="true"></i>
 				  </button>
@@ -38,9 +53,7 @@
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <div class="nav--logoContainer">
-          <a routerLink="/home" class="nav--logo">
-            <svg-icon src='/assets/ikone/logo.svg'></svg-icon>
-          </a>
+          <a routerLink="/home" class="nav--logo"></a>
           </div>
         <button class="navbar-toggler" ria-label="Close" (click)="c('Cross click')">
           <i [ngClass]=" 'fa fa-close'"></i>
@@ -53,7 +66,7 @@
           <a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
         </li> -->
 
-        <li class="nav--listItem d-sm-none">
+        <li class="nav--listItem d-sm-none nav--listDropdown">
           <ngb-accordion [closeOthers]="true" activeIds="static-1" (click)="d('no')">
             <ngb-panel title="GET INVOLVED">            
               <ng-template ngbPanelContent>
@@ -70,9 +83,7 @@
             </ngb-panel>
           </ngb-accordion>
         </li>
-        <li class="nav--listItem">
-          
-        </li>
+        
         <!-- <li class="nav--listItem">
           <a routerLink="/merch" class="nav--link" routerLinkActive="active">Shop</a>
         </li>    -->   

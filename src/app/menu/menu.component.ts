@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
-import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalRef, NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  providers: [NgbDropdownConfig]
 })
 export class MenuComponent implements OnInit {
 	public isCollapsed = true;
@@ -13,7 +14,9 @@ export class MenuComponent implements OnInit {
   private modalRef: NgbModalRef;
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private router:Router) {
+  constructor(private modalService: NgbModal, private router:Router, config: NgbDropdownConfig) {
+    config.placement = 'bottom-right';
+    config.autoClose = true;
   }
 
   open(content) {
