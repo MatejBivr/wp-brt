@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class DonateService {
   public donations;
   public gateway;
-  private postUrl = 'http://localhost:8000/wp-json/wc/v2/';
+  private postUrl = '/wp-json/wc/v2/';
   
 
   constructor( private http: HttpClient) {

@@ -28,7 +28,7 @@
   height: 250px;
   background-color: $brtc-gray;
   margin: auto;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   @media (min-width: map-get($grid-breakpoints, sm)) {
