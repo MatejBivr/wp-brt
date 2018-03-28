@@ -99,7 +99,8 @@
   cursor: pointer;
 }
 
-.crew__list--local{
+.crew__list--local,
+.crew__list--volunteer{
   .crew__listItem{
     @media (min-width: map-get($grid-breakpoints, sm)) {
       flex-basis: 25%;
@@ -125,28 +126,10 @@
     }
   }
 }
-.crew__list--volunteer{
-  &.crew__list{
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .crew__listItem{
-    padding: 16px 10px 0 10px;
-    flex-basis: 50%;
-    @media (min-width: map-get($grid-breakpoints, sm)) {
-      flex-basis: 25%;
-    }
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      flex-basis: 20%;
-    }
-    @media (min-width: map-get($grid-breakpoints, lg)) {
-      flex-basis: 12.5%;
-    }
-  }
-}
 
 .modal-title {
   text-align: center;
+  color: $brtc-text;
 }
 
 .modal-body{
@@ -154,6 +137,7 @@
     display: block;
   }
   .crew__text{
+    color: $brtc-text;
     text-align: center;
   }
 }

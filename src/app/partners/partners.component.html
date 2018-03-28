@@ -5,7 +5,7 @@
     <li class="partners__listItem" *ngFor="let partner of huge">
       <div class="partners__imageContainer">
         <a href={{partner.acf.partner_link}}>
-          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+          <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>          
       </div>
     </li>
@@ -16,8 +16,8 @@
   <ul class="partners__list partners__list--big list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of big">
       <div class="partners__imageContainer">
-        <a href={{partner.acf.partner_link}}>
-          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+        <a href={{partner.acf.link}}>
+          <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>          
       </div>
     </li>
@@ -28,8 +28,8 @@
   <ul class="partners__list partners__list--mid list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of mid">
       <div class="partners__imageContainer">
-        <a href={{partner.acf.partner_link}}>
-          <div class="partners__image"  [style.background-image]=" partner.acf.partner_logo.url? 'url('+ partner.acf.partner_logo.url+')':null"></div>
+        <a href={{partner.acf.link}}>
+          <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>          
       </div>
     </li>
@@ -39,7 +39,7 @@
   <hr>
   <ul class="partners__list partners__list--small list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of small">    
-      <a href={{partner.acf.partner_link}}>
+      <a href={{partner.acf.link}}>
         {{partner.acf.partner_name}}
       </a>
     </li>

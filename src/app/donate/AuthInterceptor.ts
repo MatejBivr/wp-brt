@@ -8,8 +8,8 @@ const OAuth = require('oauth-1.0a');
 export class AuthInterceptor implements HttpInterceptor {
   private oauth = OAuth({
     consumer: {
-      key: 'ck_8f8ac29b12043150262fa45e4002008101d0366f',
-      secret: 'cs_500b7ec34daef7836258800bf862002ab01be053'
+      key: 'ck_ab01bf01523b5162fbd392fc9572af814bed5f70',
+      secret: 'cs_91e88565a8141fe90ff835995ca4541309fe3eb9'
     },
     signature_method: 'HMAC-SHA1',
     hash_function(base_string, key) {

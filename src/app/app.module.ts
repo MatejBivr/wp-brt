@@ -58,9 +58,15 @@ const appRoutes: Routes = [
   { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'latest/:slug', component: SinglepostComponent, pathMatch: 'full', data: {type : 'latest'}},
   { path: 'media', component: MediaSelectorComponent , pathMatch: 'full'},
-  { path: 'pictures', component: MediaComponent , pathMatch: 'full'},
+  { 
+    path: 'pictures', component: MediaComponent ,
+    pathMatch: 'full', data: { title: 'Picture galleries' } 
+  },
   { path: 'pictures/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
-  { path: 'videos', component: MediaComponent , pathMatch: 'full'},
+  { 
+    path: 'videos', component: MediaComponent , 
+    pathMatch: 'full', data: { title: 'Video galleries' }
+  },
   { path: 'videos/:slug', component: SinglegalleryComponent, pathMatch: 'full'},
   { path: 'merch', component: MerchComponent , pathMatch: 'full'},
   { path: 'merch/:slug', component: SinglemerchComponent, pathMatch: 'full'},

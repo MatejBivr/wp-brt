@@ -25,7 +25,7 @@
             <a *ngIf="crew.acf.contact" class="crew__link" [href]="'mailto:' + crew.acf.contact">
               <i class="fa fa-envelope"></i>
             </a>
-           <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
+           <a *ngIf="crew.acf.page" class="crew__link" href="https://{{crew.acf.page}}">
              <i class="fa fa-globe"></i>
            </a>
            
@@ -51,7 +51,7 @@
                 <a *ngIf="crew.acf.contact" [href]="'mailto:' + crew.acf.contact">
                   <i class="fa fa-envelope"></i>
                 </a>
-               <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
+               <a *ngIf="crew.acf.page" class="crew__link" href="https://{{crew.acf.page}}">
                  <i class="fa fa-globe"></i>
                </a>
               </div>              
@@ -79,7 +79,10 @@
             </a>
             <a class="crew__link" [href]="'mailto:' + crew.acf.contact">
               <i class="fa fa-envelope"></i>
-            </a>       
+            </a>
+            <a *ngIf="crew.acf.page" class="crew__link" href="https://{{crew.acf.page}}">
+              <i class="fa fa-globe"></i>
+            </a> 
           </div>
         </li>
       </ul>
@@ -87,7 +90,10 @@
     <div *ngSwitchDefault >
       <h2 class="crew__heading">VOLUNTEERS</h2>
       <ul class="crew__list crew__list--volunteer list-unstyled">
-        <li class="crew__listItem" *ngFor="let crew of media">
+        <li class="crew__listItem" *ngFor="let crew of volunteers">
+          <div class="crew__imageContainer">
+            <div class="crew__image"  [style.background-image]=" crew.acf.image.url? 'url('+ crew.acf.image.url+')':null"></div>  
+          </div>
           <div class="crew__body">
             <h2 class="crew__name">{{crew.acf['crew_name']}}</h2>
             <p class="crew__text">{{crew.acf['role']}}</p>
@@ -100,9 +106,9 @@
             <a *ngIf="crew.acf.contact" class="crew__link" [href]="'mailto:' + crew.acf.contact">
               <i class="fa fa-envelope"></i>
             </a>
-           <a *ngIf="crew.acf.page" class="crew__link" href={{crew.acf.page}}>
-             <i class="fa fa-globe"></i>
-           </a>
+            <a *ngIf="crew.acf.page" class="crew__link" href="https://{{crew.acf.page}}">
+              <i class="fa fa-globe"></i>
+            </a>
           </div>
         </li>
       </ul>

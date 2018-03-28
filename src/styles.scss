@@ -50,6 +50,12 @@ a{
   text-align: center;
 }
 
+.media-modal{
+  .modal-dialog {
+    max-width: 70vw;
+    margin: 1.75rem auto;
+  }
+}
 .modal-body{
   // width: auto;
   padding: 0;

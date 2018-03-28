@@ -7,7 +7,7 @@
   @media (min-width: map-get($grid-breakpoints, sm)) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 .media__list--single{
@@ -20,7 +20,7 @@
   @media (min-width: map-get($grid-breakpoints, sm)) {
     padding-top:16px;
     flex-basis: 33%;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   @media (min-width: map-get($grid-breakpoints, md)) {
     flex-basis: 24%;
@@ -41,6 +41,7 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  cursor: pointer;
   @media (min-width: map-get($grid-breakpoints, sm)) {
     margin: 0;
   }

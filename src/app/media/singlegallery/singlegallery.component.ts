@@ -19,7 +19,7 @@ import 'rxjs/add/observable/from';
 export class SinglegalleryComponent implements OnInit {
   gallery;
   galleryPerPage = [];
-  type = 'gallery';
+  type = 'galleries';
   title='gallery';
   perPage = 4;
   page = 1;
@@ -30,8 +30,10 @@ export class SinglegalleryComponent implements OnInit {
   constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
 
   open(content, guid) {
-    const activeModal = this.modalService.open(content);
-    console.log(content)
+    const options = {
+      windowClass: 'media-modal',
+    };
+    this.modalService.open(content,  options);
     content.guid = guid;
   }
 
@@ -39,7 +41,7 @@ export class SinglegalleryComponent implements OnInit {
     this.mainService
       .getPost(type, slug)
       .map((res:any) => {
-        res = res[0].gallery
+        res = res[0].images
         this.pages = Math.ceil(res.length / this.perPage)
         return res;
        })

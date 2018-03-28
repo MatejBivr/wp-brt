@@ -9,7 +9,7 @@ import { Post } from './posts/post';
 @Injectable()
 export class MainService {
 
-  private postUrl = 'http://localhost:8000/wp-json/wp/v2/'
+  private postUrl = 'https://balkanriverdefence.org/wp-json/wp/v2/'
 
   constructor( private http: HttpClient) { }
 

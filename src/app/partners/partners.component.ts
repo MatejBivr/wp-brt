@@ -20,8 +20,7 @@ export class PartnersComponent implements OnInit {
       .getCrew('partner')
       .flatMap( posts => posts)
       .subscribe(val => {
-        console.log(val);
-       switch(val['acf'].partner_type) {
+       switch(val['acf'].type) {
           case "10k":
               this.huge.push(val);
               break;

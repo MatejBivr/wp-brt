@@ -17,7 +17,7 @@ export class CrewComponent implements OnInit {
   title = "the crew";
   loading: boolean= true;
   active: selectedCrew = selectedCrew['core'];
-  volunteer: Array<object>=[];
+  volunteers: Array<object>=[];
   core: Array<object> = [];
   media: Array<object>=[];
   constructor( private mainService: MainService, private modalService: NgbModal) { }
@@ -40,6 +40,7 @@ export class CrewComponent implements OnInit {
       .getCrew('crew')
       .flatMap( posts => posts)
       .subscribe(val => {
+        console.log(val['acf'].type_of_crew);
         switch(val['acf'].type_of_crew) {
           case "core":
               this.core.push(val);
@@ -47,10 +48,12 @@ export class CrewComponent implements OnInit {
           case "media":
               this.media.push(val);
               break;
+          case "volunteer":
+              this.volunteers.push(val);
+              break;
           default:
-              this.volunteer.push(val);
+              break;
         } 
-        console.log(this.core)
         this.loading = false;
       });
   }

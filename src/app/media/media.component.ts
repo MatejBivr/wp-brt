@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-media',
@@ -9,15 +9,17 @@ import { Router } from '@angular/router';
 })
 export class MediaComponent implements OnInit {
   perPage = 8;
-  title= "media gallery";
-  type = 'gallery';
+  title: string;
+  type = 'galleries';
   media = [];
   page = 1;
   pages: number;
   loading: boolean= true;
   hero: string = null;
 
-  constructor( private mainService: MainService, private router: Router) { }
+  constructor( private mainService: MainService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   getMedia(type, perPage, numPage = 1){
     this.mainService
@@ -32,7 +34,7 @@ export class MediaComponent implements OnInit {
   }
 
   selectMedia(type, slug) {
-    let link = `/media/${slug}`
+    let link = `${this.route.snapshot.url[0].path}/${slug}`
     this.router.navigate([link]);
   }
 
@@ -52,6 +54,8 @@ export class MediaComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.route.snapshot.url[0].path);
+    this.title = this.route.snapshot.data['title'];
     this.getMedia(this.type, this.perPage, this.page);
   }
 
