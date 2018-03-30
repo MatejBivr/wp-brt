@@ -37,12 +37,13 @@ import { SoonComponent } from './soon/soon.component';
 import { CrewComponent } from './crew/crew.component';
 import { PartnersComponent } from './partners/partners.component';
 import { MediaSelectorComponent } from './media/media-selector.component';
+import { LibrarySelectorComponent } from './library/library-selector.component'
 
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: StandalonepageComponent, data: { title: 'About' } },
-  { path: 'action', component: StandalonepageComponent, data: { title: 'Take action' } },
+  { path: 'action', component: StandalonepageComponent, data: { title: 'save your river' } },
   { path: 'goods', component: StandalonepageComponent, data: { title: 'Contribute in Goods' } },
   { path: 'intellectuals', component: StandalonepageComponent, data: { title: 'River Intellectuals' } },
   { path: 'program', component: StandalonepageComponent, data: { title: 'Program' } },
@@ -109,6 +110,7 @@ const appRoutes: Routes = [
     CrewComponent,
     PartnersComponent,
     MediaSelectorComponent,
+    LibrarySelectorComponent,
   ],
   imports: [
     CommonModule,

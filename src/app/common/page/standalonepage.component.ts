@@ -18,6 +18,7 @@ export class StandalonepageComponent implements OnInit {
     this.mainService
       .getPage(this.title)
       .subscribe(val => {
+        console.log(val);
         this.content = val[0].content ? val[0].content.rendered : null;
       });
   }
