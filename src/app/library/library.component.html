@@ -1,8 +1,9 @@
-<app-page [title]="title">
+<app-library-selector *ngIf="!this.title" (onType)="onType($event)"></app-library-selector>
+<app-page *ngIf="this.title" [title]="title">
   <ul class="library__list list-unstyled">
-    <li class="library__listItem" *ngFor="let library of libraries">
+    <li class="library__listItem" *ngFor="let library of active">
       <div class="library__imageContainer">
-        <div class="library__image"  [style.background-image]=" library.acf['thumbnail'].guid? 'url('+ library.acf['thumbnail'].guid+')':null"></div>  
+        <div class="library__image"  [style.background-image]=" library.acf['thumbnail'].url? 'url('+ library.acf['thumbnail'].url+')':null"></div>  
       </div>
       <div class="library__body">
         <h2 class="library__heading">{{library.acf['library_title']}}</h2>

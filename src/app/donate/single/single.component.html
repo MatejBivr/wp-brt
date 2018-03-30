@@ -1,7 +1,7 @@
 <section class="donate__single">
   <div class="donate__header">
     <h1 class="donate__heading">give {{donationType}}</h1>
-    <h2 class="donate__subheading">{{donationText}}</h2>
+    <h2 class="donate__subheading" [innerHTML]="donationText"></h2>
   </div>
   <hr>
   <ul class="donate__container list-unstyled">

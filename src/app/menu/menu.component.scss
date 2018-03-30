@@ -55,17 +55,18 @@
 	position: absolute;	
 	top: 0;
 	display: block;
-	width: 24px;
-	height: 23px;
-	background: url('/assets/ikone/logo.svg') center center no-repeat;
+	width: 40px;
+	height: 60px;
+	background: url('/assets/ikone/logo_color.png') center center no-repeat;
 	background-size: contain;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		width: 59px;
-		height: 58px;
+		width: 70px;
+		height: 100px;
 	}
 }
 .nav--title{
-	font-size: 17px;
+	visibility: hidden;
+	font-size: 15px;
 	line-height: 21px;
 	flex-grow: 2;
 	margin-bottom: 0;

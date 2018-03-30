@@ -14,15 +14,8 @@
 							<a routerLink="/business" class="donate__menuLink" routerLinkActive="active">business membership</a>
 						</li>
 					</ul>
-				</div>
-				<div [ngSwitch]="val">
-					<div *ngSwitchCase="'business'">
-						<app-soon></app-soon>
-					</div>
-					<div *ngSwitchDefault>
-						<app-single [donations]="donations" [donationType]="val" [donationText]="text"></app-single>
-					</div>
-				</div>				
+				</div>					
+				<app-single [donations]="donations" [donationType]="val" [donationText]="text"></app-single>				
 			</div>
 		</div>
 	</div>

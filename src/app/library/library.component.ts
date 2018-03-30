@@ -8,9 +8,14 @@ import { MainService } from '../main.service';
 })
 export class LibraryComponent implements OnInit {
   perPage = 9;
-  title = "Library";
+  title:string;
   type = 'libraries';
   libraries = [];
+  studies = [];
+  wallpapers = [];
+  desktops = [];
+  brochures = [];
+  active=[]
   page = 1;
   pages: number;
   loading: boolean= true;
@@ -20,14 +25,54 @@ export class LibraryComponent implements OnInit {
   getPromotions(type, perPage, numPage = 1){
     this.mainService
       .getPosts(type, perPage, numPage)
-      .subscribe(val => {
-        this.libraries = val[0];
+      .subscribe(res => {
+        this.libraries = res[0];
+        res[0].map(val => {
+          switch(val['acf'].library_type) {
+          case "desktops":
+              this.desktops.push(val);
+              break;
+          case "wallpapers":
+              this.wallpapers.push(val);
+              break;
+          case "studies":
+              this.studies.push(val);
+              break;
+          case "brochures":
+              this.brochures.push(val);
+              break;
+          default:
+              break;
+        } 
+      }); 
+        
+        
         console.log(this.libraries);
         // this.promos = Number(val[1][0]);
-        this.pages=+val[1];
+        this.pages=+res[1];
         console.log(typeof this.pages)
         this.loading = false;
       });
+  }
+
+  onType(event){
+    this.title= event;
+     switch(event) {
+          case "desktops":
+              this.active = this.desktops;
+              break;
+          case "wallpapers":
+              this.active = this.wallpapers;
+              break;
+          case "studies":
+              this.active = this.studies;
+              break;
+          case "brochures":
+              this.active = this.brochures;
+              break;
+          default:
+              break;
+        } 
   }
 
   prevPage(){
