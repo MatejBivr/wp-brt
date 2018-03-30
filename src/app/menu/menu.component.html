@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
-				<nav class="navbar fixed-top" [ngClass]="{'active': !isCollapsed}">
+				<nav class="navbar" [ngClass]="{'active': !isCollapsed}">
 					<div class="nav--logoContainer">
 						<a routerLink="/home" class="nav--logo"></a>
 					</div>
@@ -10,8 +10,8 @@
           <div ngbDropdown class="d-none d-md-block">
             <a class="nav__title--link" id="dropdown1" ngbDropdownToggle>GET INVOLVED</a>
             <div ngbDropdownMenu aria-labelledby="dropdown1">
-              <a routerLink="/action" class="nav--link" routerLinkActive="active">save your river</a>
-              <a routerLink="/goods" class="nav--link" routerLinkActive="active">Contribute in Goods</a>
+              <a routerLink="/save" class="nav--link" routerLinkActive="active">save your river</a>
+              <a href="https://blueheart.patagonia.com/take-action" class="nav--link" target="_blank">SIGN PETITION</a>
               <a routerLink="/intellectuals" class="nav--link" routerLinkActive="active">River Intellectuals</a>
             </div>
           </div>
@@ -26,7 +26,7 @@
             </div>
           </div>          
           <a routerLink="/donate" class="nav__title--link d-none d-md-block" routerLinkActive="active">donate</a>
-          <div ngbDropdown class="d-none d-md-block">
+          <!-- <div ngbDropdown class="d-none d-md-block">
             <a class="nav__title--link d-md-block" id="dropdown3" ngbDropdownToggle>menu</a>
             <div ngbDropdownMenu aria-labelledby="dropdown2">
               <a routerLink="/about" class="nav--link" routerLinkActive="active">About</a>
@@ -39,9 +39,9 @@
               <a routerLink="/network" class="nav--link" routerLinkActive="active">BRD Network</a>
               <a routerLink="/contact" class="nav--link" routerLinkActive="active">contact us</a>
             </div>
-          </div>      
+          </div>  -->     
 
-					<button class="navbar-toggler d-md-none" (click)="open(content)"
+					<button class="navbar-toggler" (click)="open(content)"
 				    >
 				    <i [ngClass]=" isCollapsed ? 'fa fa-bars': 'fa fa-close'" aria-hidden="true"></i>
 				  </button>
@@ -66,12 +66,12 @@
           <a routerLink="/home" class="nav--link" routerLinkActive="active">home</a>
         </li> -->
 
-        <li class="nav--listItem d-sm-none nav--listDropdown">
+        <li class="nav--listItem nav--listDropdown">
           <ngb-accordion [closeOthers]="true" activeIds="static-1" (click)="d('no')">
             <ngb-panel title="GET INVOLVED">            
               <ng-template ngbPanelContent>
-                <a routerLink="/action" class="nav--link" routerLinkActive="active">save your river</a>
-                <a routerLink="/goods" class="nav--link" routerLinkActive="active">Contribute in Goods</a>
+                <a routerLink="/save" class="nav--link" routerLinkActive="active">save your river</a>
+                <a href="https://blueheart.patagonia.com/take-action" class="nav--link" target="_blank">SIGN PETITION</a>
                 <a routerLink="/intellectuals" class="nav--link" routerLinkActive="active">River Intellectuals</a>
               </ng-template>
             </ngb-panel>

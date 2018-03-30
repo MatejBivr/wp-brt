@@ -33,6 +33,12 @@ textBussiness = `You don’t need to be a business from the Balkans to support B
 <br />
 Stand up for our rivers and join the BRD 500 Club by donation monthly or annually (42 EUR/month or 500 EUR annually). By linking your business to BRD you become a key part of the resistance and a part of the network of river defenders that are working on the ground to save free-flowing rivers and wilderness. Your business and employees can get involved by signing up for our newsletter, and your business will be kept up to date with our latest actions and battles. You will also have the option to have your business name and logo displayed on the BRD webpage as 500+ supporters. Your company will be helping drive forward a movement for change.`;
 
+textGoods = `If you own a business or just have some gear, office supplies, food, drinks or banner materials you can spare, we are more than happy to accept them. We are creative and resourceful and any help is welcome. <br />
+<br />
+Please contact us via social media or email info@balkanriverdefence.org <br />
+<br />
+Thanks!`;
+
   constructor( private route: ActivatedRoute, private donateService: DonateService ) { }
 
   getDonations(){
@@ -56,6 +62,9 @@ Stand up for our rivers and join the BRD 500 Club by donation monthly or annuall
           this.text = this.textMonthly
           break;
       case "business":
+          this.text = this.textBussiness
+          break;
+      case "goods":
           this.text = this.textBussiness
           break;
       default:

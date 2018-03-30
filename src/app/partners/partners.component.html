@@ -4,7 +4,7 @@
   <ul class="partners__list list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of huge">
       <div class="partners__imageContainer">
-        <a href={{partner.acf.partner_link}}>
+        <a href="https://{{partner.acf.link}}">
           <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>          
       </div>
@@ -16,7 +16,7 @@
   <ul class="partners__list partners__list--big list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of big">
       <div class="partners__imageContainer">
-        <a href={{partner.acf.link}}>
+        <a href="https://{{partner.acf.link}}">
           <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>          
       </div>
@@ -39,7 +39,7 @@
   <hr>
   <ul class="partners__list partners__list--small list-unstyled">
     <li class="partners__listItem" *ngFor="let partner of small">    
-      <a href={{partner.acf.link}}>
+      <a href="https://{{partner.acf.link}}">
         {{partner.acf.partner_name}}
       </a>
     </li>

@@ -44,13 +44,8 @@ export class LibraryComponent implements OnInit {
           default:
               break;
         } 
-      }); 
-        
-        
-        console.log(this.libraries);
-        // this.promos = Number(val[1][0]);
+      });         
         this.pages=+res[1];
-        console.log(typeof this.pages)
         this.loading = false;
       });
   }

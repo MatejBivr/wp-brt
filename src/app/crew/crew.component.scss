@@ -4,20 +4,29 @@
   display: flex;
 }
 
-.crew__nav{
-  font-family: Montserrat;
-  font-size: 1rem;
-  color: $brtc-blue;
-  cursor: pointer;
-  padding-right: 20px;
-  @media (min-width: map-get($grid-breakpoints, md)) {
-    font-size: 1.5rem;
-  }
-}
-
+.crew__nav,
 .crew__heading{
   font-family: Montserrat;
-  font-size: 1.8rem;
+  color: $brtc-light-text;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+  margin-right: 15px;
+  cursor: pointer;
+  &.active{
+    font-weight: bold;
+    color:$brtc-text;
+    background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+  }
+  &:hover, &:focus{
+    color: $brtc-blue;
+    text-decoration: none;
+    color: $brtc-light-text;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 }
 
 .crew__list{
@@ -99,33 +108,33 @@
   cursor: pointer;
 }
 
-.crew__list--local,
-.crew__list--volunteer{
-  .crew__listItem{
-    @media (min-width: map-get($grid-breakpoints, sm)) {
-      flex-basis: 25%;
-    }
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      flex-basis: 20%;
-    }
-    @media (min-width: map-get($grid-breakpoints, lg)) {
-      flex-basis: 12.5%;
-    }
-  }
-  .crew__image{
-    width: 100%;
-    height: 250px;
-    background-color: $brtc-gray;
-    margin: auto;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    @media (min-width: map-get($grid-breakpoints, sm)) {
-      margin: 0 10px 0 0;
-      height: 100px;
-    }
-  }
-}
+// .crew__list--local,
+// .crew__list--volunteer{
+//   .crew__listItem{
+//     @media (min-width: map-get($grid-breakpoints, sm)) {
+//       flex-basis: 25%;
+//     }
+//     @media (min-width: map-get($grid-breakpoints, md)) {
+//       flex-basis: 20%;
+//     }
+//     @media (min-width: map-get($grid-breakpoints, lg)) {
+//       flex-basis: 12.5%;
+//     }
+//   }
+//   .crew__image{
+//     width: 100%;
+//     height: 250px;
+//     background-color: $brtc-gray;
+//     margin: auto;
+//     background-size: cover;
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     @media (min-width: map-get($grid-breakpoints, sm)) {
+//       margin: 0 10px 0 0;
+//       height: 100px;
+//     }
+//   }
+// }
 
 .modal-title {
   text-align: center;
@@ -139,6 +148,7 @@
   .crew__text{
     color: $brtc-text;
     text-align: center;
+    padding: 0 15px;
   }
 }
 
