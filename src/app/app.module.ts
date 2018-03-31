@@ -37,14 +37,14 @@ import { SoonComponent } from './soon/soon.component';
 import { CrewComponent } from './crew/crew.component';
 import { PartnersComponent } from './partners/partners.component';
 import { MediaSelectorComponent } from './media/media-selector.component';
-import { LibrarySelectorComponent } from './library/library-selector.component'
+import { LibrarySelectorComponent } from './library/library-selector.component';
+import { LoaderComponent } from './common/loader/loader.component'
 
 
 const appRoutes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'about', component: StandalonepageComponent, data: { title: 'About' } },
-  { path: 'action', component: StandalonepageComponent, data: { title: 'save your river' } },
-  { path: 'goods', component: StandalonepageComponent, data: { title: 'Contribute in Goods' } },
+  { path: 'save', component: StandalonepageComponent, data: { title: 'save your river' } },
   { path: 'intellectuals', component: StandalonepageComponent, data: { title: 'River Intellectuals' } },
   { path: 'program', component: StandalonepageComponent, data: { title: 'Program' } },
   { path: 'network', component: StandalonepageComponent, data: { title: 'BRD Network' } },
@@ -74,6 +74,7 @@ const appRoutes: Routes = [
   { path: 'single', component: DonateComponent, data : {type : 'single'}},
   { path: 'monthly', component: DonateComponent, data : {type : 'monthly'}},
   { path: 'business', component: DonateComponent, data : {type : 'business'}},
+  { path: 'goods', component: DonateComponent, data: { type: 'goods' } },
   { path: 'donate',  redirectTo: '/single', pathMatch: 'full'},
   { path: 'library', component: LibraryComponent },
   { path: 'crew', component: CrewComponent },
@@ -111,6 +112,7 @@ const appRoutes: Routes = [
     PartnersComponent,
     MediaSelectorComponent,
     LibrarySelectorComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

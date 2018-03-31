@@ -2,7 +2,7 @@
 	<div class="singlepost__hero" [style.background-image]="'url('+ hero+')'"></div>
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-md-8">
+			<div class="col-md-10">
 				<div class="singlepost_header">
 					<h1 class="singlepost__heading">{{ post.title.rendered }}</h1>
 					<div class="singlepost__socialContainer">
@@ -23,3 +23,5 @@
 <section *ngIf="!post">
   <p>no post found</p>
 </section>
+<app-loader *ngIf="loading"></app-loader>
+<app-involved></app-involved>

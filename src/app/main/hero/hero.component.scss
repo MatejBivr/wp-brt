@@ -2,7 +2,7 @@
 
 .hero{
 	position: relative;
-	background: url('/assets/img/BRDhero.jpg') top center no-repeat;
+	background: url('/assets/img/BRD_homepage.jpg') bottom center no-repeat;
 	background-size: cover;
 	height: 30vh;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
@@ -21,9 +21,9 @@
 	right:0;
 	bottom: 0;
 	left: 0;
-	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
-	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
-	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); 
+	background: -moz-linear-gradient(bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+	background: -webkit-linear-gradient(bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+	background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); 
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); 
 }
 .hero--content{
@@ -47,7 +47,7 @@
 		padding: 0 1.1rem 2.5rem;
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
-		height: 69vh;
+		height: 57vh;
 		padding: 0 calc(2.8rem - 21px) 2.5rem; 
 	}
 }
@@ -60,7 +60,7 @@
 			margin: 0;
 		}
 		@media (min-width: map-get($grid-breakpoints, md)) {
-			flex-grow: 1;
+			// flex-grow: 1;
 		}
 	}
 	&:last-of-type{
@@ -82,7 +82,7 @@
 	}
 	@media (min-width: map-get($grid-breakpoints, md)) {
 		max-width: none;	
-		flex-basis: 26%;
+		flex-basis: 43%;
 	}
 }
 .hero--heading{

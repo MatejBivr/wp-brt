@@ -1,8 +1,32 @@
 @import '../../variables';
+  
+.partners {
+  hr:first-of-type {
+    display: none;
 
+  }
+}
 .partners__heading{
-  text-transform: uppercase;
   font-family: Montserrat;
+  color: $brtc-light-text;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+  &.active{
+    font-weight: bold;
+    color:$brtc-text;
+    background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+    background-size: 83px;
+  }
+  &:hover, &:focus{
+    color: $brtc-blue;
+    text-decoration: none;
+    color: $brtc-light-text;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 }
 
 .partners__list{
@@ -25,18 +49,18 @@
 
 .partners__image{
   width: 250px;
-  height: 250px;
+  height: 200px;
   margin: auto;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   @media (min-width: map-get($grid-breakpoints, sm)) {
     width: 230px;
-    height: 230px;
+    height: 200px;
   }
   @media (min-width: map-get($grid-breakpoints, md)) {
     width: 250px;
-    height: 250px;
+    height: 200px;
   }
  
 }
@@ -44,7 +68,7 @@
 .partners__list--big{
   .partners__image{
     width: 200px;
-    height: 200px;
+    height: 150px;
   }
 }
 .partners__list--mid{
@@ -54,7 +78,7 @@
   }
   .partners__image{
     width: 125px;
-    height: 125px;
+    height: 75px;
   }
 }
 .partners__list--small{

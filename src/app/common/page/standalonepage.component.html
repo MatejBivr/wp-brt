@@ -1,14 +1,14 @@
 <section class="page">
   <div class="container">
-    <div class="row">
-      <div class="col">
+    <div class="row justify-content-center">
+      <div class="col col-md-10">
         <div class="page__header">
           <h1 class="page__heading">
             {{title}}
           </h1>
         </div>
         <hr>
-
+        <app-loader *ngIf="loading"></app-loader>
         <div [innerHTML]="content">
         </div>
 
@@ -17,3 +17,4 @@
     </div>
   </div>  
 </section>
+<app-involved></app-involved>

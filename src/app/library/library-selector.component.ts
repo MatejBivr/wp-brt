@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
         <li class="media__listItem">
           <div class="nav--link" (click)="onTypeSelect('wallpapers')">
             <div class="media__imageContainer">
-              <div class="media__image media__image--pictures"></div>  
+              <div class="media__image media__image--wallpaper"></div>  
             </div>
             <div class="media__body">
               <h2 class="media__heading">BRD wallpapers</h2>
@@ -18,7 +18,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
         <li class="media__listItem">
           <div class="nav--link" (click)="onTypeSelect('desktops')">
             <div class="media__imageContainer">
-              <div class="media__image media__image--videos"></div>  
+              <div class="media__image media__image--desktops"></div>  
             </div>
             <div class="media__body">
               <h2 class="media__heading">BRD desktops</h2>

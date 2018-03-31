@@ -1,19 +1,17 @@
 @import '../../variables';
 
 .donate{
-	padding-top: 50px;
+	padding-top: 70px;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
-		padding-top: 100px;
+		padding-top: 150px;
 	}
 }
 .donate__menuContainer{}
 .donate__menu{
 	display: flex;
 	flex-direction: column;
-	@media (min-width: map-get($grid-breakpoints, sm)) {
-		flex-direction: row;
-	}
 	@media (min-width: map-get($grid-breakpoints, md)) {
+		flex-direction: row;
 		margin-bottom: 55px;
 	}
 }
@@ -24,7 +22,7 @@
 		display: inline-block;
 		font-size: 21px;
 		content: '/';
-		@media (min-width: map-get($grid-breakpoints, md)) {
+		@media (min-width: map-get($grid-breakpoints, lg)) {
 			margin-left: 10px;
 		}
 	}
@@ -34,7 +32,7 @@
 			visibility: hidden;
 		}
 	}
-	@media (min-width: map-get($grid-breakpoints, md)) {
+	@media (min-width: map-get($grid-breakpoints, lg)) {
 		margin-right: 10px;
 	}
 }
@@ -49,13 +47,14 @@
 		font-weight: bold;
 		color:$brtc-text;
 		background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+		background-size: 83px;
 	}
 	&:hover, &:focus{
 		color: $brtc-blue;
 		text-decoration: none;
 		color: $brtc-light-text;
 	}
-	@media (min-width: map-get($grid-breakpoints, md)) {
+	@media (min-width: map-get($grid-breakpoints, lg)) {
 		font-size: 18px;
 		line-height: 25px;
 	}

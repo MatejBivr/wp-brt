@@ -76,6 +76,7 @@ footer{
 	width: 51px;
 	background:transparent url('/assets/img/logo2.png') left top no-repeat;
 	margin: 0 auto; 
+	background-size: contain;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
 		margin: 0;
 	}
@@ -93,7 +94,7 @@ footer{
 .subfooter{
 	font-family: Montserrat;
 	background-color: $brtc-subfooter;
-	font-size: 10px;
+	font-size: 9px;
 	line-height: 18px;
 	text-align: center;
 	@media (min-width: map-get($grid-breakpoints, sm)) {
@@ -130,12 +131,15 @@ footer{
 	height: 18px;
 	width: 18px;
 	background:transparent url('/assets/img/fb.png') center center no-repeat;
+	background-size: contain;
+	margin-right: 10px;
 }
 .inst{
 	display: block;
 	height: 18px;
 	width: 18px;
 	background:transparent url('/assets/img/ig.png') center center no-repeat;
+	background-size: contain;
 }
 .up{
 	display: block;

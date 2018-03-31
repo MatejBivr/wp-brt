@@ -10,6 +10,7 @@
 	color: $brtc-light-text;
 	width: auto;
 	background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+	background-size: 83px;
 	margin-bottom: 30px;
 }
 .involved__list{
@@ -30,6 +31,7 @@
 	border:transparent 1px solid;
 	margin-bottom: 10px;
 	border-bottom: 1px solid $brtc-gray;
+	text-transform: uppercase;
 	&:first-of-type{
 		border-left: 1px solid transparent;
 	}
@@ -47,15 +49,15 @@
 		border-bottom: 1px solid transparent;
 		border-right: 1px solid $brtc-gray;
 		border-left: 1px solid $brtc-gray;
-		flex-basis: calc(100% /3);
+		flex-basis: calc(98% /4);
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
-		padding: 0 10px;
-		flex-basis: calc(100%/6);
+		padding: 0 8px;
+		flex-basis: calc(98%/4);
 	}
 	@media (min-width: map-get($grid-breakpoints, xl)) {
-		padding: 0 15px;
-		flex-basis: calc(100%/6);
+		padding: 0 8px;
+		flex-basis: calc(98%/4);
 	}
 }
 .involved__link{

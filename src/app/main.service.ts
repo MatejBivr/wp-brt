@@ -17,8 +17,6 @@ export class MainService {
     return this.http
       .get(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`, {observe: 'response'})
       .map(res => {
-        console.log(this.postUrl + `${type}?per_page=${perPage}&page=${numPage}&_embed`);
-        console.log(typeof res.body)
         let pages = res.headers.getAll('X-WP-TotalPages');
         let count = res.headers.getAll('X-WP-Total');
         let posts = res.body;
@@ -28,7 +26,7 @@ export class MainService {
 
   getCrew(type): Observable<any> {
     return this.http
-      .get(this.postUrl + type, {observe: 'response'})
+      .get(this.postUrl + type+'/?per_page=100', {observe: 'response'})
       .map((res) => res.body);
   }
 

@@ -3,9 +3,9 @@ import { MainService } from '../main.service';
 import {NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng-bootstrap';
 
 export enum selectedCrew {
-  core = 0,
-  media = 1,
-  volunteer = 2  
+  core,
+  media,
+  volunteer 
 }
 
 @Component({
@@ -16,10 +16,11 @@ export enum selectedCrew {
 export class CrewComponent implements OnInit {
   title = "the crew";
   loading: boolean= true;
-  active: selectedCrew = selectedCrew['core'];
+  active;
   volunteers: Array<object>=[];
   core: Array<object> = [];
   media: Array<object>=[];
+  activeArray: Array<object>=[];
   constructor( private mainService: MainService, private modalService: NgbModal) { }
 
   open(content) {
@@ -33,6 +34,19 @@ export class CrewComponent implements OnInit {
 
   onActive(val){
     this.active = val;
+    switch(val) {
+      case "CORE TEAM":
+          this.activeArray = this.core;
+          break;
+      case "MEDIA":
+          this.activeArray =  this.media;
+          break;
+      case "TEAM MATES":
+          this.activeArray =  this.volunteers;
+          break;
+      default:
+          break;
+    } 
   }
 
   getCrew(){
@@ -40,7 +54,6 @@ export class CrewComponent implements OnInit {
       .getCrew('crew')
       .flatMap( posts => posts)
       .subscribe(val => {
-        console.log(val['acf'].type_of_crew);
         switch(val['acf'].type_of_crew) {
           case "core":
               this.core.push(val);
@@ -54,12 +67,14 @@ export class CrewComponent implements OnInit {
           default:
               break;
         } 
+        this.activeArray = this.core;
         this.loading = false;
       });
   }
 
   ngOnInit() {
     console.log(this.active);
+    this.active = 'CORE TEAM';
     this.getCrew();
   }
 
