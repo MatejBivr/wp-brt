@@ -14,6 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class SinglepostComponent implements OnInit {
 	post: Post;
   content;
+  loading: boolean;
   hero: string = null;
 
   constructor(private postsService: MainService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
@@ -23,12 +24,12 @@ export class SinglepostComponent implements OnInit {
       .getPost(link, slug)
       .subscribe(res => {
         this.post = res[0];
-        console.log(res);
         this.hero = '/assets/img/cover6.jpg';
         if (this.post['_embedded']['wp:featuredmedia']){
           this.hero = this.post['_embedded']['wp:featuredmedia'][0].source_url;
         }
         this.content = this.sanitizer.bypassSecurityTrustHtml(this.post['content'].rendered);
+        this.loading= false;
       });
 
   }
@@ -36,6 +37,7 @@ export class SinglepostComponent implements OnInit {
   async ngOnInit() {
   	await this.route.params.forEach((params: Params) => {
        let slug = params['slug'];
+       this.loading=true;
        let link = this.route.snapshot.data['type']? this.route.snapshot.data['type']: 'posts';
         this.getPost(slug, link);
 

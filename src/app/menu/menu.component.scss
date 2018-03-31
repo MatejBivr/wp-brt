@@ -12,6 +12,7 @@
 .menu{
 	position: absolute;
 	width: 100%;
+	z-index: 3;
 	.navbar{
 		align-items: center;
 		@media (min-width: map-get($grid-breakpoints, sm)) {
@@ -67,7 +68,7 @@
 	}
 }
 .nav--title{
-	visibility: hidden;
+	display: none;
 	font-size: 15px;
 	line-height: 21px;
 	flex-grow: 2;
@@ -76,6 +77,10 @@
 	text-transform: uppercase;
 	font-family: Montserrat;
 	font-weight: bold;
+	@media (min-width: map-get($grid-breakpoints, sm)) {
+		display: block;
+		visibility: hidden;
+	}
 }
 .nav__title--link{
 	font-size: 17px;
@@ -117,7 +122,7 @@
 .menu--toggled{
 	position: fixed;
 	background-color: $brtc-darker-blue;
-	background: url('/assets/img/menu-bgi.png');
+	background: url('/assets/img/menu-bgi.jpg');
 	height: 100vh;
 	top: 0;
 	bottom: 0;
@@ -161,6 +166,7 @@
 				}
 				&.active{
 					background:transparent url('/assets/img/wave.png') center bottom repeat-x;
+					background-size: 83px;
 				}
 				&:hover,&:focus{
 					text-decoration: none;
@@ -175,14 +181,14 @@
 		}
 	}
 }
-.menu--toggled__layer{
-	position: absolute;
-	background: url('/assets/img/Layer-menu.png');
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
+// .menu--toggled__layer{
+// 	position: absolute;
+// 	background: url('/assets/img/Layer-menu.png');
+// 	top:0;
+// 	bottom: 0;
+// 	left: 0;
+// 	right: 0;
+// }
 .nav--language{
 	position: absolute;
 	left: 50%;
@@ -233,6 +239,7 @@
 	}
 	&.active{
 		background:transparent url('/assets/img/wave.png') center bottom repeat-x;
+		background-size: 83px;
 	}
 	&:hover,&:focus{
 		text-decoration: none;

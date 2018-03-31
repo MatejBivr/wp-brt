@@ -1,5 +1,11 @@
 @import '../../variables';
+  
+.partners {
+  hr:first-of-type {
+    display: none;
 
+  }
+}
 .partners__heading{
   font-family: Montserrat;
   color: $brtc-light-text;
@@ -10,6 +16,7 @@
     font-weight: bold;
     color:$brtc-text;
     background:transparent url('/assets/img/wave.png') left bottom repeat-x;
+    background-size: 83px;
   }
   &:hover, &:focus{
     color: $brtc-blue;

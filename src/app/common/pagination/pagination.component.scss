@@ -16,10 +16,12 @@
 .back{
 	background:transparent url('/assets/img/navl.png') left top no-repeat;
 	cursor: pointer;
+	background-size: contain;
 }
 .forward{
 	background:transparent url('/assets/img/navr.png') left top no-repeat;
 	cursor: pointer;
+	background-size: contain;
 }
 .pagination__list{
 	margin-bottom: 0;

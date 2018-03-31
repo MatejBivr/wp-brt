@@ -10,12 +10,12 @@ import 'rxjs/add/operator/map';
 export class DonateService {
   public donations;
   public gateway;
-  private postUrl = '/wp-json/wc/v2/';
+  private postUrl = 'http://www.balkanriverdefence.org/wp-json/wc/v2/';
   
 
   constructor( private http: HttpClient) {
     this.donations = this.http
-      .get(this.postUrl + `products?category=17`)
+      .get(this.postUrl + `products?category=16`)
       .map(res =>{return res});
      this.gateway = this.http
        .get(this.postUrl + 'payment_gateways')

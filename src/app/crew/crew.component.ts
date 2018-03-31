@@ -34,7 +34,6 @@ export class CrewComponent implements OnInit {
 
   onActive(val){
     this.active = val;
-    console.log(val);
     switch(val) {
       case "CORE TEAM":
           this.activeArray = this.core;
@@ -55,7 +54,6 @@ export class CrewComponent implements OnInit {
       .getCrew('crew')
       .flatMap( posts => posts)
       .subscribe(val => {
-        console.log(val['acf'].type_of_crew);
         switch(val['acf'].type_of_crew) {
           case "core":
               this.core.push(val);
@@ -69,7 +67,6 @@ export class CrewComponent implements OnInit {
           default:
               break;
         } 
-        
         this.activeArray = this.core;
         this.loading = false;
       });

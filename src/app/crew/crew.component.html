@@ -8,6 +8,7 @@
   <div>
     <div>
       <h2 class="crew__heading">{{active}}</h2>
+      <app-loader *ngIf="loading"></app-loader>
       <ul class="crew__list list-unstyled">
         <li class="crew__listItem crew__list--core" *ngFor="let crew of activeArray" (click)="open(content)">
           <div class="crew__imageContainer">

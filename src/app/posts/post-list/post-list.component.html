@@ -1,5 +1,6 @@
 <section class="posts">
-  <ul class="posts__list list-unstyled">
+  <app-loader *ngIf="loading"></app-loader>
+  <ul class="posts__list list-unstyled" *ngIf="!loading">
     <li *ngFor="let post of posts" (click)="selectPost(post.slug)" class="posts__listItem">
       <div class="posts__image"
         [style.background-image]=" post['_embedded'] && post['_embedded']['wp:featuredmedia']? 'url('+ post['_embedded']['wp:featuredmedia'][0].source_url+')':null">

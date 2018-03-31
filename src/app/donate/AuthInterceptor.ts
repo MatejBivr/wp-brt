@@ -8,8 +8,8 @@ const OAuth = require('oauth-1.0a');
 export class AuthInterceptor implements HttpInterceptor {
   private oauth = OAuth({
     consumer: {
-      key: 'ck_ab01bf01523b5162fbd392fc9572af814bed5f70',
-      secret: 'cs_91e88565a8141fe90ff835995ca4541309fe3eb9'
+      key: 'ck_722a2dfba386a389082641718443c002a67c1204',
+      secret: 'cs_14ce24123393be114d3bfa13479153894b777a3f'
     },
     signature_method: 'HMAC-SHA1',
     hash_function(base_string, key) {
@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const query = Object.entries(this.oauth.authorize(req)).map(val => {
       headerstr = `${headerstr} ${val[0]}="${val[1]}"`
     });
-    headers = headers.append('category', ["22"]);
+    headers = headers.append('category', ["16"]);
     headers = headers.append('Authorization', [headerstr]);
     // params = params.set('tag', '19');
 

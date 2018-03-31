@@ -1,4 +1,4 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input, EventEmitter, Output } from '@angular/core';
 import { Post } from '../post';
 import { MainService } from '../../main.service';
 import { Router } from '@angular/router';
@@ -12,21 +12,20 @@ import { Router } from '@angular/router';
 export class PostListComponent implements OnInit {
   @Input() perPage: number;
   @Input() category: string;
+  loading: boolean;
 	posts: Post[];
   page = 1;
   pages: number;
-  loading: boolean= true;
+  // loading: boolean= true;
   hero: string = null;
 
   constructor( private postsService: MainService, private router: Router ) { }
 
   getPosts(perPage, category, numPage = 1){
-    console.log(category);
     this.postsService
       .getPosts(category, perPage, numPage)
       .subscribe(val => {
         this.posts = val[0];
-        console.log(this.posts);
         this.pages = Number(val[1][0]);
         this.loading = false;
       });
@@ -39,11 +38,13 @@ export class PostListComponent implements OnInit {
 
   prevPage(){
     this.page--
+    this.loading = true;
     this.getPosts(this.perPage, this.category, this.page);
   }
 
   nextPage(){
     this.page++
+    this.loading = true;
     this.getPosts(this.perPage, this.category, this.page);
   }
 
@@ -53,6 +54,7 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
   	this.getPosts(this.perPage, this.category, this.page);
   }
 

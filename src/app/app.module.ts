@@ -37,7 +37,8 @@ import { SoonComponent } from './soon/soon.component';
 import { CrewComponent } from './crew/crew.component';
 import { PartnersComponent } from './partners/partners.component';
 import { MediaSelectorComponent } from './media/media-selector.component';
-import { LibrarySelectorComponent } from './library/library-selector.component'
+import { LibrarySelectorComponent } from './library/library-selector.component';
+import { LoaderComponent } from './common/loader/loader.component'
 
 
 const appRoutes: Routes = [
@@ -111,6 +112,7 @@ const appRoutes: Routes = [
     PartnersComponent,
     MediaSelectorComponent,
     LibrarySelectorComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

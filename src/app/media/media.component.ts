@@ -26,9 +26,7 @@ export class MediaComponent implements OnInit {
       .getPosts(type, perPage, numPage)
       .subscribe(val => {
         this.media = val[0];
-        console.log(this.media);
         this.pages=+val[1];
-        console.log(typeof this.pages)
         this.loading = false;
       });
   }
@@ -54,7 +52,6 @@ export class MediaComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.route.snapshot.url[0].path);
     this.title = this.route.snapshot.data['title'];
     this.getMedia(this.type, this.perPage, this.page);
   }

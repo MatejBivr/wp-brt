@@ -1,3 +1,3 @@
 <app-page [title]="title">
-  <app-post-list [perPage]="perPage" [category]="category"></app-post-list>
+  <app-post-list [perPage]="perPage" [category]="category" (loading)="onLoading($event)"></app-post-list>
 </app-page>

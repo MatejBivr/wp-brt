@@ -24,9 +24,7 @@ export class MerchComponent implements OnInit {
       .getPosts(type, perPage, numPage)
       .subscribe(val => {
         this.merch = val[0];
-        console.log(this.merch);
         this.pages=+val[1];
-        console.log(typeof this.pages)
         this.loading = false;
       });
   }
