@@ -9,6 +9,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./donate.component.scss'],
   providers: []
 })
+
 export class DonateComponent implements OnInit {
   donations = [];
   sub: any;
@@ -44,9 +45,7 @@ Thanks!`;
   getDonations(){
     this.donateService.getDonations()
       .subscribe(val => {
-        this.donations = val.filter((i) => {
-          return i['tags'][0]['name'] === this.val;
-        });
+        this.donations = val
       });
   }
 
@@ -55,16 +54,16 @@ Thanks!`;
       .data.map(val => val.type)
       .subscribe(val => this.val = val);
     switch(this.val){
-      case "single":
+      case "SINGLE DONATION":
           this.text = this.textSingle
           break;
-      case "monthly":
+      case "GIVE MONTHLY":
           this.text = this.textMonthly
           break;
-      case "business":
+      case "BUSINESS MEMBERSHIP":
           this.text = this.textBussiness
           break;
-      case "goods":
+      case "CONTRIBUTE IN GOODS":
           this.text = this.textBussiness
           break;
       default:

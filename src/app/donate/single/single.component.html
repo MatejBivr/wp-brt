@@ -1,17 +1,19 @@
 <section class="donate__single">
   <div class="donate__header">
-    <h1 class="donate__heading">give {{donationType}}</h1>
+    <h1 class="donate__heading">{{donationType}}</h1>
     <h2 class="donate__subheading" [innerHTML]="donationText"></h2>
   </div>
   <hr>
-  <ul class="donate__container list-unstyled">
-    <li class="donate__item" *ngFor="let donation of donations">
+  <ul class="donate__container list-unstyled" *ngIf="currentDonations">
+    <li class="donate__item" *ngFor="let donation of currentDonations">
       <a href="{{donation.permalink}}" 
         class="donate__itemHeader">
-        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation['images'][0].src +')'"></div>
-        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/{{donation['tags'][0]['name']}}</span></h3>
+        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation._links['wp:featuredmedia'][0].href +')'"></div>
+        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/</span></h3>
       </a>
-      <div class="donate__itemBody">{{donation['donation-description']}}</div>
+      <div class="donate__itemBody" 
+        [innerHTML]="donation.excerpt.rendered" 
+      ></div>
     </li>
   </ul>
   <hr>

@@ -53,6 +53,7 @@ export class MediaComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.route.snapshot.data['title'];
+    this.type = this.title ===  "Video galleries"?  'videos' : 'galleries';
     this.getMedia(this.type, this.perPage, this.page);
   }
 

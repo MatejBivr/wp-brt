@@ -5,6 +5,13 @@
       [style.background-image]=" item.guid? 'url('+ item.guid+')':null"></div>       
     </li>
   </ul>
+  <ul class="gallery__list list-unstyled" *ngIf="videos">
+    <li class="gallery__listItem" *ngFor="let item of videos" >
+      <div class="gallery__image">
+         <iframe [src]="item.url" frameborder="0" allowfullscreen height="100%" width="100%"></iframe> 
+      </div>       
+    </li>
+  </ul>
   <app-pagination
     [page]="page"
     [pages]="pages"

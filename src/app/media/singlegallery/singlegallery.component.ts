@@ -4,6 +4,7 @@ import { MainService } from '../../main.service';
 import { Observable } from 'rxjs/Observable';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {ModalcontentComponent} from './modalcontent.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -19,6 +20,7 @@ import 'rxjs/add/observable/from';
 export class SinglegalleryComponent implements OnInit {
   gallery;
   galleryPerPage = [];
+  videos = [];
   type = 'galleries';
   title='gallery';
   perPage = 4;
@@ -27,7 +29,7 @@ export class SinglegalleryComponent implements OnInit {
   loading: boolean= true;
   closeResult: string;
 
-  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
+  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal, private sanitizer: DomSanitizer) { }
 
   open(content, guid) {
     const options = {
@@ -53,8 +55,33 @@ export class SinglegalleryComponent implements OnInit {
       .subscribe(()=> {
         this.gallery = this.galleryPerPage[this.page - 1];
         this.loading = false;
-        console.log(this.gallery)
       });
+  }
+
+  getVideoPost(type, slug){
+     this.mainService
+      .getPost(type, slug)
+      .subscribe((res:any) => {
+         this.videos = res[0].content.rendered
+          .replace('<p>', '').replace('</p>', '').split('<br />')
+          .map(val => {
+            val = (val.split(">"));
+            val = val[1].replace('</a', '')
+              .replace("//", "//player.")
+              .replace("com","com/video");
+            console.log(val);
+            val = this.getSafeUrl(val);
+            return {url:val};
+          });
+          
+         this.galleryPerPage = this.videos;
+         console.log(this.galleryPerPage)
+       });
+  }
+
+  getSafeUrl(url) {
+    console.log('triggered')
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url)
   }
 
   prevPage(){
@@ -73,10 +100,18 @@ export class SinglegalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.type = this.route.snapshot.data['title'];
     this.route.params.forEach((params: Params) => {
       let slug = params['slug'];
-      this.getPost(this.type, slug);      
+       if( this.type === 'videos'){
+         this.getVideoPost(this.type, slug);
+       } else {
+          this.getPost(this.type, slug);
+       }
     });
   }
   
 }
+
+
+// <iframe src="https://player.vimeo.com/video/224368317" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
