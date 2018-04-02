@@ -44,10 +44,4 @@ export class MainService {
 
   }
 
-  // getWoo(type. sulg): Observable<any> {
-  //   // return this.http
-  //   //   .get(this,postUrl + )
-  // }
-
-
 }

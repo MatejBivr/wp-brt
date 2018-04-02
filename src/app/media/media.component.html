@@ -1,4 +1,5 @@
 <app-page [title]="title">
+  <app-loader *ngIf="loading"></app-loader>
   <ul class="media__list list-unstyled">
     <li class="media__listItem" *ngFor="let gallery of media" (click)="selectMedia(type, gallery.slug)" >
       <div class="media__imageContainer">

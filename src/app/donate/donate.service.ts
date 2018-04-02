@@ -10,15 +10,15 @@ import 'rxjs/add/operator/map';
 export class DonateService {
   public donations;
   public gateway;
-  private postUrl = 'http://www.balkanriverdefence.org/wp-json/wp/v2/';
+  private postUrl = 'https://www.balkanriverdefence.org/wp-json/wp/v2/';
   
 
   constructor( private http: HttpClient) {
     this.donations = this.http
-      .get(this.postUrl + `product`)
+      .get(this.postUrl + `product?_embed`)
       .map(res =>{return res});
-     this.gateway = this.http
-       .get(this.postUrl + 'payment_gateways')
+     // this.gateway = this.http
+     //   .get(this.postUrl + 'payment_gateways')
   }
 
   getDonations(): Observable<any>{

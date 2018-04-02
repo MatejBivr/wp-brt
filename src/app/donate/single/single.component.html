@@ -6,9 +6,8 @@
   <hr>
   <ul class="donate__container list-unstyled" *ngIf="currentDonations">
     <li class="donate__item" *ngFor="let donation of currentDonations">
-      <a href="{{donation.permalink}}" 
-        class="donate__itemHeader">
-        <div class="donate__itemImage"[style.background-image]=" 'url('+ donation._links['wp:featuredmedia'][0].href +')'"></div>
+      <a href="{{donation.link}}" class="donate__itemHeader">
+        <div class="donate__itemImage"[style.background-image]="donation['_embedded']['wp:featuredmedia']? 'url('+donation['_embedded']['wp:featuredmedia'][0].source_url +')':null"></div>
         <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/</span></h3>
       </a>
       <div class="donate__itemBody" 
@@ -18,3 +17,9 @@
   </ul>
   <hr>
 </section>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-body">
+     <iframe id="embed" [src]="getSafeUrl(content.url)" frameborder="0" sandbox="allow-same-origin allow-scripts" height="100%" width="100%"></iframe> 
+  </div>
+</ng-template>

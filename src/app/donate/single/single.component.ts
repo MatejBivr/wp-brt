@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-single',
   templateUrl: './single.component.html',
@@ -14,7 +15,19 @@ export class SingleComponent implements OnInit, OnChanges {
   active:string;
   currentDonations=[];
 
-  constructor() { }
+  constructor(private modalService: NgbModal, private sanitizer: DomSanitizer) { }
+
+  open(content, url) {
+    const options = {
+      windowClass: 'donate-modal',
+    };
+    this.modalService.open(content,  options);
+    content.url = url;
+  }
+
+  getSafeUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   
   ngOnInit() {}
 

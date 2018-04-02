@@ -21,6 +21,7 @@ export class SinglegalleryComponent implements OnInit {
   gallery;
   galleryPerPage = [];
   videos = [];
+  allVideos = []
   type = 'galleries';
   title='gallery';
   perPage = 4;
@@ -62,41 +63,55 @@ export class SinglegalleryComponent implements OnInit {
      this.mainService
       .getPost(type, slug)
       .subscribe((res:any) => {
-         this.videos = res[0].content.rendered
-          .replace('<p>', '').replace('</p>', '').split('<br />')
+         this.allVideos = res[0].content.rendered
+          .split('</p>')
           .map(val => {
-            val = (val.split(">"));
-            val = val[1].replace('</a', '')
-              .replace("//", "//player.")
-              .replace("com","com/video");
-            console.log(val);
-            val = this.getSafeUrl(val);
-            return {url:val};
+            let matches = val.match(/\bhttps?:\/\/\S+/gi);
+             if (matches != undefined){
+               matches = matches[0].replace('\"', '');
+               matches = this.getSafeUrl(matches);
+              return {url:matches}
+             } 
           });
-          
-         this.galleryPerPage = this.videos;
-         console.log(this.galleryPerPage)
+        this.allVideos.pop();
+        console.log(this.allVideos);
+        this.perPage = 1;
+        this.pages = this.allVideos.length;
+        this.videos = [this.allVideos[this.page - 1]]
+        this.loading = false;
+ 
        });
   }
 
   getSafeUrl(url) {
-    console.log('triggered')
     return this.sanitizer.bypassSecurityTrustResourceUrl(url)
   }
 
   prevPage(){
     this.page--
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   nextPage(){
     this.page++
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   goToPage($event){
     this.page=$event
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   ngOnInit() {
@@ -112,6 +127,3 @@ export class SinglegalleryComponent implements OnInit {
   }
   
 }
-
-
-// <iframe src="https://player.vimeo.com/video/224368317" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

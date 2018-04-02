@@ -38,6 +38,25 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-iframe{
-  background-color: $brtc-gray;
+.gallery__listItem--video{
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    flex-basis: 100%;
+  }
+  &:first-of-type, &:last-of-type{
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-basis: 100%;
+    }
+  }
+  &:first-of-type{
+    margin-right: 0;
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-basis: 100%;
+    }
+  }
+  &:last-of-type{
+    margin-left: 0;
+  }
+  &:only-of-type {
+    flex-grow: unset;
+  }
 }

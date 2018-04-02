@@ -1,14 +1,15 @@
 <app-page [title]="title">
-  <ul class="gallery__list list-unstyled" *ngIf="gallery">
+  <app-loader *ngIf="loading"></app-loader>
+  <ul class="gallery__list list-unstyled" *ngIf="gallery || !loading">
     <li class="gallery__listItem" *ngFor="let item of gallery" >
       <div class="gallery__image" (click)="open(content, item.guid)"
       [style.background-image]=" item.guid? 'url('+ item.guid+')':null"></div>       
     </li>
   </ul>
-  <ul class="gallery__list list-unstyled" *ngIf="videos">
-    <li class="gallery__listItem" *ngFor="let item of videos" >
-      <div class="gallery__image">
-         <iframe [src]="item.url" frameborder="0" allowfullscreen height="100%" width="100%"></iframe> 
+  <ul class="gallery__list list-unstyled" *ngIf="videos !loading">
+    <li class="gallery__listItem gallery__listItem--video" *ngFor="let item of videos" >
+      <div class="gallery__image gallery__image--video">
+         <iframe [src]="item.url" frameborder="0" allowfullscreen height="100%" width="100%" sandbox="allow-scripts allow-same-origin"></iframe> 
       </div>       
     </li>
   </ul>
