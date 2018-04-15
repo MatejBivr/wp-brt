@@ -1,18 +1,42 @@
-<section class="donate__single">
+<section class="donate__single">  
   <div class="donate__header">
     <h1 class="donate__heading">{{donationType}}</h1>
     <h2 class="donate__subheading" [innerHTML]="donationText"></h2>
   </div>
   <hr>
-  <ul class="donate__container list-unstyled" *ngIf="currentDonations">
-    <li class="donate__item" *ngFor="let donation of currentDonations">
-      <a href="{{donation.link}}" class="donate__itemHeader">
+  <div *ngIf="activeType === 'monthly' ">
+    <app-soon></app-soon>
+  </div>
+  <ul class="donate__container list-unstyled" *ngIf="donations && activeType !== 'monthly'">
+    <li class="donate__item"
+      [class.active]="active === donation"
+      *ngFor="let donation of donations" 
+      (click)="active !== donation? onActive(donation): null">
+      <div class="donate__itemHeader"
+        [class.disabled]="active === 'business'">
         <div class="donate__itemImage"[style.background-image]="donation['_embedded']['wp:featuredmedia']? 'url('+donation['_embedded']['wp:featuredmedia'][0].source_url +')':null"></div>
-        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan">/</span></h3>
-      </a>
+        <h3 class="donate__itemTitle">&euro; <span class="donate__itemSpan"></span></h3>
+      </div>
+      <div class="donate__paypal" *ngIf="active && active.id === donation.id" id="paypal-checkout-btn"></div>
+      <div class="donation__formContainer" *ngIf="donation['_price'] === '0'">
+        <form action="POST">
+          <div class="form-group">
+            <input type="number" 
+            class="form-control"
+            [(ngModel)]="userPrice"
+            [ngModelOptions]="{standalone: true}"
+            (ngModelChange)="onChange($event)"
+            id="amount" required>
+          </div>
+        </form>
+      </div>
+      <div class="paypal__monthly"
+        [innerHTML]="donation.acf.paypal" >
+      </div>
       <div class="donate__itemBody" 
-        [innerHTML]="donation.excerpt.rendered" 
+        [innerHTML]="donation.content.rendered" 
       ></div>
+
     </li>
   </ul>
   <hr>

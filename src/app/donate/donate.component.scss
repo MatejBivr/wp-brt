@@ -43,6 +43,8 @@
 	line-height: 18px;
 	text-transform: uppercase;
 	padding-bottom: 7px;
+	display: inline-flex;
+	cursor: pointer;
 	&.active{
 		font-weight: bold;
 		color:$brtc-text;

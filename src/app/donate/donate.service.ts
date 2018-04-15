@@ -15,15 +15,11 @@ export class DonateService {
 
   constructor( private http: HttpClient) {
     this.donations = this.http
-      .get(this.postUrl + `product?_embed`)
+      .get(this.postUrl + `product?_embed&per_page=100`)
       .map(res =>{return res});
-     // this.gateway = this.http
-     //   .get(this.postUrl + 'payment_gateways')
   }
 
   getDonations(): Observable<any>{
-    // console.log(this.oauth);
-    // this.donations = {};
     return  Observable.from(this.donations);
   }
 

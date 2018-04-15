@@ -74,7 +74,6 @@ export class SinglegalleryComponent implements OnInit {
              } 
           });
         this.allVideos.pop();
-        console.log(this.allVideos);
         this.perPage = 1;
         this.pages = this.allVideos.length;
         this.videos = [this.allVideos[this.page - 1]]

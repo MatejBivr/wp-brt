@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-media',
@@ -19,7 +20,14 @@ export class MediaComponent implements OnInit {
 
   constructor( private mainService: MainService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private meta: Meta) {
+    this.meta.updateTag({ property: 'title', content: 'Media | Balkan River Defence' });
+    this.meta.updateTag({ property: 'og:title', content: 'Media | Balkan River Defence' });
+    this.meta.updateTag({ name: 'description', content: 'Take look at how we were touring Balkans in 2016 and 2017, check all our videos and see how it looks when we are raising awareness around the word.' });
+    this.meta.updateTag({ property: 'og:description', content: 'Take look at how we were touring Balkans in 2016 and 2017, check all our videos and see how it looks when we are raising awareness around the word.' });
+    this.meta.updateTag({ property: 'og:image', content: '/wp-content/themes/brt/dist/assets/seo/media.jpg' });
+  }
 
   getMedia(type, perPage, numPage = 1){
     this.mainService

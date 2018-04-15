@@ -1,14 +1,10 @@
 <?php
   header("Access-Control-Allow-Origin: *");
-	//featured images
-	add_theme_support( 'post-thumbnails' ); 
+  //featured images
+  add_theme_support( 'post-thumbnails' ); 
   add_theme_support( 'html5', array( 'search-form', 'gallery' ) );
 
-  // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-  // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-
-
-  // add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+   // add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
   // add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
  
   function my_theme_wrapper_start() {
@@ -107,5 +103,62 @@
 // function celestial_published_date( $object, $field_name, $request ) {
 //     return get_the_time('F j, Y');
 // }
+
+// remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+// remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+// remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+// remove_action( 'woocommerce_before_shop_loop', 'wc_print_notices', 10 );
+// remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+// remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+// remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+// remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );.
+ 
+//  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ 
+// remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 10 );
+// remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10 );
+// remove_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
+// remove_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
+
+
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+// remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
+// remove_action( 'woocommerce_variable_add_to_cart', 'woocommerce_variable_add_to_cart', 30 );
+// remove_action( 'woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30 );
+// remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation', 10 );
+// remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation_add_to_cart_button', 20 );
+
+
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ 
+// remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 10 );
+// remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10 );
+// remove_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
+// remove_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
+// remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+add_action( 'rest_api_init', 'appp_register_post_meta' );
+function appp_register_post_meta() {
+    register_rest_field( 'product', // any post type registered with API
+        '_price', // this needs to match meta key
+        array(
+            'get_callback'    => 'appp_get_meta',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+function appp_get_meta( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
 
 ?>
