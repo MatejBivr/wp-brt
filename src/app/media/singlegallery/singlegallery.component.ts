@@ -4,6 +4,7 @@ import { MainService } from '../../main.service';
 import { Observable } from 'rxjs/Observable';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {ModalcontentComponent} from './modalcontent.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -19,6 +20,8 @@ import 'rxjs/add/observable/from';
 export class SinglegalleryComponent implements OnInit {
   gallery;
   galleryPerPage = [];
+  videos = [];
+  allVideos = []
   type = 'galleries';
   title='gallery';
   perPage = 4;
@@ -27,7 +30,7 @@ export class SinglegalleryComponent implements OnInit {
   loading: boolean= true;
   closeResult: string;
 
-  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal) { }
+  constructor( private mainService: MainService, private route: ActivatedRoute, private modalService: NgbModal, private sanitizer: DomSanitizer) { }
 
   open(content, guid) {
     const options = {
@@ -53,29 +56,72 @@ export class SinglegalleryComponent implements OnInit {
       .subscribe(()=> {
         this.gallery = this.galleryPerPage[this.page - 1];
         this.loading = false;
-        console.log(this.gallery)
       });
+  }
+
+  getVideoPost(type, slug){
+     this.mainService
+      .getPost(type, slug)
+      .subscribe((res:any) => {
+         this.allVideos = res[0].content.rendered
+          .split('</p>')
+          .map(val => {
+            let matches = val.match(/\bhttps?:\/\/\S+/gi);
+             if (matches != undefined){
+               matches = matches[0].replace('\"', '');
+               matches = this.getSafeUrl(matches);
+              return {url:matches}
+             } 
+          });
+        this.allVideos.pop();
+        this.perPage = 1;
+        this.pages = this.allVideos.length;
+        this.videos = [this.allVideos[this.page - 1]]
+        this.loading = false;
+ 
+       });
+  }
+
+  getSafeUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url)
   }
 
   prevPage(){
     this.page--
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   nextPage(){
     this.page++
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   goToPage($event){
     this.page=$event
-    this.gallery = this.galleryPerPage[this.page - 1];
+    if( this.type === 'videos'){
+      this.videos = [this.allVideos[this.page - 1]]
+    } else {
+      this.gallery = this.galleryPerPage[this.page - 1];
+    }
   }
 
   ngOnInit() {
+    this.type = this.route.snapshot.data['title'];
     this.route.params.forEach((params: Params) => {
       let slug = params['slug'];
-      this.getPost(this.type, slug);      
+       if( this.type === 'videos'){
+         this.getVideoPost(this.type, slug);
+       } else {
+          this.getPost(this.type, slug);
+       }
     });
   }
   

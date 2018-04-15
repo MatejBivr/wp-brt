@@ -49,15 +49,15 @@
 		border-bottom: 1px solid transparent;
 		border-right: 1px solid $brtc-gray;
 		border-left: 1px solid $brtc-gray;
-		flex-basis: calc(98% /4);
+		flex-basis: calc(98% /6);
 	}
 	@media (min-width: map-get($grid-breakpoints, lg)) {
 		padding: 0 8px;
-		flex-basis: calc(98%/4);
+		flex-basis: calc(98%/6);
 	}
 	@media (min-width: map-get($grid-breakpoints, xl)) {
 		padding: 0 8px;
-		flex-basis: calc(98%/4);
+		flex-basis: calc(98%/6);
 	}
 }
 .involved__link{

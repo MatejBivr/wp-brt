@@ -43,6 +43,8 @@
 	line-height: 18px;
 	text-transform: uppercase;
 	padding-bottom: 7px;
+	display: inline-flex;
+	cursor: pointer;
 	&.active{
 		font-weight: bold;
 		color:$brtc-text;
@@ -54,7 +56,7 @@
 		text-decoration: none;
 		color: $brtc-light-text;
 	}
-	@media (min-width: map-get($grid-breakpoints, lg)) {
+	@media (min-width: map-get($grid-breakpoints, xl)) {
 		font-size: 18px;
 		line-height: 25px;
 	}

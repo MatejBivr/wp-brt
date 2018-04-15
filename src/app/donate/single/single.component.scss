@@ -26,14 +26,38 @@
 }
 .donate__item{
   padding: 10px;
-   @media (min-width: map-get($grid-breakpoints, md)) {
+  @media (min-width: map-get($grid-breakpoints, md)) {
     flex: 1;    
-   }
+  }
+  border: 1px solid transaprent;
+  &:hover, &:focus{
+    border: 1px solid $brtc-darker-blue;
+    .involved__link{
+      text-decoration: none;
+    }
+  }
+  &.active {
+    border: 1px solid $brtc-darker-blue;
+    .involved__link{
+      text-decoration: none;
+    }
+  }
 }
 .donate__itemHeader{
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    &:hover, &:focus{
+      border: 1px solid transaprent;
+      .involved__link{
+        border: none;
+        text-decoration: none;
+      }
+    }
+  }
 }
 .donate__itemImage{
   height: 100px;
@@ -54,4 +78,8 @@
   font-size: 16px;
   line-height: 20px;
   font-family: Vollkorn;
+}
+.donate__paypal{
+  margin: 0 auto 10px;
+  text-align: center;
 }

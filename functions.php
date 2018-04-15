@@ -1,19 +1,12 @@
 <?php
   header("Access-Control-Allow-Origin: *");
-	//featured images
-	add_theme_support( 'post-thumbnails' ); 
+  //featured images
+  add_theme_support( 'post-thumbnails' ); 
   add_theme_support( 'html5', array( 'search-form', 'gallery' ) );
 
-
-  // use Automattic\WooCommerce\Client;
-
-  // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-  // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-
-
-  // add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+   // add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
   // add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
-
+ 
   function my_theme_wrapper_start() {
     echo '<section id="main">';
   }
@@ -49,50 +42,123 @@
     echo '<link rel="shortcut icon" href="' . get_template_directory_uri() . '/dist/favicon.ico' . '" />';
   }
   add_action('admin_head', 'add_favicon');
- //  class Custom_Endpoints_Woocommerce_API
- //  {
- //    protected function  get_client(){
-      
- //      return new Client(        
- //        'http://localhost/',
- //        'ck_8f8ac29b12043150262fa45e4002008101d0366f', 
- //        'cs_500b7ec34daef7836258800bf862002ab01be053',
- //        [
- //          'wp_api' => true,
- //          'version' => 'wc/v2',
- //          'validate_url'    => false,
- //          // 'follow_redirects' => true,
- //          'query_string_auth' => true,
- //          'verify_ssl' => false,
- //          // 'timeout' => 30
- //        ]
- //      );
- //    }
 
- //    public function register_woocommerce_routes() {
- //      register_rest_route('customroutes', '/products', array(
- //        'methods' => 'GET',
- //        'callback' => array( $this, 'view_products' )
- //      ));
- //    }
+  function mytheme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+  }
+  add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
- //    public function view_products( WP_REST_Request $request ){
- //      $woocommerce = $this->get_client();
- //      try {
- //        $woocommerce->get( 'products');
- //      } catch (Exception $e) {
- //        $lastRequest = $woocommerce->http->getRequest();
- //        echo $e->getMessage();
- //        //echo $lastRequest->getMethod(); // Request method (string).
- //        //echo $lastRequest->getParameters(); // Request parameters (array).
- //        //echo $lastRequest->getHeaders(); // Request headers (array).
- //        //echo $lastRequest->getBody(); // Request body (JSON).
- //        echo $lastRequest->getUrl();
- //      }
-     
- //    }
- //  }
+  // $woo_metaboxes = array(
 
- // $call = new Custom_Endpoints_Woocommerce_API();
- // $call->register_woocommerce_routes();
+  //       "image" => array (
+  //           "name" => "image",
+  //           "label" => "Post Image",
+  //           "type" => "upload",
+  //           "desc" => "Upload file here…"
+  //       ),
+  //     )
+
+//   // Add various fields to the JSON output
+// function celestial_register_fields() {
+//     // Add Author Name
+//     register_rest_field( 'product',
+//         'author_name',
+//         array(
+//             'get_callback'      => 'celestial_get_author_name',
+//             'update_callback'   => null,
+//             'schema'            => null
+//         )
+//     );
+//     // Add Featured Image
+//     register_rest_field( 'product',
+//         'featured_image_src',
+//         array(
+//             'get_callback'      => 'celestial_get_image_src',
+//             'update_callback'   => null,
+//             'schema'            => null
+//         )
+//    );
+//    // Add Published Date
+//     register_rest_field( 'product',
+//        'published_date',
+//        array(
+//            'get_callback'      => 'celestial_published_date',
+//            'update_callback'   => null,
+//            'schema'            => null
+//        )
+//     );
+// }
+// add_action( 'rest_api_init', 'celestial_register_fields' );
+
+// function celestial_get_author_name( $object, $field_name, $request ) {
+//     return get_the_author_meta( 'display_name' );
+// }
+// function celestial_get_image_src( $object, $field_name, $request ) {
+//    if($object[ 'featured_media' ] == 0) {
+//        return $object[ 'featured_media' ];
+//    }
+//     $feat_img_array = wp_get_attachment_image_src( $object[ 'featured_media' ], 'thumbnail', true );
+//    return $feat_img_array[0];
+// }
+// function celestial_published_date( $object, $field_name, $request ) {
+//     return get_the_time('F j, Y');
+// }
+
+// remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+// remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+// remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+// remove_action( 'woocommerce_before_shop_loop', 'wc_print_notices', 10 );
+// remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+// remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+// remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+// remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );.
+ 
+//  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ 
+// remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 10 );
+// remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10 );
+// remove_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
+// remove_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
+
+
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+// remove_action( 'woocommerce_grouped_add_to_cart', 'woocommerce_grouped_add_to_cart', 30 );
+// remove_action( 'woocommerce_variable_add_to_cart', 'woocommerce_variable_add_to_cart', 30 );
+// remove_action( 'woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30 );
+// remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation', 10 );
+// remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation_add_to_cart_button', 20 );
+
+
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ 
+// remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 10 );
+// remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10 );
+// remove_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
+// remove_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
+// remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+add_action( 'rest_api_init', 'appp_register_post_meta' );
+function appp_register_post_meta() {
+    register_rest_field( 'product', // any post type registered with API
+        '_price', // this needs to match meta key
+        array(
+            'get_callback'    => 'appp_get_meta',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+function appp_get_meta( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
+
 ?>

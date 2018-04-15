@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-library',
@@ -20,7 +21,13 @@ export class LibraryComponent implements OnInit {
   pages: number;
   loading: boolean= true;
   hero: string = null;
-  constructor( private mainService: MainService) { }
+  constructor( private mainService: MainService, private meta: Meta) {
+    this.meta.updateTag({ property: 'title', content: 'Library | Balkan River Defence ' });
+    this.meta.updateTag({ property: 'og:title', content: 'Library | Balkan River Defence ' });
+    this.meta.updateTag({ name: 'description', content: 'Brochures, studies, desktops and wallpapers; all free to download and use. They can make your computer look nicer, give you solid arguments for long discussions about hydro or become tools for the battle to protect your home river. ' });
+    this.meta.updateTag({ property: 'og:description', content: 'Brochures, studies, desktops and wallpapers; all free to download and use. They can make your computer look nicer, give you solid arguments for long discussions about hydro or become tools for the battle to protect your home river. ' });
+    this.meta.updateTag({ property: 'og:image', content : 'https://www.balkanriverdefence.org/wp-content/themes/brt/dist/assets/seo/library.jpg' });
+  }
 
   getPromotions(type, perPage, numPage = 1){
     this.mainService

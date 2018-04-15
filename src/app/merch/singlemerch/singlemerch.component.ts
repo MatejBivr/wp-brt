@@ -17,7 +17,6 @@ export class SinglemerchComponent implements OnInit {
       .getPost(type, slug)
       .subscribe(res => {
         this.merch = res[0];
-        console.log(this.merch);
       });
 
   }
@@ -30,10 +29,4 @@ export class SinglemerchComponent implements OnInit {
     });
 
   }
-  // ngOnChanges(){
-  //   if(this.post){
-  //     this.hero = this.post['_embedded']['wp:featuredmedia'][0].source_url;     
-  //   }
-  // }
-
 }

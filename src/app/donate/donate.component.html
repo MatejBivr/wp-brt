@@ -5,20 +5,28 @@
 				<div class="donate__menuContainer">
 					<ul class="donate__menu list-unstyled">
 						<li class="donate__menuItem">
-							<a routerLink="/single" class="donate__menuLink" routerLinkActive="active">single donation</a>
+							<div class="donate__menuLink"
+								[class.active]="active === 'SINGLE DONATION'"
+								(click)="onActive('SINGLE DONATION')">single donation</div>
 						</li>
 						<li class="donate__menuItem">
-							<a routerLink="/monthly" class="donate__menuLink" routerLinkActive="active">monthly</a>
+							<div class="donate__menuLink"
+								[class.active]="active === 'GIVE MONTHLY'"
+								(click)="onActive('GIVE MONTHLY')">monthly</div>
 						</li>
 						<li class="donate__menuItem">
-							<a routerLink="/business" class="donate__menuLink" routerLinkActive="active">business membership</a>
+							<div class="donate__menuLink"
+								[class.active]="active === 'BUSINESS MEMBERSHIP'"
+								(click)="onActive('BUSINESS MEMBERSHIP')">business membership</div>
 						</li>
 						<li class="donate__menuItem">
-							<a routerLink="/goods" class="donate__menuLink" routerLinkActive="active">Contribute in goods</a>
+							<div class="donate__menuLink"
+								[class.active]="active === 'CONTRIBUTE IN GOODS'"
+								(click)="onActive('CONTRIBUTE IN GOODS')">Contribute in goods</div>
 						</li>
 					</ul>
 				</div>					
-				<app-single [donations]="donations" [donationType]="val" [donationText]="text"></app-single>				
+				<app-single [donations]="activeDonations" [donationText]="text" [activeType]="activeType"></app-single>				
 			</div>
 		</div>
 	</div>

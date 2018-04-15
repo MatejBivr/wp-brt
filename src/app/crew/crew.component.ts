@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import {NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng-bootstrap';
+import { Meta } from '@angular/platform-browser';
 
 export enum selectedCrew {
   core,
@@ -21,7 +22,13 @@ export class CrewComponent implements OnInit {
   core: Array<object> = [];
   media: Array<object>=[];
   activeArray: Array<object>=[];
-  constructor( private mainService: MainService, private modalService: NgbModal) { }
+  constructor( private mainService: MainService, private modalService: NgbModal, private meta: Meta) {
+    this.meta.updateTag({ property: 'title', content: 'The Crew | Balkan River Defence' });
+    this.meta.updateTag({ property: 'og:title', content: 'The Crew | Balkan River Defence' });
+    this.meta.updateTag({ name: 'description', content: 'Meet us. We are a bunch of passionate and crazy people from all sides and spheres that want to bring our knowledge and skills into the same pot and see what happens when we turn the heat on.' });
+    this.meta.updateTag({ property: 'og:description', content: 'Meet us. We are a bunch of passionate and crazy people from all sides and spheres that want to bring our knowledge and skills into the same pot and see what happens when we turn the heat on.' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.balkanriverdefence.org/wp-content/themes/brt/dist/assets/seo/crew.jpg' });
+  }
 
   open(content) {
     const options = {
@@ -73,7 +80,6 @@ export class CrewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.active);
     this.active = 'CORE TEAM';
     this.getCrew();
   }

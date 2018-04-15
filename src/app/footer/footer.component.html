@@ -12,6 +12,8 @@
 								<li class="footer_item"><span class="footer_item--blue">ZAVOD LEEWAY COLLECTIVE</span></li>
 								<li class="footer_item">Zgornja Lipnica 24A</li>
 								<li class="footer_item">4246 Kamna Gorica</li>
+								<li class="footer_item">Slovenia</li>
+								<li class="footer_item">Europe</li>
 							</ul>
 						</div>
 						<div class="footer_block">
@@ -23,11 +25,13 @@
 						</div>
 						<div class="footer_block">
 							<div class="footer_item"><span class="footer_item--blue">SIGN UP</span> FOR OUR EMAIL NEWSLETTER</div>
-							<form>
+							<div [innerHTML]="content">
+			        </div>
+							<!-- <form>
 							  <div class="form-group">
 							    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter your email">
 							  </div>
-							</form>
+							</form> -->
 						</div>
 					</div>
 				</div>
@@ -46,8 +50,8 @@
 				<div class="col-sm-4">
 					<div class="subfooter_socail">
 						<a href="https://www.facebook.com/balkanriverdefence/"><span class="fb"></span></a>
-						<a href="https://www.facebook.com/balkanriverdefence/"><span class="inst"></span></a>
-						<a href="#"><span class="up"></span></a>
+						<a href="https://www.instagram.com/balkanriverdefence/"><span class="inst"></span></a>
+						<a (click)="scrollTop()"><span class="up"></span></a>
 					</div>
 				</div>
 			</div>
