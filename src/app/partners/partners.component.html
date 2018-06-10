@@ -44,7 +44,7 @@
     <ul class="partners__list partners__list--small list-unstyled">
       <li class="partners__listItem" *ngFor="let partner of small">    
         <a href="https://{{partner.acf.link}}">
-          {{partner.acf.partner_name}}
+           <div class="partners__image"  [style.background-image]=" partner.acf.image.url? 'url('+ partner.acf.image.url+')':null"></div>
         </a>
       </li>
     </ul>
