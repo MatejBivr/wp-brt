@@ -27,7 +27,8 @@ export class PartnersComponent implements OnInit {
       .getCrew('partner')
       .flatMap( posts => posts)
       .subscribe(val => {
-       switch(val['acf'].type) {
+        console.log(val);
+        switch(val['acf'].type) {
           case "10k":
               this.huge.push(val);
               break;
@@ -39,6 +40,7 @@ export class PartnersComponent implements OnInit {
               break;
           default:
               this.small.push(val);
+          console.log(this.small)
         } 
 
         this.loading = false;
