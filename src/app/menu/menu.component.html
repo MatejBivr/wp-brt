@@ -42,7 +42,7 @@
             </div>
           </div>      
 
-					<button class="navbar-toggler" (click)="open(content)"
+					<button class="navbar-toggler d-md-none" (click)="open(content)"
 				    >
 				    <i [ngClass]=" isCollapsed ? 'fa fa-bars': 'fa fa-close'" aria-hidden="true"></i>
 				  </button>
@@ -60,7 +60,7 @@
           <i [ngClass]=" 'fa fa-close'"></i>
         </button>
     </div>
-    <div class="menu--toggled" (click)="d('yes')">
+    <div class="menu--toggled " (click)="d('yes')">
       <div class="menu--toggled__layer"></div>
       <ul class="list-unstyled nav--list">
         <!-- <li class="nav--listItem">
