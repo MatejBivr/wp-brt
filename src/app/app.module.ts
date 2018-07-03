@@ -156,7 +156,7 @@ const appRoutes: Routes = [
   { path: 'thankyou', component: StandalonepageComponent, data: { title: 'thank-you' } },
 
   { path: 'news', component: NewsComponent , pathMatch: 'full'},
-  { path: 'news/:slug', component: SinglepostComponent, pathMatch: 'full'},
+  { path: ':slug', component: SinglepostComponent, pathMatch: 'full'},
   { path: 'latest/:slug', component: SinglepostComponent, pathMatch: 'full', data: {type : 'latest'}},
   { path: 'media', component: MediaSelectorComponent , pathMatch: 'full'},
   { 
