@@ -32,7 +32,7 @@ export class PostListComponent implements OnInit {
   }
 
   selectPost(slug) {
-    let link = this.category === 'latest'? `/latest/${slug}`: `/news/${slug}`
+    let link = this.category === 'latest'? `/latest/${slug}`: `${slug}`
     this.router.navigate([link]);
   }
 
